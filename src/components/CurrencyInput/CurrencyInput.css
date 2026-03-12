@@ -8,8 +8,72 @@
 
 .currency-input-label {
   font-size: 14px;
-  color: #767676;
+  color: var(--text-tertiary);
   font-weight: 500;
+}
+
+.currency-display {
+  font-family: 'BanamexDisplay', sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.currency-display--zero {
+  color: var(--text-disabled);
+}
+
+.currency-display--error {
+  color: var(--interactive-danger);
+}
+
+.currency-toggle {
+  padding: 4px 12px;
+  background: var(--surface-bg-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--interactive-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.currency-toggle:hover {
+  background: var(--surface-bg-secondary);
+}
+
+.currency-balance {
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+.currency-error {
+  font-size: 14px;
+  color: var(--interactive-danger);
+  margin: 0;
+  min-height: 20px;
+}
+
+.currency-key {
+  height: 56px;
+  background: var(--surface-bg);
+  border: none;
+  border-radius: 12px;
+  font-size: 22px;
+  font-family: 'BanamexDisplay', sans-serif;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.currency-key:hover {
+  background: var(--surface-bg-tertiary);
+}
+
+.currency-key:active {
+  background: var(--surface-bg-secondary);
 }
 
 .currency-display-wrapper {
@@ -22,42 +86,42 @@
   font-family: 'BanamexDisplay', sans-serif;
   font-size: 40px;
   font-weight: 400;
-  color: #1A1A1A;
+  color: var(--color-text-primary);
   text-align: center;
 }
 
 .currency-display--zero {
-  color: #BDBDBD;
+  color: var(--color-secondary-400);
 }
 
 .currency-display--error {
-  color: #E3173E;
+  color: var(--color-accent-500);
 }
 
 .currency-toggle {
   padding: 4px 12px;
-  background: #F0F4F8;
-  border: 1px solid #E0E0E0;
+  background: var(--color-primary-50);
+  border: 1px solid var(--color-primary-100);
   border-radius: 16px;
   font-size: 12px;
   font-weight: 600;
-  color: #003B5C;
+  color: var(--color-primary-500);
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .currency-toggle:hover {
-  background: #E0E8F0;
+  background: var(--color-primary-100);
 }
 
 .currency-balance {
   font-size: 13px;
-  color: #767676;
+  color: var(--color-text-tertiary);
 }
 
 .currency-error {
   font-size: 14px;
-  color: #E3173E;
+  color: var(--color-accent-500);
   margin: 0;
   min-height: 20px;
 }
@@ -77,15 +141,15 @@
   border-radius: 12px;
   font-size: 22px;
   font-family: 'BanamexDisplay', sans-serif;
-  color: #1A1A1A;
+  color: var(--color-text-primary);
   cursor: pointer;
   transition: background 0.2s;
 }
 
 .currency-key:hover {
-  background: #F5F5F5;
+  background: var(--color-secondary-100);
 }
 
 .currency-key:active {
-  background: #E8EEF4;
+  background: var(--color-primary-50);
 }

@@ -10,24 +10,24 @@
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background-color: #F5F5F5;
+  background-color: var(--color-secondary-100);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
-  color: #BDBDBD;
+  color: var(--color-secondary-400);
 }
 
 .empty-state__title {
   font-size: 16px;
   font-weight: 600;
-  color: #1A1A1A;
+  color: var(--color-text-primary);
   margin-bottom: 8px;
 }
 
 .empty-state__description {
   font-size: 14px;
-  color: #9E9E9E;
+  color: var(--color-text-secondary);
   line-height: 1.5;
   max-width: 280px;
 }

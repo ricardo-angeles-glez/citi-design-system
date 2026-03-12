@@ -1,16 +1,17 @@
 .sidebar {
   padding: 12px 8px;
+  background: var(--dashboard-sidebar-bg);
 }
 
 .sidebar__group {
   margin-bottom: 16px;
 }
 
-.sidebar__title {
+.sidebar__section-title {
   display: block;
   font-size: 11px;
   font-weight: 600;
-  color: #767676;
+  color: var(--text-tertiary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   padding: 8px 12px;
@@ -27,22 +28,26 @@
   background: transparent;
   border-radius: 6px;
   font-size: 13px;
-  color: #4A4A4A;
+  color: var(--dashboard-sidebar-text);
   cursor: pointer;
   transition: all 0.15s ease;
   text-align: left;
 }
 
 .sidebar__item:hover {
-  background-color: #E8EEF4;
-  color: #003B5C;
+  background: var(--dashboard-sidebar-hover);
+  color: var(--text-primary);
 }
 
 .sidebar__item--active {
-  background-color: #E8EEF4;
-  color: #003B5C;
-  border-left: 3px solid #003B5C;
+  background: var(--dashboard-sidebar-active);
+  color: var(--dashboard-sidebar-active-text);
+  border-left: 3px solid var(--dashboard-sidebar-active-text);
   padding-left: 9px;
+}
+
+.sidebar__item--active svg {
+  color: var(--dashboard-sidebar-active-text);
 }
 
 .sidebar__item svg {

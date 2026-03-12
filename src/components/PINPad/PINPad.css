@@ -10,8 +10,58 @@
 
 .pin-pad-label {
   font-size: 16px;
-  color: #1A1A1A;
+  color: var(--text-secondary);
   margin: 0;
+}
+
+.pin-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--border-default);
+  background: var(--surface-bg-tertiary);
+  transition: all 0.2s;
+}
+
+.pin-dot.filled {
+  background: var(--interactive-primary);
+  border-color: var(--interactive-primary);
+}
+
+.pin-error {
+  font-size: 14px;
+  color: var(--interactive-danger);
+  margin: 0;
+  min-height: 20px;
+}
+
+.pin-key {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--surface-bg);
+  border: none;
+  font-size: 24px;
+  font-family: 'BanamexDisplay', sans-serif;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  transition: background 0.2s;
+}
+
+.pin-key:hover:not(:disabled) {
+  background: var(--surface-bg-tertiary);
+}
+
+.pin-key:active:not(:disabled) {
+  background: var(--surface-bg-secondary);
+}
+
+.pin-key--delete {
+  color: var(--interactive-danger);
 }
 
 .pin-progress {
@@ -24,19 +74,19 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  border: 2px solid #E0E0E0;
+  border: 2px solid var(--color-border);
   background: transparent;
   transition: all 0.2s;
 }
 
 .pin-dot.filled {
-  background: #003B5C;
-  border-color: #003B5C;
+  background: var(--color-primary-500);
+  border-color: var(--color-primary-500);
 }
 
 .pin-error {
   font-size: 14px;
-  color: #E3173E;
+  color: var(--color-accent-500);
   margin: 0;
   min-height: 20px;
 }
@@ -56,7 +106,7 @@
   border: none;
   font-size: 24px;
   font-family: 'BanamexDisplay', sans-serif;
-  color: #1A1A1A;
+  color: var(--color-text-primary);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -66,15 +116,15 @@
 }
 
 .pin-key:hover:not(:disabled) {
-  background: #F5F5F5;
+  background: var(--color-secondary-100);
 }
 
 .pin-key:active:not(:disabled) {
-  background: #E8EEF4;
+  background: var(--color-primary-50);
 }
 
 .pin-key--delete {
-  color: #E3173E;
+  color: var(--color-accent-500);
 }
 
 .pin-key--placeholder {

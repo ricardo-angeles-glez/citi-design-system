@@ -43,56 +43,56 @@
 
 /* Primary Variant - Teal */
 .citi-button--primary {
-  background-color: var(--color-primary-500);
-  color: var(--color-white);
+  background-color: var(--interactive-primary);
+  color: var(--text-on-primary);
 }
 
 .citi-button--primary:hover:not(:disabled) {
-  background-color: var(--color-primary-600);
+  background-color: var(--interactive-primary-hover);
 }
 
 .citi-button--primary:active:not(:disabled) {
-  background-color: var(--color-primary-700);
+  background-color: var(--interactive-primary-active);
 }
 
 /* Secondary Variant - Outlined */
 .citi-button--secondary {
-  background-color: var(--color-transparent);
-  color: var(--color-primary-500);
-  border: 1px solid var(--color-primary-500);
+  background-color: var(--surface-bg);
+  color: var(--interactive-primary);
+  border: 1px solid var(--border-default);
 }
 
 .citi-button--secondary:hover:not(:disabled) {
-  background-color: var(--color-primary-50);
+  background-color: var(--surface-bg-tertiary);
 }
 
 .citi-button--secondary:active:not(:disabled) {
-  background-color: var(--color-primary-100);
+  background-color: var(--surface-bg-secondary);
 }
 
 /* Ghost Variant - Text only */
 .citi-button--ghost {
-  background-color: var(--color-transparent);
-  color: var(--color-primary-500);
+  background-color: transparent;
+  color: var(--text-primary);
   border: none;
 }
 
 .citi-button--ghost:hover:not(:disabled) {
-  background-color: var(--color-primary-50);
+  background-color: var(--surface-bg-tertiary);
 }
 
 .citi-button--ghost:active:not(:disabled) {
-  background-color: var(--color-primary-100);
+  background-color: var(--surface-bg-secondary);
 }
 
 /* Danger Variant - Red */
 .citi-button--danger {
-  background-color: var(--color-accent-500);
-  color: var(--color-white);
+  background-color: var(--interactive-danger);
+  color: var(--text-on-primary);
 }
 
 .citi-button--danger:hover:not(:disabled) {
-  background-color: var(--color-accent-600);
+  background-color: var(--interactive-danger-hover);
 }
 
 .citi-button--danger:active:not(:disabled) {
@@ -101,15 +101,15 @@
 
 /* Disabled states */
 .citi-button:disabled {
-  background-color: var(--color-secondary-300);
-  border-color: var(--color-secondary-300);
-  color: var(--color-secondary-500);
+  background-color: var(--surface-bg-tertiary);
+  border-color: var(--border-subtle);
+  color: var(--text-disabled);
 }
 
 .citi-button--ghost:disabled {
-  background-color: var(--color-transparent);
+  background-color: transparent;
   border-color: transparent;
-  color: var(--color-secondary-400);
+  color: var(--text-disabled);
 }
 
 /* Loading spinner */

@@ -1,14 +1,14 @@
 .citi-product-card {
-  background-color: var(--color-white);
+  background: var(--surface-elevated);
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid #F0F0F0;
+  border: 1px solid var(--border-subtle);
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
 .citi-product-card:hover {
-  background-color: #FAFAFA;
+  background: var(--surface-bg);
 }
 
 /* Header Styles */
@@ -17,8 +17,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 14px 16px;
-  background-color: white;
-  border-bottom: 1px solid #F0F0F0;
+  background-color: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border-light);
 }
 
 .citi-product-card__header-info {
@@ -31,13 +31,13 @@
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 500;
-  color: #1A1A1A;
+  color: var(--color-text-primary);
 }
 
 .citi-product-card__count {
   font-family: var(--font-sans);
   font-size: var(--font-size-sm);
-  color: var(--color-neutral-500);
+  color: var(--color-text-secondary);
 }
 
 .citi-product-card__header-right {
@@ -50,11 +50,11 @@
   font-family: var(--font-display);
   font-size: 14px;
   font-weight: 600;
-  color: #1A1A1A;
+  color: var(--color-text-primary);
 }
 
 .citi-product-card__chevron {
-  color: #9E9E9E;
+  color: var(--color-text-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,7 +70,7 @@
   display: flex;
   align-items: center;
   padding: 10px 16px;
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: var(--color-bg-primary);
 }
 
 .citi-product-card__icon-wrapper {
@@ -97,7 +97,7 @@
 
 /* Expandable Content */
 .citi-product-card__expandable-content {
-  background-color: white;
+  background-color: var(--color-bg-secondary);
 }
 
 .citi-product-card__accounts {
@@ -109,10 +109,10 @@
   justify-content: space-between;
   align-items: flex-start;
   padding: 12px 16px;
-  border-left: 1px solid #F0F0F0;
-  border-right: 1px solid #F0F0F0;
-  border-bottom: 1px solid #F0F0F0;
-  background-color: white;
+  border-left: 1px solid var(--color-border-light);
+  border-right: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
+  background-color: var(--color-bg-secondary);
 }
 
 .citi-product-card__sub-account.last {
@@ -137,13 +137,13 @@
   font-family: var(--font-sans);
   font-size: 15px;
   font-weight: 600;
-  color: #1A1A1A;
+  color: var(--color-text-primary);
 }
 
 .citi-product-card__sub-number {
   font-family: var(--font-sans);
   font-size: 13px;
-  color: #767676;
+  color: var(--color-text-tertiary);
 }
 
 .citi-product-card__sub-balance,
@@ -151,22 +151,22 @@
   display: flex;
   justify-content: space-between;
   font-size: 13px;
-  color: #9E9E9E;
+  color: var(--color-text-secondary);
 }
 
 .citi-product-card__sub-balance span:last-child,
 .citi-product-card__sub-credit span:last-child {
   font-size: 14px;
   font-weight: 600;
-  color: #1A1A1A;
+  color: var(--color-text-primary);
 }
 
 .text-negative {
-  color: #E3173E !important;
+  color: var(--color-accent-500) !important;
 }
 
 .text-positive {
-  color: #00823B !important;
+  color: var(--color-success-500) !important;
 }
 
 .citi-product-card__block-btn {
@@ -175,15 +175,15 @@
   gap: 4px;
   margin-top: 8px;
   padding: 6px 12px;
-  border: 1px solid #E0E0E0;
+  border: 1px solid var(--color-border);
   border-radius: 20px;
-  background: white;
+  background: var(--color-bg-secondary);
   font-size: 12px;
-  color: #4A4A4A;
+  color: var(--color-secondary-600);
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .citi-product-card__block-btn:hover {
-  background-color: #F5F5F5;
+  background-color: var(--color-secondary-100);
 }
