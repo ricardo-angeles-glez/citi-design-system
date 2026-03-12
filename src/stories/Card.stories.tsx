@@ -1,18 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
-import '../components/Card/Card.css';
-import '../components/Button/Button.css';
 
 const meta: Meta<typeof Card> = {
-  title: 'Components/Card',
+  title: 'Atoms/Card',
   component: Card,
   tags: ['autodocs'],
   argTypes: {
-    title: {
-      control: 'text',
-      description: 'Card header title',
-    },
+    title: { control: 'text', description: 'Card title' },
     elevation: {
       control: 'select',
       options: ['low', 'medium', 'high'],
@@ -21,13 +16,13 @@ const meta: Meta<typeof Card> = {
     variant: {
       control: 'select',
       options: ['default', 'outlined'],
-      description: 'Visual style variant',
+      description: 'Card style variant',
     },
   },
   parameters: {
     docs: {
       description: {
-        component: 'A card container component for the Citi Design System',
+        component: 'Content container with title, elevation levels, and outlined variant.',
       },
     },
   },
@@ -36,62 +31,49 @@ const meta: Meta<typeof Card> = {
 export default meta;
 type Story = StoryObj<typeof Card>;
 
-export const Elevations: Story = {
-  render: () => (
-    <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-      <Card title="Low Elevation" elevation="low">
-        <p>This card has a subtle shadow.</p>
-      </Card>
-      <Card title="Medium Elevation" elevation="medium">
-        <p>This card has a medium shadow (default).</p>
-      </Card>
-      <Card title="High Elevation" elevation="high">
-        <p>This card has a prominent shadow.</p>
-      </Card>
-    </div>
-  ),
-  argTypes: {
-    elevation: { control: false },
-  },
-};
-
-export const Outlined: Story = {
+export const Default: Story = {
   args: {
-    title: 'Outlined Card',
-    variant: 'outlined',
-    children: <p>This card uses a border instead of shadow.</p>,
-  },
-};
-
-export const WithFooter: Story = {
-  args: {
-    title: 'Card with Footer',
-    elevation: 'medium',
-    children: <p>This card includes a footer section with actions.</p>,
-    footer: <Button size="sm">Action</Button>,
+    title: 'Card Title',
+    children: 'Card content goes here.',
   },
 };
 
 export const LowElevation: Story = {
-  args: {
-    title: 'Low Elevation',
-    elevation: 'low',
-    children: <p>Card content goes here.</p>,
-  },
+  args: { title: 'Low', elevation: 'low', children: 'Low elevation card.' },
 };
 
 export const MediumElevation: Story = {
-  args: {
-    title: 'Medium Elevation',
-    elevation: 'medium',
-    children: <p>Card content goes here.</p>,
-  },
+  args: { title: 'Medium', elevation: 'medium', children: 'Medium elevation card.' },
 };
 
 export const HighElevation: Story = {
+  args: { title: 'High', elevation: 'high', children: 'High elevation card.' },
+};
+
+export const Outlined: Story = {
+  args: { title: 'Outlined', variant: 'outlined', children: 'Outlined card.' },
+};
+
+export const WithFooter: Story = {
   args: {
-    title: 'High Elevation',
-    elevation: 'high',
-    children: <p>Card content goes here.</p>,
+    title: 'With Footer',
+    children: 'Card with action buttons in footer.',
+    footer: (
+      <div style={{ display: 'flex', gap: 8 }}>
+        <Button variant="primary" size="sm">Confirm</Button>
+        <Button variant="ghost" size="sm">Cancel</Button>
+      </div>
+    ),
   },
+};
+
+export const AllElevations: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: 16 }}>
+      <Card title="Low" elevation="low"><p>Low shadow</p></Card>
+      <Card title="Medium" elevation="medium"><p>Medium shadow</p></Card>
+      <Card title="High" elevation="high"><p>High shadow</p></Card>
+      <Card title="Outlined" variant="outlined"><p>No shadow</p></Card>
+    </div>
+  ),
 };

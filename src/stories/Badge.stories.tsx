@@ -1,31 +1,27 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Badge } from '../components/Badge';
-import '../components/Badge/Badge.css';
 
 const meta: Meta<typeof Badge> = {
-  title: 'Components/Badge',
+  title: 'Atoms/Badge',
   component: Badge,
   tags: ['autodocs'],
   argTypes: {
-    label: {
-      control: 'text',
-      description: 'Badge text label',
-    },
+    label: { control: 'text', description: 'Badge text' },
     variant: {
       control: 'select',
-      options: ['nuevo', 'beneficios', 'promo', 'active', 'warning', 'success', 'error'],
-      description: 'The visual style variant',
+      options: ['nuevo', 'beneficios', 'promo', 'active', 'warning', 'error'],
+      description: 'Semantic variant',
     },
     size: {
       control: 'select',
       options: ['sm', 'md'],
-      description: 'The size of the badge',
+      description: 'Badge size',
     },
   },
   parameters: {
     docs: {
       description: {
-        component: 'A badge component for status indicators in the Citibanamex Design System',
+        component: 'Semantic status indicators and labels with 6 variants.',
       },
     },
   },
@@ -34,75 +30,31 @@ const meta: Meta<typeof Badge> = {
 export default meta;
 type Story = StoryObj<typeof Badge>;
 
+export const Nuevo: Story = { args: { label: 'Nuevo', variant: 'nuevo' } };
+export const Beneficios: Story = { args: { label: 'Beneficios', variant: 'beneficios' } };
+export const Promo: Story = { args: { label: 'Promo', variant: 'promo' } };
+export const Active: Story = { args: { label: 'Activa', variant: 'active' } };
+export const Warning: Story = { args: { label: 'Pendiente', variant: 'warning' } };
+export const Error: Story = { args: { label: 'Error', variant: 'error' } };
+
 export const AllVariants: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+    <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
       <Badge label="Nuevo" variant="nuevo" />
       <Badge label="Beneficios" variant="beneficios" />
       <Badge label="Promo" variant="promo" />
       <Badge label="Activa" variant="active" />
       <Badge label="Pendiente" variant="warning" />
-      <Badge label="Exitosa" variant="success" />
-      <Badge label="Fallida" variant="error" />
+      <Badge label="Error" variant="error" />
     </div>
   ),
-  argTypes: {
-    variant: { control: false },
-    label: { control: false },
-  },
 };
 
-export const Sizes: Story = {
+export const SmallSize: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-      <Badge label="Small" size="sm" variant="beneficios" />
-      <Badge label="Medium" size="md" variant="beneficios" />
+    <div style={{ display: 'flex', gap: 8 }}>
+      <Badge label="Small" variant="active" size="sm" />
+      <Badge label="Default" variant="active" />
     </div>
   ),
-  argTypes: {
-    size: { control: false },
-    label: { control: false },
-  },
-};
-
-export const Nuevo: Story = {
-  args: {
-    label: 'Nuevo',
-    variant: 'nuevo',
-  },
-};
-
-export const Beneficios: Story = {
-  args: {
-    label: 'Beneficios',
-    variant: 'beneficios',
-  },
-};
-
-export const Promo: Story = {
-  args: {
-    label: 'Promo',
-    variant: 'promo',
-  },
-};
-
-export const Active: Story = {
-  args: {
-    label: 'Activa',
-    variant: 'active',
-  },
-};
-
-export const Warning: Story = {
-  args: {
-    label: 'Pendiente',
-    variant: 'warning',
-  },
-};
-
-export const Error: Story = {
-  args: {
-    label: 'Fallida',
-    variant: 'error',
-  },
 };
