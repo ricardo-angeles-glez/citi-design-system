@@ -1,22 +1,24 @@
 .citi-product-card {
   background-color: var(--color-white);
-  border-radius: var(--radius-lg);
+  border-radius: 12px;
   overflow: hidden;
-  border: 1px solid var(--color-neutral-200);
+  border: 1px solid #F0F0F0;
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
 .citi-product-card:hover {
-  filter: brightness(0.98);
+  background-color: #FAFAFA;
 }
 
+/* Header Styles */
 .citi-product-card__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--spacing-md);
-  background-color: var(--color-neutral-50);
+  padding: 14px 16px;
+  background-color: white;
+  border-bottom: 1px solid #F0F0F0;
 }
 
 .citi-product-card__header-info {
@@ -27,9 +29,9 @@
 
 .citi-product-card__category {
   font-family: var(--font-sans);
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-secondary-800);
+  font-size: 14px;
+  font-weight: 500;
+  color: #1A1A1A;
 }
 
 .citi-product-card__count {
@@ -46,99 +48,142 @@
 
 .citi-product-card__total-balance {
   font-family: var(--font-display);
-  font-size: var(--font-size-md);
-  font-weight: 400;
-  color: var(--color-secondary-800);
+  font-size: 14px;
+  font-weight: 600;
+  color: #1A1A1A;
 }
 
 .citi-product-card__chevron {
-  color: var(--color-neutral-500);
+  color: #9E9E9E;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.2s;
+}
+
+/* Simple Content (Non-expandable) */
+.citi-product-card__simple-content {
+  padding: 0;
+}
+
+.citi-product-card__simple-row {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.citi-product-card__icon-wrapper {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.citi-product-card__name {
+  flex: 1;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.citi-product-card__balance {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 400;
 }
 
 /* Expandable Content */
 .citi-product-card__expandable-content {
-  border-top: 1px solid var(--color-neutral-200);
-  background-color: var(--color-white);
+  background-color: white;
 }
 
 .citi-product-card__accounts {
-  padding: var(--spacing-sm) 0;
+  padding-bottom: 4px;
 }
 
 .citi-product-card__sub-account {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: var(--spacing-md);
-  margin: 0 var(--spacing-sm);
-  background-color: var(--color-white);
-  border: 1px solid var(--color-neutral-200);
-  border-radius: var(--radius-md);
-  margin-bottom: var(--spacing-xs);
+  align-items: flex-start;
+  padding: 12px 16px;
+  border-left: 1px solid #F0F0F0;
+  border-right: 1px solid #F0F0F0;
+  border-bottom: 1px solid #F0F0F0;
+  background-color: white;
+}
+
+.citi-product-card__sub-account.last {
+  border-radius: 0 0 12px 12px;
+  border-bottom: none;
 }
 
 .citi-product-card__sub-info {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
 .citi-product-card__sub-header {
   display: flex;
   align-items: center;
-  gap: var(--spacing-xs);
+  gap: 4px;
 }
 
 .citi-product-card__sub-name {
   font-family: var(--font-sans);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-secondary-800);
+  font-size: 15px;
+  font-weight: 600;
+  color: #1A1A1A;
 }
 
 .citi-product-card__sub-number {
   font-family: var(--font-sans);
-  font-size: var(--font-size-xs);
-  color: var(--color-neutral-500);
+  font-size: 13px;
+  color: #767676;
 }
 
 .citi-product-card__sub-balance,
 .citi-product-card__sub-credit {
   display: flex;
   justify-content: space-between;
-  font-size: var(--font-size-xs);
-  color: var(--color-neutral-600);
+  font-size: 13px;
+  color: #9E9E9E;
 }
 
 .citi-product-card__sub-balance span:last-child,
 .citi-product-card__sub-credit span:last-child {
-  font-weight: var(--font-weight-medium);
+  font-size: 14px;
+  font-weight: 600;
+  color: #1A1A1A;
 }
 
 .text-negative {
-  color: var(--color-error-500) !important;
+  color: #E3173E !important;
 }
 
 .text-positive {
-  color: var(--color-success-500) !important;
+  color: #00823B !important;
 }
 
 .citi-product-card__block-btn {
-  margin-top: var(--spacing-xs);
-  padding: 4px 8px;
-  background: none;
-  border: 1px solid var(--color-neutral-300);
-  border-radius: var(--radius-sm);
-  font-size: var(--font-size-xs);
-  color: var(--color-secondary-700);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+  padding: 6px 12px;
+  border: 1px solid #E0E0E0;
+  border-radius: 20px;
+  background: white;
+  font-size: 12px;
+  color: #4A4A4A;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .citi-product-card__block-btn:hover {
-  background-color: var(--color-neutral-100);
+  background-color: #F5F5F5;
 }

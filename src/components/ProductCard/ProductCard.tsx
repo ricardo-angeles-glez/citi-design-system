@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CardVisual } from '../CardVisual';
-import { MoreVertical } from 'lucide-react';
+import { MoreVertical, PiggyBank, TrendingUp, CreditCard, Landmark, Lock } from 'lucide-react';
 import { formatCurrency, type Product as ProductType } from '../../data/mockData';
 import './ProductCard.css';
 
@@ -9,6 +9,16 @@ export interface ProductCardProps {
   product: ProductType;
   onPress?: (productId: string) => void;
 }
+
+const getProductIcon = (id: string) => {
+  switch (id) {
+    case 'savings': return PiggyBank;
+    case 'investments': return TrendingUp;
+    case 'credit': return CreditCard;
+    case 'debit': return Landmark;
+    default: return Landmark;
+  }
+};
 
 export const ProductCard: React.FC<ProductCardProps> = ({
   product,
@@ -31,6 +41,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     product.expandable ? 'citi-product-card--expandable' : ''
   ].join(' ');
 
+  const Icon = getProductIcon(product.id);
+
   return (
     <div className={cardClasses}>
       {/* Header - Always visible */}
@@ -51,11 +63,28 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               animate={{ rotate: expanded ? 90 : 0 }}
               transition={{ duration: 0.2 }}
             >
-              <MoreVertical size={16} />
+              <MoreVertical size={18} />
             </motion.div>
           )}
         </div>
       </div>
+
+      {/* Non-expandable Content (Savings/Investments) */}
+      {!product.expandable && (
+        <div className="citi-product-card__simple-content" style={{ backgroundColor: product.bgColor }}>
+          <div className="citi-product-card__simple-row">
+            <div className="citi-product-card__icon-wrapper" style={{ color: product.textColor }}>
+              <Icon size={20} strokeWidth={1.5} />
+            </div>
+            <span className="citi-product-card__name" style={{ color: product.textColor }}>
+              {product.category}
+            </span>
+            <span className="citi-product-card__balance" style={{ color: product.textColor }}>
+              {formatCurrency(product.balance || 0)}
+            </span>
+          </div>
+        </div>
+      )}
 
       {/* Expandable Content */}
       {product.expandable && (
@@ -70,8 +99,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           style={{ overflow: 'hidden' }}
         >
           <div className="citi-product-card__accounts">
-            {product.accounts?.map((account) => (
-              <div key={account.id} className="citi-product-card__sub-account">
+            {product.accounts?.map((account, index) => (
+              <div 
+                key={account.id} 
+                className={`citi-product-card__sub-account ${index === product.accounts!.length - 1 ? 'last' : ''}`}
+              >
                 <div className="citi-product-card__sub-info">
                   <div className="citi-product-card__sub-header">
                     <span className="citi-product-card__sub-name">{account.name}</span>
@@ -93,6 +125,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                   )}
                   {account.canBlock && (
                     <button className="citi-product-card__block-btn">
+                      <Lock size={14} />
                       Bloquear
                     </button>
                   )}

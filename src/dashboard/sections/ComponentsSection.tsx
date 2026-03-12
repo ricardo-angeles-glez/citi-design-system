@@ -92,10 +92,34 @@ export const ComponentsSection: React.FC = () => {
         </div>
         <div className="components-section__preview">
           <div className="components-section__cardvisual-grid">
-            <CardVisual cardName="Oro" cardNumber="**394" cardBg="#B8860B" cardAccent="#FFD700" type="credit" size="md" />
-            <CardVisual cardName="Descubre" cardNumber="**789" cardBg="#2C3E50" cardAccent="#E74C3C" type="credit" size="md" />
-            <CardVisual cardName="Priority" cardNumber="**964" cardBg="#1A3A5C" cardAccent="#C0C0C0" type="debit" size="md" />
-            <CardVisual cardName="MiCuenta" cardNumber="**000" cardBg="#E3173E" cardAccent="#FF6B8A" type="debit" size="md" />
+            <div className="card-visual-item">
+              <CardVisual cardNumber="**394" cardBg="#B8860B" cardAccent="#FFD700" type="credit" size="md" />
+              <div className="card-visual-label">
+                <strong>Oro **394</strong>
+                <span>Tarjeta de crédito</span>
+              </div>
+            </div>
+            <div className="card-visual-item">
+              <CardVisual cardNumber="**789" cardBg="#2C3E50" cardAccent="#E74C3C" type="credit" size="md" />
+              <div className="card-visual-label">
+                <strong>Descubre **789</strong>
+                <span>Tarjeta de crédito</span>
+              </div>
+            </div>
+            <div className="card-visual-item">
+              <CardVisual cardNumber="**964" cardBg="#1A3A5C" cardAccent="#C0C0C0" type="debit" size="md" />
+              <div className="card-visual-label">
+                <strong>Priority **964</strong>
+                <span>Cuenta de débito</span>
+              </div>
+            </div>
+            <div className="card-visual-item">
+              <CardVisual cardNumber="**000" cardBg="#E3173E" cardAccent="#FF6B8A" type="debit" size="md" />
+              <div className="card-visual-label">
+                <strong>MiCuenta **000</strong>
+                <span>Cuenta de débito</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>

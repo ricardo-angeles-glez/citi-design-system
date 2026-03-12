@@ -109,10 +109,9 @@
 }
 
 .components-section__product-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .components-section__list-items {
@@ -293,4 +292,35 @@
 
 .components-section__code pre .prop {
   color: #9CDCFE;
+}
+
+/* Card Visual Grid */
+.components-section__cardvisual-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.card-visual-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-visual-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--color-neutral-600);
+  text-align: center;
+}
+
+.card-visual-label strong {
+  font-weight: 600;
+  color: var(--color-secondary-800);
+  margin-bottom: 2px;
 }
