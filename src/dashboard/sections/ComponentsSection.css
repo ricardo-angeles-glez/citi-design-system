@@ -108,6 +108,162 @@
   max-width: 350px;
 }
 
+.components-section__product-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 500px;
+}
+
+.components-section__list-items {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.components-section__relationship-diagram {
+  margin-top: 16px;
+  background-color: #FAFAFA;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.components-section__relationship-diagram p {
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #1A1A1A;
+}
+
+.components-section__relationship-diagram pre {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+}
+
+.components-section__mobile-container {
+  width: 390px;
+  border: 2px solid #E0E0E0;
+  border-radius: 24px;
+  overflow: hidden;
+  background: white;
+}
+
+.components-section__mobile-header {
+  background: #F5F5F5;
+  padding: 8px 16px;
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.components-section__mobile-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.components-section__app-header-variant h4 {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.components-section__patterns-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.components-section__pattern-card {
+  background: white;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.components-section__pattern-card h4 {
+  font-size: 14px;
+  color: #1A1A1A;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.components-section__pattern-preview {
+  background: #FAFAFA;
+  border-radius: 6px;
+  padding: 12px;
+}
+
+/* Pattern-specific styles */
+.pattern-account-summary {
+  text-align: center;
+}
+
+.pattern-account-summary__balance {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+.pattern-account-summary__label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.pattern-account-summary__accounts {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #888;
+}
+
+.pattern-quick-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.pattern-quick-actions__item {
+  background: #E8F5F8;
+  color: #003B5C;
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.pattern-empty-state {
+  text-align: center;
+  padding: 8px;
+}
+
+.pattern-empty-state__icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.pattern-empty-state__title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin-bottom: 4px;
+}
+
+.pattern-empty-state__description {
+  font-size: 11px;
+  color: #666;
+}
+
 .components-section__code {
   background-color: #1E1E1E;
   border-radius: 8px;

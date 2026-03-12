@@ -10,6 +10,7 @@ import { BordersSection } from './sections/BordersSection';
 import { ShadowsSection } from './sections/ShadowsSection';
 import { TransitionsSection } from './sections/TransitionsSection';
 import { ComponentsSection } from './sections/ComponentsSection';
+import { AtomsSection } from './sections/AtomsSection';
 import './DashboardApp.css';
 
 export type DashboardSection = 
@@ -49,7 +50,7 @@ export const DashboardApp: React.FC = () => {
     setSidebarOpen(false);
     
     // Scroll to component if it's a component section
-    if (['buttons', 'inputs', 'badges', 'avatars', 'cards', 'listitems', 'productcards', 'appheader'].includes(section)) {
+    if (['buttons', 'inputs', 'badges', 'avatars', 'cards', 'listitems', 'productcards', 'appheader', 'patterns'].includes(section)) {
       scrollToComponent(section);
     }
   };
@@ -75,6 +76,7 @@ export const DashboardApp: React.FC = () => {
       case 'badges':
       case 'avatars':
       case 'cards':
+        return <AtomsSection />;
       case 'listitems':
       case 'productcards':
       case 'appheader':
