@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { Copy, Check } from 'lucide-react';
 import { spacing } from '../../tokens/spacing';
 import './Foundations.css';
+import { useTranslation } from 'react-i18next';
 
 export const SpacingSection: React.FC = () => {
+  const { t } = useTranslation();
   const [copied, setCopied] = useState<string | null>(null);
 
   const copyToClipboard = (text: string) => {
@@ -19,15 +21,15 @@ export const SpacingSection: React.FC = () => {
     pixels: parseInt(value)
   }));
 
-  return (
-    <div className="foundations">
-      <div className="foundations__header">
-        <h1>Espaciado</h1>
-        <p>Sistema de espaciado basado en múltiplos de 4px</p>
-      </div>
+    return (
+      <div className="foundations">
+        <div className="foundations__header">
+          <h1>{t('foundations.spacing.title')}</h1>
+          <p>{t('foundations.spacing.description')}</p>
+        </div>
 
-      <section className="foundations__section">
-        <h2>Escala de espaciado</h2>
+       <section className="foundations__section">
+         <h2>{t('foundations.spacing.scale')}</h2>
         <div className="foundations__spacing">
           {spacingRows.map((row) => (
             <div key={row.name} className="foundations__spacing-row">

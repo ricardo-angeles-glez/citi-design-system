@@ -296,7 +296,9 @@ body {
   top: 0;
 }
 
-/* Dark Mode Variables */
+/* ═══════════════════════════════════════════
+   DARK MODE - Complete Token Override
+═══════════════════════════════════════════ */
 [data-theme="dark"] {
   /* ── SURFACE ── */
   --surface-bg: #0D1117;
@@ -319,36 +321,71 @@ body {
   --text-on-primary: #FFFFFF;
 
   /* ── INTERACTIVE ── */
-  --interactive-primary: #388BFD;
-  --interactive-primary-hover: #58A6FF;
-  --interactive-primary-active: #1F6FEB;
+  --interactive-primary: #58A6FF;
+  --interactive-primary-hover: #79C0FF;
+  --interactive-primary-active: #388BFD;
   --interactive-danger: #F85149;
   --interactive-danger-hover: #FF7B72;
   --interactive-success: #3FB950;
 
-  /* ── SHADOWS (más pronunciadas en dark) ── */
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
-  --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
-  --shadow-xl: 0 16px 40px rgba(0,0,0,0.6);
+  /* ── SHADOWS ── */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.7);
 
   /* ── DASHBOARD ── */
   --dashboard-bg: #0D1117;
   --dashboard-topbar-bg: #161B22;
   --dashboard-sidebar-bg: #161B22;
   --dashboard-sidebar-hover: #21262D;
-  --dashboard-sidebar-active: #1F3A5F;
+  --dashboard-sidebar-active: rgba(56, 139, 253, 0.15);
   --dashboard-sidebar-active-text: #58A6FF;
   --dashboard-sidebar-text: #8B949E;
   --dashboard-border: #30363D;
 
-  /* ── CODE BLOCK (igual en dark) ── */
-  --code-bg: #161B22;
+  /* ── CODE BLOCK ── */
+  --code-bg: #0D1117;
   --code-text: #E6EDF3;
 
-  /* ── COLORES PRIMARIOS AJUSTADOS PARA DARK ── */
-  --color-primary-500: #388BFD;
+  /* ── PRIMITIVE COLOR OVERRIDES ── */
+  --color-primary-50: rgba(56, 139, 253, 0.1);
+  --color-primary-100: rgba(56, 139, 253, 0.15);
+  --color-primary-200: #388BFD;
+  --color-primary-500: #58A6FF;
+
   --color-accent-500: #F85149;
   --color-success-500: #3FB950;
   --color-warning-500: #D29922;
+  --color-error-500: #F85149;
+  --color-info-500: #58A6FF;
+
+  --color-secondary-50: #161B22;
+  --color-secondary-100: #1C2128;
+  --color-secondary-200: #21262D;
+  --color-secondary-300: #30363D;
+  --color-secondary-400: #484F58;
+  --color-secondary-500: #6E7681;
+  --color-secondary-600: #8B949E;
+  --color-secondary-700: #C9D1D9;
+  --color-secondary-800: #E6EDF3;
+  --color-secondary-900: #F0F6FC;
+
+  /* ── CATEGORY COLORS ── */
+  --color-savings-bg: rgba(230, 126, 34, 0.15);
+  --color-savings-text: #F0A050;
+  --color-investment-bg: rgba(124, 58, 237, 0.15);
+  --color-investment-text: #A78BFA;
+  --color-credit-bg: #1C2128;
+  --color-credit-text: #E6EDF3;
+  --color-debit-bg: #1C2128;
+  --color-debit-text: #E6EDF3;
+  --color-debit-border: #30363D;
+
+  /* ── FOCUS VISIBLE ── */
+  color-scheme: dark;
+}
+
+[data-theme="dark"] *:focus-visible {
+  outline-color: #58A6FF;
 }

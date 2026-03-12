@@ -27,6 +27,8 @@ import {
 } from 'lucide-react';
 import type { DashboardSection } from './DashboardApp';
 import './Sidebar.css';
+import { useTranslation } from 'react-i18next';
+import { useMemo } from 'react';
 
 interface SidebarProps {
   currentSection: DashboardSection;
@@ -44,66 +46,68 @@ interface NavGroup {
   items: NavItem[];
 }
 
-const navigation: NavGroup[] = [
-  {
-    items: [
-      { id: 'overview', label: 'Inicio', icon: <LayoutDashboard size={18} /> },
-    ],
-  },
-  {
-    title: 'Foundations',
-    items: [
-      { id: 'colors', label: 'Colores', icon: <Palette size={18} /> },
-      { id: 'typography', label: 'Tipografía', icon: <Type size={18} /> },
-      { id: 'spacing', label: 'Espaciado', icon: <Grid size={18} /> },
-      { id: 'borders', label: 'Bordes y Radio', icon: <Shapes size={18} /> },
-      { id: 'shadows', label: 'Sombras', icon: <Zap size={18} /> },
-      { id: 'transitions', label: 'Transiciones', icon: <SlidersHorizontal size={18} /> },
-    ],
-  },
-  {
-    title: 'Atoms',
-    items: [
-      { id: 'buttons', label: 'Botones', icon: <Square size={18} /> },
-      { id: 'inputs', label: 'Inputs', icon: <ToggleLeft size={18} /> },
-      { id: 'badges', label: 'Badges', icon: <Tag size={18} /> },
-      { id: 'avatars', label: 'Avatars', icon: <User size={18} /> },
-      { id: 'cards', label: 'Cards', icon: <CreditCard size={18} /> },
-    ],
-  },
-  {
-    title: 'Components',
-    items: [
-      { id: 'listitems', label: 'List Items', icon: <List size={18} /> },
-      { id: 'productcards', label: 'Product Cards', icon: <CreditCard size={18} /> },
-      { id: 'appheader', label: 'App Header', icon: <Smartphone size={18} /> },
-      { id: 'patterns', label: 'Patrones', icon: <BarChart2 size={18} /> },
-      { id: 'modal', label: 'Modal / Dialog', icon: <MessageSquare size={18} /> },
-      { id: 'toast', label: 'Toast', icon: <Bell size={18} /> },
-      { id: 'skeleton', label: 'Skeleton', icon: <Loader size={18} /> },
-      { id: 'emptystate', label: 'Empty State', icon: <Inbox size={18} /> },
-    ],
-  },
-  {
-    title: 'Banking',
-    items: [
-      { id: 'otpinput', label: 'OTP Input', icon: <KeyRound size={18} /> },
-      { id: 'pinpad', label: 'PIN Pad', icon: <Hash size={18} /> },
-      { id: 'currencyinput', label: 'Currency Input', icon: <DollarSign size={18} /> },
-      { id: 'chart', label: 'Spending Chart', icon: <BarChart2 size={18} /> },
-    ],
-  },
-  {
-    title: 'System',
-    items: [
-      { id: 'accessibility', label: 'Accesibilidad', icon: <Accessibility size={18} /> },
-      { id: 'darkmode', label: 'Dark Mode', icon: <Moon size={18} /> },
-      { id: 'i18n', label: 'Internacionalización', icon: <Globe size={18} /> },
-    ],
-  },
-];
-
 export const Sidebar: React.FC<SidebarProps> = ({ currentSection, onNavigate }) => {
+  const { t } = useTranslation();
+
+  const navigation = useMemo<NavGroup[]>(() => [
+    {
+      items: [
+        { id: 'overview', label: t('sidebar.overview'), icon: <LayoutDashboard size={18} /> },
+      ],
+    },
+    {
+      title: t('sidebar.foundations'),
+      items: [
+        { id: 'colors', label: t('sidebar.colors'), icon: <Palette size={18} /> },
+        { id: 'typography', label: t('sidebar.typography'), icon: <Type size={18} /> },
+        { id: 'spacing', label: t('sidebar.spacing'), icon: <Grid size={18} /> },
+        { id: 'borders', label: t('sidebar.borders'), icon: <Shapes size={18} /> },
+        { id: 'shadows', label: t('sidebar.shadows'), icon: <Zap size={18} /> },
+        { id: 'transitions', label: t('sidebar.transitions'), icon: <SlidersHorizontal size={18} /> },
+      ],
+    },
+    {
+      title: t('sidebar.atoms'),
+      items: [
+        { id: 'buttons', label: t('sidebar.buttons'), icon: <Square size={18} /> },
+        { id: 'inputs', label: t('sidebar.inputs'), icon: <ToggleLeft size={18} /> },
+        { id: 'badges', label: t('sidebar.badges'), icon: <Tag size={18} /> },
+        { id: 'avatars', label: t('sidebar.avatars'), icon: <User size={18} /> },
+        { id: 'cards', label: t('sidebar.cards'), icon: <CreditCard size={18} /> },
+      ],
+    },
+    {
+      title: t('sidebar.components'),
+      items: [
+        { id: 'listitems', label: t('sidebar.listitems'), icon: <List size={18} /> },
+        { id: 'productcards', label: t('sidebar.productcards'), icon: <CreditCard size={18} /> },
+        { id: 'appheader', label: t('sidebar.appheader'), icon: <Smartphone size={18} /> },
+        { id: 'patterns', label: t('sidebar.patterns'), icon: <BarChart2 size={18} /> },
+        { id: 'modal', label: t('sidebar.modal'), icon: <MessageSquare size={18} /> },
+        { id: 'toast', label: t('sidebar.toast'), icon: <Bell size={18} /> },
+        { id: 'skeleton', label: t('sidebar.skeleton'), icon: <Loader size={18} /> },
+        { id: 'emptystate', label: t('sidebar.emptystate'), icon: <Inbox size={18} /> },
+      ],
+    },
+    {
+      title: t('sidebar.banking'),
+      items: [
+        { id: 'otpinput', label: t('sidebar.otpinput'), icon: <KeyRound size={18} /> },
+        { id: 'pinpad', label: t('sidebar.pinpad'), icon: <Hash size={18} /> },
+        { id: 'currencyinput', label: t('sidebar.currencyinput'), icon: <DollarSign size={18} /> },
+        { id: 'chart', label: t('sidebar.chart'), icon: <BarChart2 size={18} /> },
+      ],
+    },
+    {
+      title: t('sidebar.system'),
+      items: [
+        { id: 'accessibility', label: t('sidebar.accessibility'), icon: <Accessibility size={18} /> },
+        { id: 'darkmode', label: t('sidebar.darkmode'), icon: <Moon size={18} /> },
+        { id: 'i18n', label: t('sidebar.i18n'), icon: <Globe size={18} /> },
+      ],
+    },
+  ], [t]);
+
   return (
     <nav className="sidebar">
       {navigation.map((group, groupIndex) => (

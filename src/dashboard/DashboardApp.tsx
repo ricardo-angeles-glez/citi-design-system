@@ -12,6 +12,7 @@ import { ShadowsSection } from './sections/ShadowsSection';
 import { TransitionsSection } from './sections/TransitionsSection';
 import { ComponentsSection } from './sections/ComponentsSection';
 import { AtomsSection } from './sections/AtomsSection';
+import { SystemSection } from './sections/SystemSection';
 import './DashboardApp.css';
 
 export type DashboardSection = 
@@ -132,9 +133,11 @@ export const DashboardApp: React.FC = () => {
       case 'chart':
         return <ComponentsSection />;
       case 'accessibility':
+        return <SystemSection activeTab="accessibility" />;
       case 'darkmode':
+        return <SystemSection activeTab="darkmode" />;
       case 'i18n':
-        return <ComponentsSection />; // Placeholder for System sections
+        return <SystemSection activeTab="i18n" />;
       default:
         return (
           <div className="section-placeholder">

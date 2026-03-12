@@ -1,25 +1,219 @@
-.chart-container {
-  width: 100%;
-  height: 100%;
+/* ═══════════════════════════════════════════
+   SPENDING CHART — Design System Tokens
+═══════════════════════════════════════════ */
+
+:root {
+  --chart-primary: #003B5C;
+  --chart-income: #00823B;
+  --chart-expense: #E3173E;
+  --chart-grid: #F0F0F0;
+  --chart-axis: #9E9E9E;
+  --chart-cursor: rgba(0, 59, 92, 0.06);
 }
 
-.sparkline-container {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+[data-theme="dark"] {
+  --chart-primary: #58A6FF;
+  --chart-income: #3FB950;
+  --chart-expense: #F85149;
+  --chart-grid: #21262D;
+  --chart-axis: #6E7681;
+  --chart-cursor: rgba(88, 166, 255, 0.08);
 }
 
+/* ── Chart Wrapper ────────────────────── */
+.chart-wrapper {
+  width: 100%;
+}
+
+.chart-wrapper__header {
+  margin-bottom: 20px;
+}
+
+.chart-wrapper__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 4px;
+}
+
+.chart-wrapper__subtitle {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin: 0;
+}
+
+/* ── Summary Cards ────────────────────── */
+.chart-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.chart-summary__card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: var(--surface-bg-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.chart-summary__card--income {
+  border-left: 3px solid var(--chart-income);
+}
+
+.chart-summary__card--expense {
+  border-left: 3px solid var(--chart-expense);
+}
+
+.chart-summary__card--balance {
+  border-left: 3px solid var(--interactive-primary);
+}
+
+.chart-summary__label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.chart-summary__value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: var(--font-display, 'BanamexDisplay', sans-serif);
+  letter-spacing: -0.3px;
+}
+
+.chart-summary__value--income {
+  color: var(--chart-income);
+}
+
+.chart-summary__value--expense {
+  color: var(--chart-expense);
+}
+
+/* ── Custom Tooltip ───────────────────── */
 .chart-tooltip {
-  background: var(--color-bg-secondary);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: 8px 12px;
-  box-shadow: var(--shadow-md);
-  font-family: 'BanamexDisplay', sans-serif;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: 10px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow-lg);
+  min-width: 180px;
 }
 
-.tooltip-label {
-  font-weight: bold;
-  margin-bottom: 4px;
-  color: var(--color-text-primary);
+.chart-tooltip__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.chart-tooltip__items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chart-tooltip__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chart-tooltip__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.chart-tooltip__name {
+  font-size: 12px;
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.chart-tooltip__value {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: var(--font-mono, monospace);
+  letter-spacing: -0.3px;
+}
+
+/* ── Custom Legend ────────────────────── */
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.chart-legend__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chart-legend__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.chart-legend__label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* ── Sparkline ────────────────────────── */
+.chart-sparkline {
+  width: 100%;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+/* ── Recharts Overrides ───────────────── */
+.recharts-cartesian-grid-horizontal line {
+  stroke: var(--chart-grid);
+}
+
+.recharts-cartesian-grid-vertical line {
+  stroke: var(--chart-grid);
+}
+
+/* Bar hover effect */
+.recharts-bar-rectangle:hover {
+  filter: brightness(1.1);
+}
+
+/* ── Responsive ───────────────────────── */
+@media (max-width: 640px) {
+  .chart-summary {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .chart-summary__card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .chart-tooltip {
+    min-width: 150px;
+    padding: 10px 12px;
+  }
 }

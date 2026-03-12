@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Copy, Check } from 'lucide-react';
 import './Foundations.css';
+import { useTranslation } from 'react-i18next';
 
 export const TypographySection: React.FC = () => {
+  const { t } = useTranslation();
   const [copied, setCopied] = useState<string | null>(null);
 
   const copyToClipboard = (text: string) => {
@@ -12,14 +14,14 @@ export const TypographySection: React.FC = () => {
   };
 
   const scaleRows = [
-    { name: 'Display', token: '--font-size-4xl', size: '32px', weight: '400', lineHeight: '1.2', preview: 'Citibanamex Design System' },
-    { name: 'H1', token: '--font-size-3xl', size: '24px', weight: '600', lineHeight: '1.2', preview: 'Cuenta Priority' },
-    { name: 'H2', token: '--font-size-2xl', size: '20px', weight: '600', lineHeight: '1.3', preview: 'Productos disponibles' },
-    { name: 'H3', token: '--font-size-xl', size: '18px', weight: '500', lineHeight: '1.4', preview: 'Bolsas de ahorro' },
-    { name: 'Body LG', token: '--font-size-lg', size: '16px', weight: '400', lineHeight: '1.5', preview: 'Saldo disponible en su cuenta' },
-    { name: 'Body MD', token: '--font-size-md', size: '14px', weight: '400', lineHeight: '1.5', preview: 'Última transacción: 11 Mar 2026' },
-    { name: 'Body SM', token: '--font-size-sm', size: '13px', weight: '400', lineHeight: '1.5', preview: 'Tarjeta terminación **964' },
-    { name: 'Caption', token: '--font-size-xs', size: '12px', weight: '400', lineHeight: '1.4', preview: '* Sujeto a disponibilidad' },
+    { name: 'Display', token: '--font-size-4xl', size: '32px', weight: '400', lineHeight: '1.2', preview: t('typography.preview.display') },
+    { name: 'H1', token: '--font-size-3xl', size: '24px', weight: '600', lineHeight: '1.2', preview: t('typography.preview.h1') },
+    { name: 'H2', token: '--font-size-2xl', size: '20px', weight: '600', lineHeight: '1.3', preview: t('typography.preview.h2') },
+    { name: 'H3', token: '--font-size-xl', size: '18px', weight: '500', lineHeight: '1.4', preview: t('typography.preview.h3') },
+    { name: 'Body LG', token: '--font-size-lg', size: '16px', weight: '400', lineHeight: '1.5', preview: t('typography.preview.bodyLg') },
+    { name: 'Body MD', token: '--font-size-md', size: '14px', weight: '400', lineHeight: '1.5', preview: t('typography.preview.bodyMd') },
+    { name: 'Body SM', token: '--font-size-sm', size: '13px', weight: '400', lineHeight: '1.5', preview: t('typography.preview.bodySm') },
+    { name: 'Caption', token: '--font-size-xs', size: '12px', weight: '400', lineHeight: '1.4', preview: t('typography.preview.caption') },
   ];
 
   const weights = [
@@ -33,23 +35,23 @@ export const TypographySection: React.FC = () => {
   return (
     <div className="foundations">
       <div className="foundations__header">
-        <h1>Tipografía</h1>
-        <p>Escala tipográfica del sistema basada en BanamexDisplay</p>
+        <h1>{t('foundations.typography.title')}</h1>
+        <p>{t('foundations.typography.description')}</p>
       </div>
 
       {/* Scale Table */}
       <section className="foundations__section">
-        <h2>Escala tipográfica</h2>
+        <h2>{t('foundations.typography.scale')}</h2>
         <div className="foundations__table-wrapper">
           <table className="foundations__table">
             <thead>
               <tr>
-                <th>Nombre</th>
-                <th>Token CSS</th>
-                <th>Tamaño</th>
-                <th>Peso</th>
-                <th>Line Height</th>
-                <th>Preview</th>
+                <th>{t('foundations.typography.table.name')}</th>
+                <th>{t('foundations.typography.table.token')}</th>
+                <th>{t('foundations.typography.table.size')}</th>
+                <th>{t('foundations.typography.table.weight')}</th>
+                <th>{t('foundations.typography.table.lineHeight')}</th>
+                <th>{t('foundations.typography.table.preview')}</th>
                 <th></th>
               </tr>
             </thead>
@@ -63,7 +65,7 @@ export const TypographySection: React.FC = () => {
                   <td>{row.lineHeight}</td>
                   <td className="foundations__preview">{row.preview}</td>
                   <td>
-                    <button 
+                    <button
                       className="foundations__copy"
                       onClick={() => copyToClipboard(row.token)}
                     >
@@ -79,12 +81,12 @@ export const TypographySection: React.FC = () => {
 
       {/* Font Weights */}
       <section className="foundations__section">
-        <h2>Pesos tipográficos</h2>
+        <h2>{t('foundations.typography.weights')}</h2>
         <div className="foundations__weights">
           {weights.map((w) => (
             <div key={w.name} className="foundations__weight">
-              <span 
-                className="foundations__weight-preview" 
+              <span
+                className="foundations__weight-preview"
                 style={{ fontWeight: parseInt(w.value) }}
               >
                 Citibanamex
@@ -92,7 +94,7 @@ export const TypographySection: React.FC = () => {
               <span className="foundations__weight-label">
                 {w.name} {w.value}
               </span>
-              <button 
+              <button
                 className="foundations__copy"
                 onClick={() => copyToClipboard(w.token)}
               >

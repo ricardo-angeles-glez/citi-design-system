@@ -1,5 +1,6 @@
 import { colors } from '../../tokens/colors';
 import './ColorsSection.css';
+import { useTranslation } from 'react-i18next';
 
 interface ColorPalette {
   name: string;
@@ -16,11 +17,12 @@ const palettes: ColorPalette[] = [
 ];
 
 export const ColorsSection: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <div className="colors-section">
       <div className="colors-section__header">
-        <h1>Colores</h1>
-        <p>Paleta de colores del Design System Citibanamex</p>
+        <h1>{t('foundations.colors.title')}</h1>
+        <p>{t('foundations.colors.description')}</p>
       </div>
 
       {palettes.map((palette) => (

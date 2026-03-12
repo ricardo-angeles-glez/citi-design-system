@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Copy, Check } from 'lucide-react';
 import './Foundations.css';
+import { useTranslation } from 'react-i18next';
 
 export const ShadowsSection: React.FC = () => {
+  const { t } = useTranslation();
   const [copied, setCopied] = useState<string | null>(null);
 
   const copyToClipboard = (text: string) => {
@@ -18,15 +20,15 @@ export const ShadowsSection: React.FC = () => {
     { name: 'xl', label: 'Nivel 4 - Overlay', value: '0 16px 48px rgba(0,0,0,0.2)', token: '--shadow-xl' },
   ];
 
-  return (
-    <div className="foundations">
-      <div className="foundations__header">
-        <h1>Sombras</h1>
-        <p>Niveles de elevación del sistema</p>
-      </div>
+    return (
+      <div className="foundations">
+        <div className="foundations__header">
+          <h1>{t('foundations.shadows.title')}</h1>
+          <p>{t('foundations.shadows.description')}</p>
+        </div>
 
-      <section className="foundations__section">
-        <h2>Niveles de sombra</h2>
+       <section className="foundations__section">
+         <h2>{t('foundations.shadows.levels')}</h2>
         <div className="foundations__shadows-grid">
           {shadows.map((s) => (
             <div 

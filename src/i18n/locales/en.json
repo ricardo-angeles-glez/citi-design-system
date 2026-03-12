@@ -28,5 +28,492 @@
     "pay": "Pay",
     "viewAll": "View All",
     "viewMovements": "View Movements"
+  },
+
+  "sidebar": {
+    "overview": "Overview",
+    "foundations": "Foundations",
+    "colors": "Colors",
+    "typography": "Typography",
+    "spacing": "Spacing",
+    "borders": "Borders & Radius",
+    "shadows": "Shadows",
+    "transitions": "Transitions",
+    "atoms": "Atoms",
+    "buttons": "Buttons",
+    "inputs": "Inputs",
+    "badges": "Badges",
+    "avatars": "Avatars",
+    "cards": "Cards",
+    "components": "Components",
+    "listitems": "List Items",
+    "productcards": "Product Cards",
+    "appheader": "App Header",
+    "patterns": "Patterns",
+    "modal": "Modal",
+    "toast": "Toast",
+    "skeleton": "Skeleton",
+    "emptystate": "Empty State",
+    "banking": "Banking",
+    "otpinput": "OTP Input",
+    "pinpad": "PIN Pad",
+    "currencyinput": "Currency Input",
+    "chart": "Chart",
+    "system": "System",
+    "accessibility": "Accessibility",
+    "darkmode": "Dark Mode",
+    "i18n": "Internationalization"
+  },
+
+  "foundations": {
+    "colors": {
+      "title": "Colors",
+      "description": "Citibanamex Design System color palette"
+    },
+    "borders": {
+      "title": "Borders & Radius",
+      "description": "Border-radius and border-width values in the system",
+      "borderRadius": "Border Radius"
+    },
+    "spacing": {
+      "title": "Spacing",
+      "description": "Spacing system based on 4px multiples",
+      "scale": "Spacing scale"
+    },
+    "shadows": {
+      "title": "Shadows",
+      "description": "Elevation levels in the system",
+      "levels": "Shadow levels"
+    },
+    "transitions": {
+      "title": "Transitions",
+      "description": "Transition values in the system",
+      "interactiveExamples": "Interactive examples",
+      "fadeScale": "Fade + Scale",
+      "slideIn": "Slide In",
+      "springBounce": "Spring Bounce",
+      "staggerList": "Stagger List",
+      "whipTap": "Whip Tap (Button feedback)",
+      "hide": "Hide",
+      "show": "Show",
+      "reset": "Reset",
+      "animate": "Animate",
+      "tokens": "Transition tokens",
+      "fast": { "usage": "Hover, focus states" },
+      "normal": { "usage": "Cards, dropdowns" },
+      "slow": { "usage": "Modals, overlays" },
+      "table": {
+        "token": "Token",
+        "value": "Value",
+        "usage": "Recommended usage"
+      }
+    },
+    "typography": {
+      "title": "Typography",
+      "description": "Typography scale of the system based on BanamexDisplay",
+      "scale": "Typography scale",
+      "weights": "Typography weights",
+      "preview": {
+        "display": "Citibanamex Design System",
+        "h1": "Priority Account",
+        "h2": "Available products",
+        "h3": "Savings accounts",
+        "bodyLg": "Account balance",
+        "bodyMd": "Last transaction: 11 Mar 2026",
+        "bodySm": "Card ending **964",
+        "caption": "* Subject to availability"
+      }
+    }
+  },
+
+  "sections": {
+    "atoms": {
+      "title": "Atoms",
+      "description": "Fundamental elements of the Design System",
+      "atom": "Atom",
+      "buttons": {
+        "title": "Buttons",
+        "description": "Buttons with primary, secondary, ghost and danger variants"
+      },
+      "inputs": {
+        "title": "Inputs",
+        "description": "Input fields with default, focus, error and disabled states"
+      },
+      "badges": {
+        "title": "Badge",
+        "description": "Badge with semantic variants"
+      },
+      "avatars": {
+        "title": "Avatar",
+        "description": "4 colors, 3 sizes"
+      },
+      "cards": {
+        "title": "Card",
+        "description": "4 elevation levels"
+      }
+    },
+    "components": {
+      "title": "Components & Patterns",
+      "description": "Composite components, UI patterns and specialized banking components",
+      "component": "Component",
+      "pattern": "Pattern",
+      "banking": "Banking",
+      "listitems": {
+        "title": "List Item",
+        "description": "List element with icon, title, subtitle, amount and optional badge"
+      },
+      "productcards": {
+        "title": "Product Card",
+        "description": "Banking product card with expandable sub-accounts and CardVisual"
+      },
+      "modal": {
+        "title": "Modal",
+        "description": "Modal dialog with focus trap, Framer Motion animation and default, danger and success variants",
+        "demoTitle": "Confirm transfer",
+        "demoDescription": "Do you want to send $5,000.00 MXN to Juan Alberto Rodríguez?",
+        "dangerTitle": "Block card",
+        "dangerDescription": "This action will block your card immediately. You can unblock it from the app.",
+        "successTitle": "Transfer successful",
+        "successDescription": "$5,000.00 MXN has been sent successfully to the destination account.",
+        "blockCard": "Block"
+      },
+      "toast": {
+        "title": "Toast",
+        "description": "Temporary notifications with auto-dismiss, 4 variants and enter/exit animation",
+        "successMsg": "Transfer completed successfully",
+        "errorMsg": "Error processing payment",
+        "warningMsg": "Your session will expire in 2 minutes",
+        "infoMsg": "You have 3 pending scheduled payments"
+      },
+      "skeleton": {
+        "title": "Skeleton",
+        "description": "Loading indicators with shimmer effect. Variants: text, circle, rect, card and compositions"
+      },
+      "emptystate": {
+        "title": "Empty State",
+        "description": "Empty states with contextual icon, title, description and optional action",
+        "noMovements": "No transactions",
+        "noMovementsDesc": "No transactions recorded in this period",
+        "noResults": "No results",
+        "noResultsDesc": "We couldn't find results. Try different filters.",
+        "clearFilters": "Clear filters"
+      },
+      "otpinput": {
+        "title": "OTP Input",
+        "description": "Verification code input with auto-advance, paste support and keyboard navigation",
+        "label": "Verification code"
+      },
+      "pinpad": {
+        "title": "PIN Pad",
+        "description": "Numeric keypad for PIN entry with progress indicator and spring animation",
+        "label": "Enter your PIN"
+      },
+      "currencyinput": {
+        "title": "Currency Input",
+        "description": "Input field with automatic MXN/USD currency formatting and integrated numeric keypad",
+        "label": "Amount to transfer"
+      },
+      "chart": {
+        "title": "Spending Chart",
+        "description": "Spending and income charts with bar, line and sparkline variants using Recharts"
+      }
+    }
+  },
+
+  "components": {
+    "variants": {
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "ghost": "Ghost",
+      "danger": "Danger"
+    },
+    "sizes": {
+      "sm": "Small",
+      "md": "Medium",
+      "lg": "Large"
+    },
+    "states": {
+      "disabled": "Disabled",
+      "loading": "Loading"
+    },
+    "header": {
+      "title": "Components",
+      "description": "Composite components library of the Design System"
+    }
+  },
+
+  "inputs": {
+    "placeholder": {
+      "default": "Default input",
+      "focused": "Focused",
+      "disabled": "Disabled",
+      "error": "With error",
+      "password": "Password"
+    },
+    "error": {
+      "message": "Error message"
+    }
+  },
+
+  "badges": {
+    "nuevo": "New",
+    "beneficios": "Benefits",
+    "promo": "Promo",
+    "active": "Active",
+    "pending": "Pending",
+    "error": "Error"
+  },
+
+  "cards": {
+    "title": "Card Title",
+    "content": "Card content",
+    "outlinedTitle": "Outlined Card"
+  },
+
+  "chart": {
+    "income": "Income",
+    "expense": "Expenses",
+    "monthlyOverview": "Monthly Overview",
+    "last6Months": "Last 6 months of activity",
+    "totalIncome": "Total Income",
+    "totalExpense": "Total Expenses",
+    "balance": "Balance",
+    "trend": "Trend",
+    "incomeVsExpense": "Income vs Expenses over time"
+  },
+
+  "overview": {
+    "hero": {
+      "badge": "DESIGN SYSTEM · v1.0.0",
+      "title": "Citibanamex Design System",
+      "subtitle": "Library of React + TypeScript components that guarantees visual consistency across all Citibanamex Mexico digital products.",
+      "tags": {
+        "react": "React 18",
+        "typescript": "TypeScript 5",
+        "vite": "Vite 5",
+        "framerMotion": "Framer Motion",
+        "typeScript": "100% TypeScript"
+      },
+      "actions": {
+        "viewComponents": "View Components →",
+        "viewDemo": "View Demo App →"
+      }
+    },
+    "stats": {
+      "components": "Components",
+      "cssTokens": "CSS Tokens",
+      "foundations": "Foundations",
+      "languages": "Languages",
+      "typescript": "TypeScript"
+    },
+    "variants": "variants",
+    "sections": {
+      "components": {
+        "title": "System Components"
+      },
+      "principles": {
+        "title": "Design Principles"
+      },
+      "changelog": {
+        "title": "Recent Updates"
+      }
+    },
+    "components": {
+      "colors": {
+        "title": "Colors",
+        "description": "Complete palette with 50-900 scales"
+      },
+      "typography": {
+        "title": "Typography",
+        "description": "BanamexDisplay + complete scale"
+      },
+      "spacing": {
+        "title": "Spacing",
+        "description": "4px base system"
+      },
+      "buttons": {
+        "title": "Button",
+        "description": "4 variants, 3 sizes, states"
+      },
+      "inputs": {
+        "title": "Input",
+        "description": "With label, error and validation"
+      },
+      "badges": {
+        "title": "Badge",
+        "description": "6 semantic variants"
+      },
+      "avatars": {
+        "title": "Avatar",
+        "description": "4 colors, 3 sizes"
+      },
+      "cards": {
+        "title": "Card",
+        "description": "4 elevation levels"
+      },
+      "modal": {
+        "title": "Modal",
+        "description": "Confirmations with focus trap"
+      },
+      "toast": {
+        "title": "Toast",
+        "description": "4 variants with auto-dismiss"
+      },
+      "productcards": {
+        "title": "Product Card",
+        "description": "Expandable with sub-accounts"
+      },
+      "skeleton": {
+        "title": "Skeleton",
+        "description": "Loading states with shimmer"
+      },
+      "otpinput": {
+        "title": "OTP Input",
+        "description": "Verification with auto-advance"
+      },
+      "pinpad": {
+        "title": "PIN Pad",
+        "description": "PIN with progress animation"
+      },
+      "currencyinput": {
+        "title": "Currency Input",
+        "description": "Automatic MXN/USD formatting"
+      },
+      "chart": {
+        "title": "Spending Chart",
+        "description": "Bars and lines with Recharts"
+      }
+    },
+    "principles": {
+      "confidence": {
+        "title": "Confidence",
+        "description": "Each component communicates security and stability. Sober colors, clear typography and visual hierarchy that reduces anxiety in financial transactions."
+      },
+      "clarity": {
+        "title": "Clarity",
+        "description": "Financial information must be immediately understandable. WCAG AA contrast, defined typographic scale and consistent spacing in all components."
+      },
+      "composition": {
+        "title": "Composition",
+        "description": "Atomic Design architecture: Atoms → Components → Patterns. Each piece is reusable and independent, allowing complex compositions without inconsistencies."
+      },
+      "accessibility": {
+        "title": "Accessibility",
+        "description": "WCAG AA in all components. Visible focus, ARIA labels, reduced motion and i18n ES/EN support. A banking system must be usable by everyone."
+      }
+    },
+    "changelog": {
+      "banking": {
+        "title": "Banking Components",
+        "description": "OTP Input, PIN Pad, Currency Input and Spending Chart. Specialized components for payment flows and banking authentication."
+      },
+      "system": {
+        "title": "Dark Mode + i18n",
+        "description": "Theming system with CSS Custom Properties. ES/EN support with i18next. Toggle in dashboard topbar."
+      },
+      "component1": {
+        "title": "Modal, Toast and Skeleton",
+        "description": "Modal with focus trap and Framer Motion animations. Toast system with auto-dismiss. Skeleton loaders with shimmer effect."
+      },
+      "component2": {
+        "title": "Expandable ProductCard",
+        "description": "Banking cards with expandable sub-accounts, CardVisual with gradients and EMV chip. Animation with Framer Motion."
+      },
+      "release": {
+        "title": "v1.0.0 — Initial Release",
+        "description": "Button, Input, Badge, Avatar, Card. 100+ CSS tokens. Dashboard with complete Foundations. Citibanamex Demo App."
+      }
+    }
+  },
+
+  "system": {
+    "accessibility": {
+      "title": "Accessibility",
+      "description": "WCAG AA compliance across all Design System components",
+      "wcag": {
+        "title": "WCAG AA Contrast",
+        "description": "All components meet minimum WCAG AA contrast ratios (4.5:1 for text, 3:1 for large elements)",
+        "textOnWhite": "Text on white",
+        "primaryOnWhite": "Primary on white",
+        "errorOnWhite": "Error on white",
+        "successOnWhite": "Success on white"
+      },
+      "focus": {
+        "title": "Focus States",
+        "description": "All interactive elements have visible focus indicators for keyboard navigation",
+        "instruction": "Use Tab to navigate between elements and see focus styles:",
+        "inputPlaceholder": "Tab here"
+      },
+      "aria": {
+        "title": "ARIA Labels",
+        "description": "All components include semantic ARIA attributes for screen readers"
+      },
+      "checklist": {
+        "title": "Accessibility Checklist",
+        "contrast": "WCAG AA contrast ratios (minimum 4.5:1)",
+        "focus": "Visible focus on all interactive elements",
+        "ariaLabels": "ARIA labels on modals, toasts, inputs and buttons",
+        "keyboard": "Full keyboard navigation (Tab, Enter, Escape)",
+        "reducedMotion": "Support for prefers-reduced-motion",
+        "semanticHtml": "Semantic HTML (role, aria-modal, aria-live)",
+        "errorMessages": "Error messages associated with aria-describedby",
+        "touchTargets": "Minimum touch targets of 44x44px"
+      }
+    },
+    "darkmode": {
+      "title": "Dark Mode",
+      "description": "Theming system with CSS Custom Properties enabling instant switching between light and dark modes",
+      "overview": {
+        "title": "Theme Toggle",
+        "description": "The theme is applied via data-theme on the HTML root, changing all CSS Custom Properties simultaneously",
+        "lightMode": "Light Mode",
+        "darkMode": "Dark Mode",
+        "clickToToggle": "Click to toggle"
+      },
+      "preview": {
+        "title": "Component Preview",
+        "description": "All components adapt automatically to the active theme",
+        "cardTitle": "Adaptive Card",
+        "cardContent": "This card adapts automatically to the active theme without code changes.",
+        "inputPlaceholder": "Adaptive input",
+        "ghostButton": "Ghost Button",
+        "errorExample": "This field is required"
+      },
+      "tokens": {
+        "title": "Token Mapping",
+        "description": "Each semantic token has a different value depending on the active theme"
+      }
+    },
+    "i18n": {
+      "title": "Internationalization",
+      "description": "Full support for Spanish (MX) and English (US) with i18next and instant switching",
+      "overview": {
+        "title": "Language Selector",
+        "description": "Change the language of the entire application in real time. All texts, labels and messages update instantly."
+      },
+      "liveDemo": {
+        "title": "Live Demo",
+        "description": "The following components reflect the active language in real time:",
+        "cardTitle": "Actions",
+        "navigation": "Navigation",
+        "products": "Products"
+      },
+      "structure": {
+        "title": "File Structure",
+        "description": "Architecture based on i18next with separate JSON files per language"
+      },
+      "coverage": {
+        "title": "Translation Coverage",
+        "sidebar": "Sidebar",
+        "overview": "Overview",
+        "foundations": "Foundations",
+        "atoms": "Atoms",
+        "components": "Components",
+        "system": "System",
+        "totalKeys": "Total Keys",
+        "languages": "Languages",
+        "coverage": "Coverage"
+      }
+    }
   }
 }

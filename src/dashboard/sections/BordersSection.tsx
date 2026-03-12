@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Copy, Check } from 'lucide-react';
 import './Foundations.css';
+import { useTranslation } from 'react-i18next';
 
 export const BordersSection: React.FC = () => {
+  const { t } = useTranslation();
   const [copied, setCopied] = useState<string | null>(null);
 
   const copyToClipboard = (text: string) => {
@@ -22,15 +24,15 @@ export const BordersSection: React.FC = () => {
 
   const borderWidths = [1, 2, 4, 8];
 
-  return (
-    <div className="foundations">
-      <div className="foundations__header">
-        <h1>Bordes y Radio</h1>
-        <p>Valores de border-radius y border-width del sistema</p>
-      </div>
+    return (
+      <div className="foundations">
+        <div className="foundations__header">
+          <h1>{t('foundations.borders.title')}</h1>
+          <p>{t('foundations.borders.description')}</p>
+        </div>
 
-      <section className="foundations__section">
-        <h2>Border Radius</h2>
+       <section className="foundations__section">
+         <h2>{t('foundations.borders.borderRadius')}</h2>
         <div className="foundations__radius-grid">
           {radiusValues.map((r) => (
             <div key={r.name} className="foundations__radius-item">
