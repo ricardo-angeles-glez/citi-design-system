@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'BanamexDisplay';
+  src: url('/fonts/banamex-display-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  font-family: 'BanamexDisplay', 'Inter', system-ui, sans-serif;
+}
+
+:root {
+  /* Primary Teal */
+  --color-primary-50: #E8F5F8;
+  --color-primary-100: #A8D4E0;
+  --color-primary-200: #4A9DB5;
+  --color-primary-300: #00698F;
+  --color-primary-400: #004F7A;
+  --color-primary-500: #003B5C;
+  --color-primary-600: #002F4A;
+  --color-primary-700: #002338;
+  --color-primary-800: #001726;
+  --color-primary-900: #000B14;
+
+  /* Accent Red (Banamex) */
+  --color-accent-50: #FEF0F3;
+  --color-accent-100: #FBCCD5;
+  --color-accent-300: #EE6680;
+  --color-accent-400: #E8365A;
+  --color-accent-500: #E3173E;
+  --color-accent-600: #B61232;
+  --color-accent-700: #890E26;
+  --color-accent-800: #5C0919;
+  --color-accent-900: #2F050D;
+
+  /* Error (same as accent) */
+  --color-error-50: #FEF0F3;
+  --color-error-100: #FBCCD5;
+  --color-error-200: #F9B8CA;
+  --color-error-300: #EE6680;
+  --color-error-400: #E8365A;
+  --color-error-500: #E3173E;
+  --color-error-600: #B61232;
+  --color-error-700: #890E26;
+  --color-error-800: #5C0919;
+  --color-error-900: #2F050D;
+
+  /* Warning */
+  --color-warning-50: #FFF8E1;
+  --color-warning-100: #FFECB3;
+  --color-warning-200: #FFE082;
+  --color-warning-300: #FFD54F;
+  --color-warning-400: #FFC62B;
+  --color-warning-500: #F5A623;
+  --color-warning-600: #C4851C;
+  --color-warning-700: #936415;
+  --color-warning-800: #62430E;
+  --color-warning-900: #312107;
+
+  /* Success */
+  --color-success-50: #E8F5E9;
+  --color-success-100: #C8E6C9;
+  --color-success-200: #A5D6A7;
+  --color-success-300: #81C784;
+  --color-success-400: #5CB860;
+  --color-success-500: #00823B;
+  --color-success-600: #00682F;
+  --color-success-700: #004F23;
+  --color-success-800: #003517;
+  --color-success-900: #001B0B;
+
+  /* Info */
+  --color-info-50: #E3F2FD;
+  --color-info-100: #BBDEFB;
+  --color-info-200: #90CAF9;
+  --color-info-300: #64B5F6;
+  --color-info-400: #42A5F5;
+  --color-info-500: #2196F3;
+  --color-info-600: #1E88E5;
+  --color-info-700: #1976D2;
+  --color-info-800: #1565C0;
+  --color-info-900: #0D47A1;
+
+  /* Neutral Colors */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-transparent: transparent;
+
+  /* Secondary/Neutrals */
+  --color-secondary-50: #FAFAFA;
+  --color-secondary-100: #F5F5F5;
+  --color-secondary-200: #EEEEEE;
+  --color-secondary-300: #E0E0E0;
+  --color-secondary-400: #BDBDBD;
+  --color-secondary-500: #767676;
+  --color-secondary-600: #4A4A4A;
+  --color-secondary-700: #333333;
+  --color-secondary-800: #1A1A1A;
+  --color-secondary-900: #0D0D0D;
+
+  /* Category Colors */
+  --color-savings-bg: #FFE8D6;
+  --color-savings-text: #CC5500;
+  --color-savings-badge: #E67E22;
+  --color-investment-bg: #E8E0FF;
+  --color-investment-text: #5533CC;
+  --color-investment-badge: #7C3AED;
+  --color-credit-bg: #003B5C;
+  --color-credit-text: #FFFFFF;
+  --color-debit-bg: #FFFFFF;
+  --color-debit-text: #1A1A1A;
+  --color-debit-border: #E0E0E0;
+
+  /* Typography */
+  --font-display: "BanamexDisplay", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "SF Mono", "Fira Code", "Fira Mono", monospace;
+
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-md: 13px;
+  --font-size-lg: 14px;
+  --font-size-xl: 16px;
+  --font-size-2xl: 18px;
+  --font-size-3xl: 20px;
+  --font-size-4xl: 24px;
+  --font-size-5xl: 32px;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-2xl: 24px;
+  --spacing-3xl: 32px;
+  --spacing-4xl: 48px;
+  --spacing-5xl: 64px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 200ms ease-in-out;
+  --transition-slow: 300ms ease-in-out;
+}
+
+/* Global Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'BanamexDisplay', 'Inter', system-ui, sans-serif;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-normal);
+  color: var(--color-secondary-800);
+  background-color: #FAFAFA;
+}

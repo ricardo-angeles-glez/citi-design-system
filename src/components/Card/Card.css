@@ -1,0 +1,48 @@
+.citi-card {
+  font-family: var(--font-sans);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-white);
+  overflow: hidden;
+}
+
+.citi-card--elevation-low {
+  box-shadow: var(--shadow-sm);
+}
+
+.citi-card--elevation-medium {
+  box-shadow: var(--shadow-md);
+}
+
+.citi-card--elevation-high {
+  box-shadow: var(--shadow-lg);
+}
+
+.citi-card--outlined {
+  border: 1px solid var(--color-secondary-200);
+  box-shadow: none;
+}
+
+.citi-card__header {
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-bottom: 1px solid var(--color-secondary-50);
+}
+
+.citi-card__title {
+  margin: 0;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-secondary-800);
+}
+
+.citi-card__content {
+  padding: var(--spacing-xl) var(--spacing-lg);
+  color: var(--color-secondary-600);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-normal);
+}
+
+.citi-card__footer {
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-top: 1px solid var(--color-secondary-50);
+  background-color: #FAFAFA;
+}

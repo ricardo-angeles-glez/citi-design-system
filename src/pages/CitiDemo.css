@@ -1,0 +1,194 @@
+.citi-demo {
+  min-height: 100vh;
+  background-color: #F5F7FA;
+}
+
+/* Header */
+.citi-header {
+  background-color: var(--color-white);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.citi-header__logo {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.citi-header__arc {
+  color: #D11242;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.citi-header__text {
+  color: #003B70;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.citi-header__user {
+  color: var(--color-secondary-600);
+  font-size: var(--font-size-md);
+}
+
+/* Main Content */
+.citi-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+}
+
+.citi-section {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.citi-section__title {
+  color: #003B70;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Account Cards */
+.citi-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.account-card {
+  padding: var(--spacing-lg);
+}
+
+.account-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.account-card__label {
+  color: var(--color-secondary-500);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.account-card__balance {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: #003B70;
+  font-family: var(--font-mono);
+  margin-bottom: var(--spacing-xs);
+}
+
+.account-card__balance--negative {
+  color: #D11242;
+}
+
+.account-card__number {
+  color: var(--color-secondary-400);
+  font-size: var(--font-size-sm);
+}
+
+/* Quick Actions */
+.citi-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+/* Transactions Table */
+.transactions-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transactions-table th,
+.transactions-table td {
+  padding: var(--spacing-md) var(--spacing-lg);
+  text-align: left;
+}
+
+.transactions-table th {
+  background-color: #F8F8F8;
+  color: var(--color-secondary-600);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  border-bottom: 1px solid var(--color-secondary-200);
+}
+
+.transactions-table td {
+  border-bottom: 1px solid var(--color-secondary-100);
+  font-size: var(--font-size-md);
+}
+
+.transactions-table tr:last-child td {
+  border-bottom: none;
+}
+
+.transactions-table__date {
+  color: var(--color-secondary-500);
+  font-size: var(--font-size-sm);
+}
+
+.transactions-table__desc {
+  color: var(--color-secondary-800);
+}
+
+.transactions-table__amount {
+  font-family: var(--font-mono);
+  font-weight: var(--font-weight-medium);
+}
+
+.transactions-table__amount--positive {
+  color: #00823B;
+}
+
+.transactions-table__amount--negative {
+  color: var(--color-secondary-800);
+}
+
+/* Alerts Section */
+.citi-alerts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xl);
+}
+
+.citi-search {
+  flex: 1;
+  min-width: 280px;
+}
+
+.citi-alert {
+  flex: 1;
+  min-width: 280px;
+}
+
+/* Footer */
+.citi-footer {
+  background-color: #003B70;
+  color: var(--color-white);
+  padding: var(--spacing-xl);
+  text-align: center;
+}
+
+.citi-footer p {
+  font-size: var(--font-size-sm);
+  opacity: 0.8;
+}

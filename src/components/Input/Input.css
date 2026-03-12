@@ -1,0 +1,60 @@
+.citi-input__container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-sans);
+}
+
+.citi-input__label {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-secondary-600);
+}
+
+.citi-input {
+  padding: 10px 14px;
+  font-size: var(--font-size-md);
+  border: 1px solid var(--color-secondary-300);
+  border-radius: var(--radius-md);
+  background-color: var(--color-white);
+  color: var(--color-secondary-800);
+  transition: all var(--transition-normal);
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.citi-input::placeholder {
+  color: var(--color-secondary-400);
+}
+
+.citi-input:focus {
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px rgba(0, 59, 112, 0.15);
+}
+
+.citi-input--error {
+  border-color: var(--color-error-500);
+}
+
+.citi-input--error:focus {
+  border-color: var(--color-error-500);
+  box-shadow: 0 0 0 3px rgba(209, 18, 66, 0.15);
+}
+
+.citi-input--disabled,
+.citi-input:disabled {
+  background-color: var(--color-secondary-50);
+  color: var(--color-secondary-400);
+  cursor: not-allowed;
+}
+
+.citi-input__container--disabled .citi-input__label {
+  color: var(--color-secondary-400);
+}
+
+.citi-input__error-message {
+  font-size: var(--font-size-xs);
+  color: var(--color-error-500);
+  margin-top: 4px;
+}

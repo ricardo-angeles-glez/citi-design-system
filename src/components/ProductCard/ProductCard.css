@@ -1,0 +1,92 @@
+.citi-product-card {
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  position: relative;
+  min-height: 80px;
+}
+
+.citi-product-card--savings {
+  background-color: var(--color-savings-bg);
+  color: var(--color-savings-text);
+}
+
+.citi-product-card--investment {
+  background-color: var(--color-investment-bg);
+  color: var(--color-investment-text);
+}
+
+.citi-product-card--credit {
+  background-color: var(--color-credit-bg);
+  color: var(--color-credit-text);
+}
+
+.citi-product-card--debit {
+  background-color: var(--color-debit-bg);
+  color: var(--color-debit-text);
+  border: 1px solid var(--color-debit-border);
+}
+
+.citi-product-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.citi-product-card__category {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  opacity: 0.8;
+}
+
+.citi-product-card__name {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 2px;
+}
+
+.citi-product-card__number {
+  font-size: var(--font-size-sm);
+  opacity: 0.7;
+  margin-bottom: var(--spacing-xs);
+}
+
+.citi-product-card__balance {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-light);
+  font-family: var(--font-mono);
+}
+
+.citi-product-card__balance--negative {
+  color: var(--color-accent-500);
+}
+
+.citi-product-card__content {
+  font-size: var(--font-size-md);
+}
+
+.citi-product-card__menu {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  opacity: 0.5;
+  transition: opacity var(--transition-fast);
+}
+
+.citi-product-card__menu:hover {
+  opacity: 1;
+}
+
+.citi-product-card--credit .citi-product-card__menu {
+  color: var(--color-white);
+}
+
+.citi-product-card--savings .citi-product-card__menu,
+.citi-product-card--investment .citi-product-card__menu {
+  color: inherit;
+}

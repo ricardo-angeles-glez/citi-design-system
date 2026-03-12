@@ -1,0 +1,140 @@
+.components-section {
+  max-width: 900px;
+}
+
+.components-section__header {
+  margin-bottom: 32px;
+}
+
+.components-section__header h1 {
+  font-size: 28px;
+  color: #1A1A1A;
+  margin-bottom: 8px;
+}
+
+.components-section__header p {
+  color: #767676;
+  font-size: 14px;
+}
+
+.components-section__group {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.components-section__title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.components-section__title-row h2 {
+  font-size: 20px;
+  color: #1A1A1A;
+}
+
+.components-section__badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  background-color: #E8F5F8;
+  color: #003B5C;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.components-section__description {
+  color: #767676;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.components-section__preview {
+  padding: 20px;
+  background-color: #FAFAFA;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.components-section__row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.components-section__row:last-child {
+  margin-bottom: 0;
+}
+
+.components-section__inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 300px;
+}
+
+.components-section__badges {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.components-section__avatars {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.components-section__cards {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.components-section__cards > * {
+  flex: 1;
+  min-width: 180px;
+  max-width: 250px;
+}
+
+.components-section__product-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 350px;
+}
+
+.components-section__code {
+  background-color: #1E1E1E;
+  border-radius: 8px;
+  padding: 16px;
+  overflow-x: auto;
+}
+
+.components-section__code pre {
+  margin: 0;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #D4D4D4;
+}
+
+.components-section__code pre .keyword {
+  color: #569CD6;
+}
+
+.components-section__code pre .string {
+  color: #CE9178;
+}
+
+.components-section__code pre .component {
+  color: #4EC9B0;
+}
+
+.components-section__code pre .prop {
+  color: #9CDCFE;
+}

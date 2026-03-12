@@ -1,0 +1,138 @@
+.demo-viewer {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: auto;
+}
+
+.demo-viewer__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 10;
+}
+
+.demo-viewer__content {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  max-width: 1200px;
+}
+
+/* iPhone Frame */
+.demo-viewer__phone {
+  width: 390px;
+  height: 780px;
+  border: 10px solid #1A1A1A;
+  border-radius: 50px;
+  overflow: hidden;
+  position: relative;
+  background: white;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+}
+
+.demo-viewer__notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 28px;
+  background: #1A1A1A;
+  border-radius: 0 0 20px 20px;
+  z-index: 10;
+}
+
+.demo-viewer__screen {
+  width: 390px;
+  height: 100%;
+  padding-top: 28px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -webkit-scrollbar: none;
+  background-color: #FAFAFA;
+}
+
+.demo-viewer__screen::-webkit-scrollbar {
+  display: none;
+}
+
+.demo-viewer__home {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background-color: #333;
+  border-radius: 2px;
+}
+
+/* Info Card */
+.demo-viewer__info {
+  background-color: white;
+  border-radius: 16px;
+  padding: 28px;
+  min-width: 280px;
+}
+
+.demo-viewer__title {
+  font-size: 24px;
+  color: #003B5C;
+  margin-bottom: 4px;
+}
+
+.demo-viewer__subtitle {
+  font-size: 14px;
+  color: #767676;
+  margin-bottom: 20px;
+}
+
+.demo-viewer__features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.demo-viewer__features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.demo-viewer__features li svg {
+  color: #00823B;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .demo-viewer__content {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .demo-viewer__phone {
+    width: 320px;
+    height: 650px;
+  }
+
+  .demo-viewer__info {
+    min-width: auto;
+    width: 320px;
+  }
+}
