@@ -54,6 +54,23 @@ export const DashboardApp: React.FC = () => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
+  // Handle navigation from Overview cards
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      if (customEvent.detail?.sectionId) {
+        setCurrentSection(customEvent.detail.sectionId);
+        // Scroll to top of main panel
+        const mainPanel = document.querySelector('.dashboard-main');
+        if (mainPanel) {
+          mainPanel.scrollTop = 0;
+        }
+      }
+    };
+    window.addEventListener('navigate-to-section', handler);
+    return () => window.removeEventListener('navigate-to-section', handler);
+  }, []);
+
   const scrollToComponent = (id: string) => {
     setTimeout(() => {
       const element = document.getElementById(id);
