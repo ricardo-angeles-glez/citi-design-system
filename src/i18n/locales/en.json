@@ -1,0 +1,32 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Try again",
+    "close": "Close",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "back": "Back"
+  },
+  "products": {
+    "savings": "Savings",
+    "investments": "Investments",
+    "credit": "Credit Cards",
+    "debit": "Debit Accounts",
+    "balance": "Balance",
+    "availableCredit": "Available Credit",
+    "block": "Block"
+  },
+  "navigation": {
+    "home": "Home",
+    "transfer": "Transfer",
+    "payments": "Payments",
+    "more": "More"
+  },
+  "actions": {
+    "transfer": "Transfer",
+    "pay": "Pay",
+    "viewAll": "View All",
+    "viewMovements": "View Movements"
+  }
+}

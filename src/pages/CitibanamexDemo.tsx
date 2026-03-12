@@ -15,6 +15,7 @@ import {
   Bell,
   User
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Badge } from '../components/Badge';
 import { ProductCard } from '../components/ProductCard';
 import { Button } from '../components/Button';
@@ -48,6 +49,7 @@ const listItemVariants = {
 };
 
 export const CitibanamexDemo: React.FC = () => {
+  const { t } = useTranslation();
   const [activeScreen, setActiveScreen] = useState<Screen>('home');
   const [transferStep, setTransferStep] = useState(1);
   
@@ -101,7 +103,7 @@ export const CitibanamexDemo: React.FC = () => {
       {/* Productos Section */}
       <section className="demo-section">
         <div className="demo-section__header">
-          <h2 className="demo-section__title">Productos</h2>
+          <h2 className="demo-section__title">{t('navigation.home')}</h2>
         </div>
         
         <motion.div className="demo-products" variants={listContainerVariants} animate="animate">
@@ -126,6 +128,7 @@ export const CitibanamexDemo: React.FC = () => {
       <section className="demo-section">
         <div className="demo-section__header">
           <h2 className="demo-section__title">Ofertas</h2>
+          <a href="#" className="demo-section__link">{t('actions.viewAll')}</a>
         </div>
         
         <motion.div className="demo-offers" variants={listContainerVariants} animate="animate">
@@ -181,13 +184,13 @@ export const CitibanamexDemo: React.FC = () => {
           <motion.div whileTap={{ scale: 0.96 }}>
             <Button variant="primary" size="sm" onClick={() => handleNavClick('transfer')}>
               <ArrowUpRight size={16} strokeWidth={1.5} />
-              Transferir
+              {t('actions.transfer')}
             </Button>
           </motion.div>
           <motion.div whileTap={{ scale: 0.96 }}>
             <Button variant="secondary" size="sm" onClick={() => handleNavClick('payments')}>
               <FileText size={16} strokeWidth={1.5} />
-              Pagos
+              {t('actions.pay')}
             </Button>
           </motion.div>
           <motion.div whileTap={{ scale: 0.96 }}>

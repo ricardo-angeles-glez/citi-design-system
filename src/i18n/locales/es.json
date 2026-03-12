@@ -1,0 +1,32 @@
+{
+  "common": {
+    "loading": "Cargando...",
+    "error": "Ocurrió un error",
+    "retry": "Intentar de nuevo",
+    "close": "Cerrar",
+    "confirm": "Confirmar",
+    "cancel": "Cancelar",
+    "back": "Regresar"
+  },
+  "products": {
+    "savings": "Bolsas de ahorro",
+    "investments": "Inversiones",
+    "credit": "Tarjetas de crédito",
+    "debit": "Cuentas de débito",
+    "balance": "Saldo",
+    "availableCredit": "Crédito disponible",
+    "block": "Bloquear"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "transfer": "Transferir",
+    "payments": "Pagos",
+    "more": "Más"
+  },
+  "actions": {
+    "transfer": "Transferir",
+    "pay": "Pagar",
+    "viewAll": "Ver todas",
+    "viewMovements": "Ver movimientos"
+  }
+}

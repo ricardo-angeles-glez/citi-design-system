@@ -45,10 +45,15 @@ export const Input: React.FC<InputProps> = ({
         id={inputId}
         className={inputClasses}
         disabled={disabled}
+        aria-invalid={!!error}
+        aria-describedby={error ? `${inputId}-error` : undefined}
+        aria-required={props.required}
         {...props}
       />
       {error && (
-        <span className="citi-input__error-message">{error}</span>
+        <span id={`${inputId}-error`} className="citi-input__error-message" role="alert">
+          {error}
+        </span>
       )}
     </div>
   );

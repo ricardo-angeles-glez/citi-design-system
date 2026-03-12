@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { Smartphone, Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Smartphone, Menu, X, Moon, Sun, Globe } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Sidebar } from './Sidebar';
 import { DemoViewer } from './DemoViewer';
 import { OverviewSection } from './sections/OverviewSection';
@@ -29,12 +30,29 @@ export type DashboardSection =
   | 'listitems'
   | 'productcards'
   | 'appheader'
-  | 'patterns';
+  | 'patterns'
+  | 'modal'
+  | 'toast'
+  | 'skeleton'
+  | 'emptystate'
+  | 'otpinput'
+  | 'pinpad'
+  | 'currencyinput'
+  | 'chart'
+  | 'accessibility'
+  | 'darkmode'
+  | 'i18n';
 
 export const DashboardApp: React.FC = () => {
   const [currentSection, setCurrentSection] = useState<DashboardSection>('overview');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showDemo, setShowDemo] = useState(false);
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   const scrollToComponent = (id: string) => {
     setTimeout(() => {
@@ -50,7 +68,13 @@ export const DashboardApp: React.FC = () => {
     setSidebarOpen(false);
     
     // Scroll to component if it's a component section
-    if (['buttons', 'inputs', 'badges', 'avatars', 'cards', 'listitems', 'productcards', 'appheader', 'patterns'].includes(section)) {
+    const componentSections = [
+      'buttons', 'inputs', 'badges', 'avatars', 'cards', 
+      'listitems', 'productcards', 'appheader', 'patterns',
+      'modal', 'toast', 'skeleton', 'emptystate', 
+      'otpinput', 'pinpad', 'currencyinput', 'chart'
+    ];
+    if (componentSections.includes(section)) {
       scrollToComponent(section);
     }
   };
@@ -81,7 +105,19 @@ export const DashboardApp: React.FC = () => {
       case 'productcards':
       case 'appheader':
       case 'patterns':
+      case 'modal':
+      case 'toast':
+      case 'skeleton':
+      case 'emptystate':
+      case 'otpinput':
+      case 'pinpad':
+      case 'currencyinput':
+      case 'chart':
         return <ComponentsSection />;
+      case 'accessibility':
+      case 'darkmode':
+      case 'i18n':
+        return <ComponentsSection />; // Placeholder for System sections
       default:
         return (
           <div className="section-placeholder">
@@ -115,6 +151,23 @@ export const DashboardApp: React.FC = () => {
           <Smartphone size={16} />
           Ver Demo
         </button>
+        <div className="dashboard-topbar__actions">
+          <button 
+            className="dashboard-topbar__icon-btn"
+            onClick={() => setTheme(t => t === 'light' ? 'dark' : 'light')}
+            aria-label={theme === 'light' ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'}
+          >
+            {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+          </button>
+          <button 
+            className="dashboard-topbar__icon-btn"
+            onClick={() => i18n.changeLanguage(i18n.language === 'es' ? 'en' : 'es')}
+            aria-label="Cambiar idioma"
+          >
+            <Globe size={18} />
+            <span className="lang-label">{i18n.language.toUpperCase()}</span>
+          </button>
+        </div>
       </header>
 
       <div className="dashboard__container">

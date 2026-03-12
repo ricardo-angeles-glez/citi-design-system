@@ -194,5 +194,67 @@ body {
   font-size: var(--font-size-lg);
   line-height: var(--line-height-normal);
   color: var(--color-secondary-800);
-  background-color: #FAFAFA;
+  background-color: var(--color-bg-primary, #FAFAFA);
+  transition: background-color 300ms, color 300ms;
+}
+
+/* Accessibility: Focus Visible */
+*:focus-visible {
+  outline: 2px solid #003B5C;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Skip Link for Keyboard Navigation */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  padding: 8px 16px;
+  background: #003B5C;
+  color: white;
+  border-radius: 0 0 8px 8px;
+  z-index: 9999;
+  font-size: 14px;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+  --color-bg-primary: #0A0A0A;
+  --color-bg-secondary: #1A1A1A;
+  --color-bg-elevated: #242424;
+  --color-border: #2A2A2A;
+  --color-text-primary: #F5F5F5;
+  --color-text-secondary: #9E9E9E;
+  --color-text-tertiary: #666666;
+  
+  --color-primary-500: #0073B1;
+  --color-primary-100: #003B5C;
+  --color-primary-50: #001F3F;
+  
+  --color-surface: #1A1A1A;
+  --color-surface-hover: #242424;
+  
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
+  
+  /* Invert backgrounds for components */
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
 }

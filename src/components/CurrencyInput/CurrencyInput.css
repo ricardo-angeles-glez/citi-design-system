@@ -1,0 +1,91 @@
+.currency-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.currency-input-label {
+  font-size: 14px;
+  color: #767676;
+  font-weight: 500;
+}
+
+.currency-display-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.currency-display {
+  font-family: 'BanamexDisplay', sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  color: #1A1A1A;
+  text-align: center;
+}
+
+.currency-display--zero {
+  color: #BDBDBD;
+}
+
+.currency-display--error {
+  color: #E3173E;
+}
+
+.currency-toggle {
+  padding: 4px 12px;
+  background: #F0F4F8;
+  border: 1px solid #E0E0E0;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #003B5C;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.currency-toggle:hover {
+  background: #E0E8F0;
+}
+
+.currency-balance {
+  font-size: 13px;
+  color: #767676;
+}
+
+.currency-error {
+  font-size: 14px;
+  color: #E3173E;
+  margin: 0;
+  min-height: 20px;
+}
+
+.currency-keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.currency-key {
+  height: 56px;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  font-size: 22px;
+  font-family: 'BanamexDisplay', sans-serif;
+  color: #1A1A1A;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.currency-key:hover {
+  background: #F5F5F5;
+}
+
+.currency-key:active {
+  background: #E8EEF4;
+}

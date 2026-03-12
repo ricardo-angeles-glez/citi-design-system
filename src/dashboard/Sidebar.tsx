@@ -13,7 +13,17 @@ import {
   CreditCard,
   List,
   Smartphone,
-  BarChart2
+  BarChart2,
+  MessageSquare,
+  Bell,
+  Loader,
+  Inbox,
+  KeyRound,
+  Hash,
+  DollarSign,
+  Accessibility,
+  Moon,
+  Globe
 } from 'lucide-react';
 import type { DashboardSection } from './DashboardApp';
 import './Sidebar.css';
@@ -68,6 +78,27 @@ const navigation: NavGroup[] = [
       { id: 'productcards', label: 'Product Cards', icon: <CreditCard size={18} /> },
       { id: 'appheader', label: 'App Header', icon: <Smartphone size={18} /> },
       { id: 'patterns', label: 'Patrones', icon: <BarChart2 size={18} /> },
+      { id: 'modal', label: 'Modal / Dialog', icon: <MessageSquare size={18} /> },
+      { id: 'toast', label: 'Toast', icon: <Bell size={18} /> },
+      { id: 'skeleton', label: 'Skeleton', icon: <Loader size={18} /> },
+      { id: 'emptystate', label: 'Empty State', icon: <Inbox size={18} /> },
+    ],
+  },
+  {
+    title: 'Banking',
+    items: [
+      { id: 'otpinput', label: 'OTP Input', icon: <KeyRound size={18} /> },
+      { id: 'pinpad', label: 'PIN Pad', icon: <Hash size={18} /> },
+      { id: 'currencyinput', label: 'Currency Input', icon: <DollarSign size={18} /> },
+      { id: 'chart', label: 'Spending Chart', icon: <BarChart2 size={18} /> },
+    ],
+  },
+  {
+    title: 'System',
+    items: [
+      { id: 'accessibility', label: 'Accesibilidad', icon: <Accessibility size={18} /> },
+      { id: 'darkmode', label: 'Dark Mode', icon: <Moon size={18} /> },
+      { id: 'i18n', label: 'Internacionalización', icon: <Globe size={18} /> },
     ],
   },
 ];

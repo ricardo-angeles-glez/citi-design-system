@@ -9,7 +9,8 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   size?: ButtonSize;
   isLoading?: boolean;
   fullWidth?: boolean;
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  ariaLabel?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -20,6 +21,7 @@ export const Button: React.FC<ButtonProps> = ({
   disabled,
   children,
   className = '',
+  ariaLabel,
   ...props
 }) => {
   const classes = [
@@ -34,7 +36,12 @@ export const Button: React.FC<ButtonProps> = ({
     .join(' ');
 
   return (
-    <button className={classes} disabled={disabled || isLoading} {...props}>
+    <button 
+      className={classes} 
+      disabled={disabled || isLoading} 
+      aria-label={ariaLabel}
+      {...props}
+    >
       {isLoading && (
         <span className="citi-button__spinner">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -50,9 +57,11 @@ export const Button: React.FC<ButtonProps> = ({
           </svg>
         </span>
       )}
-      <span className={isLoading ? 'citi-button__content--hidden' : 'citi-button__content'}>
-        {children}
-      </span>
+      {children && (
+        <span className={isLoading ? 'citi-button__content--hidden' : 'citi-button__content'}>
+          {children}
+        </span>
+      )}
     </button>
   );
 };

@@ -68,7 +68,6 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-left: auto;
   background-color: #E3173E;
   color: white;
   border: none;
@@ -77,6 +76,36 @@
   font-size: 13px;
   cursor: pointer;
   transition: background-color 0.2s;
+}
+
+.dashboard-topbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.dashboard-topbar__icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dashboard-topbar__icon-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.lang-label {
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .dashboard-topbar__demo:hover {
