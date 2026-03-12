@@ -11,13 +11,10 @@ import {
   ArrowUpRight,
   Landmark,
   PiggyBank,
-  Clock,
   CheckCircle,
-  XCircle,
   Trash2,
   RefreshCw,
-  Shield,
-  Loader2
+  Shield
 } from 'lucide-react';
 import { AppHeader } from '../components/AppHeader';
 import { Badge } from '../components/Badge';
@@ -117,14 +114,7 @@ export const CitibanamexDemo: React.FC = () => {
     if (screen === 'transfer') setTransferStep(1);
   };
 
-  const getStatusIcon = (status: string) => {
-    switch (status) {
-      case 'completed': return CheckCircle;
-      case 'pending': return Clock;
-      case 'failed': return XCircle;
-      default: return Clock;
-    }
-  };
+
 
   return (
     <div className="citibanamex-demo">
@@ -475,8 +465,8 @@ export const CitibanamexDemo: React.FC = () => {
             </section>
           )}
 
-          {/* Screen: Account Detail */}
-          {activeScreen === 'account-detail' && (
+          {/* Screen: More/Más (Account Detail placeholder) */}
+          {activeScreen === 'transactions' && (
             <section className="demo-screen">
               <div className="screen-header">
                 <h2 className="screen-title">Detalles de Cuenta</h2>
@@ -654,8 +644,8 @@ export const CitibanamexDemo: React.FC = () => {
                 </span>
               </div>
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
       </div>
       )}
     </div>
