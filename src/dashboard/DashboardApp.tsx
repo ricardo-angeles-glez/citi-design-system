@@ -131,7 +131,7 @@ export const DashboardApp: React.FC = () => {
       </div>
 
       {/* Demo Viewer Overlay */}
-      {showDemo && <DemoViewer onClose={() => setShowDemo(false)} />}
+      {showDemo && <DemoViewer isOpen={showDemo} onClose={() => setShowDemo(false)} />}
     </div>
   );
 };

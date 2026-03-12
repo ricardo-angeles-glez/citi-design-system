@@ -1,138 +1,126 @@
 .demo-viewer {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.9);
-  z-index: 1000;
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 48px;
+  z-index: 1000;
   padding: 20px;
-  overflow: auto;
-}
-
-.demo-viewer__close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  padding: 8px;
-  z-index: 10;
-}
-
-.demo-viewer__content {
-  display: flex;
-  align-items: center;
-  gap: 60px;
-  max-width: 1200px;
-}
-
-/* iPhone Frame */
-.demo-viewer__phone {
-  width: 390px;
-  height: 780px;
-  border: 10px solid #1A1A1A;
-  border-radius: 50px;
   overflow: hidden;
+}
+
+.iphone-frame {
+  width: 375px;
+  height: 812px;
+  background: #1A1A1A;
+  border-radius: 55px;
+  padding: 12px;
+  box-shadow: 
+    0 0 0 1px #333,
+    0 40px 100px rgba(0,0,0,0.8),
+    inset 0 0 0 1px #444;
   position: relative;
-  background: white;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
   flex-shrink: 0;
 }
 
-.demo-viewer__notch {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 28px;
-  background: #1A1A1A;
-  border-radius: 0 0 20px 20px;
-  z-index: 10;
+.iphone-screen {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 44px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
-.demo-viewer__screen {
-  width: 390px;
-  height: 100%;
-  padding-top: 28px;
+.status-bar {
+  width: 100%;
+  height: 44px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  flex-shrink: 0;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.status-time {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #1A1A1A;
+}
+
+.app-content {
+  flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: none;
-  -webkit-scrollbar: none;
-  background-color: #FAFAFA;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
-.demo-viewer__screen::-webkit-scrollbar {
+.app-content::-webkit-scrollbar {
   display: none;
 }
 
-.demo-viewer__home {
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 4px;
-  background-color: #333;
-  border-radius: 2px;
-}
-
-/* Info Card */
-.demo-viewer__info {
-  background-color: white;
-  border-radius: 16px;
-  padding: 28px;
-  min-width: 280px;
-}
-
-.demo-viewer__title {
-  font-size: 24px;
-  color: #003B5C;
-  margin-bottom: 4px;
-}
-
-.demo-viewer__subtitle {
-  font-size: 14px;
-  color: #767676;
-  margin-bottom: 20px;
-}
-
-.demo-viewer__features {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.demo-viewer__features li {
+.home-indicator {
+  height: 34px;
+  background: white;
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  color: #333;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-.demo-viewer__features li svg {
-  color: #00823B;
+.home-indicator-bar {
+  width: 134px;
+  height: 5px;
+  background: #1A1A1A;
+  border-radius: 3px;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .demo-viewer__content {
-    flex-direction: column;
-    gap: 30px;
-  }
+.info-card {
+  width: 280px;
+  align-self: center;
+  display: none;
+}
 
-  .demo-viewer__phone {
-    width: 320px;
-    height: 650px;
+@media (min-width: 1200px) {
+  .info-card {
+    display: block;
   }
+}
 
-  .demo-viewer__info {
-    min-width: auto;
-    width: 320px;
-  }
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  z-index: 10;
+  transition: background 0.2s;
+}
+
+.close-button:hover {
+  background: rgba(255,255,255,0.2);
 }
