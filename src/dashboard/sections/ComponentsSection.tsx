@@ -1,9 +1,10 @@
 import React from 'react';
 import { ProductCard } from '../../components/ProductCard';
+import { CardVisual } from '../../components/CardVisual';
 import { ListItem } from '../../components/ListItem';
 import { AppHeader } from '../../components/AppHeader';
 import { IconWrapper } from '../../components/IconWrapper';
-import { products, transactions, formatCurrency, formatAmount } from '../../data/mockData';
+import { products, transactions, formatAmount } from '../../data/mockData';
 import './ComponentsSection.css';
 
 export const ComponentsSection: React.FC = () => {
@@ -51,12 +52,7 @@ export const ComponentsSection: React.FC = () => {
             {products.map((product) => (
               <ProductCard
                 key={product.id}
-                categoryColor={product.id as 'savings' | 'investment' | 'credit' | 'debit'}
-                categoryLabel={product.category}
-                badgeText={product.badge || undefined}
-                badgeVariant={product.badgeVariant as any}
-                balance={product.balance !== null ? formatCurrency(product.balance, product.currency) : undefined}
-                balanceNegative={product.balance !== null && product.balance < 0}
+                product={product}
               />
             ))}
           </div>
@@ -85,6 +81,22 @@ export const ComponentsSection: React.FC = () => {
   balance="$110,000.00"
 />`}
           </pre>
+        </div>
+      </section>
+
+      {/* Card Visual (Sub-component) */}
+      <section id="cardvisual" className="components-section__group">
+        <div className="components-section__title-row">
+          <h2>Card Visual</h2>
+          <span className="components-section__badge">Sub-component</span>
+        </div>
+        <div className="components-section__preview">
+          <div className="components-section__cardvisual-grid">
+            <CardVisual cardName="Oro" cardNumber="**394" cardBg="#B8860B" cardAccent="#FFD700" type="credit" size="md" />
+            <CardVisual cardName="Descubre" cardNumber="**789" cardBg="#2C3E50" cardAccent="#E74C3C" type="credit" size="md" />
+            <CardVisual cardName="Priority" cardNumber="**964" cardBg="#1A3A5C" cardAccent="#C0C0C0" type="debit" size="md" />
+            <CardVisual cardName="MiCuenta" cardNumber="**000" cardBg="#E3173E" cardAccent="#FF6B8A" type="debit" size="md" />
+          </div>
         </div>
       </section>
 

@@ -59,16 +59,6 @@ export const CitibanamexDemo: React.FC = () => {
     date: new Date().toISOString().split('T')[0]
   });
 
-  const getProductIcon = useCallback((id: string) => {
-    switch (id) {
-      case 'savings': return PiggyBank;
-      case 'investments': return TrendingUp;
-      case 'credit': return CreditCard;
-      case 'debit': return Wallet;
-      default: return Landmark;
-    }
-  }, []);
-
   const handleTransferNext = useCallback(() => {
     if (transferStep < 3) {
       setTransferStep(prev => prev + 1);
@@ -115,38 +105,20 @@ export const CitibanamexDemo: React.FC = () => {
         </div>
         
         <motion.div className="demo-products" variants={listContainerVariants} animate="animate">
-          {products.map((product) => {
-            const ProductIcon = getProductIcon(product.id);
-            return (
-              <motion.div
-                key={product.id}
-                variants={listItemVariants}
-                initial="initial"
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.96 }}
-              >
-                <ProductCard
-                  categoryColor={product.id as 'savings' | 'investment' | 'credit' | 'debit'}
-                  categoryLabel={product.count ? `${product.category} (${product.count})` : product.category}
-                  badgeText={product.badge || undefined}
-                  badgeVariant={(product.badgeVariant as 'nuevo') || undefined}
-                  balance={product.balance !== null ? formatCurrency(product.balance) : undefined}
-                  balanceNegative={product.balance !== null && product.balance < 0}
-                  showBalance={product.balance !== null}
-                >
-                  <div className="demo-product__row">
-                    <div className="demo-product__icon">
-                      <ProductIcon size={20} strokeWidth={1.5} />
-                    </div>
-                    <span className="demo-product__name">{product.category}</span>
-                    <span className="demo-product__balance">
-                      {product.balance !== null ? formatCurrency(product.balance) : 'No disponible'}
-                    </span>
-                  </div>
-                </ProductCard>
-              </motion.div>
-            );
-          })}
+          {products.map((product) => (
+            <motion.div
+              key={product.id}
+              variants={listItemVariants}
+              initial="initial"
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.96 }}
+            >
+              <ProductCard
+                product={product}
+                onPress={(id) => console.log('Pressed product:', id)}
+              />
+            </motion.div>
+          ))}
         </motion.div>
       </section>
 

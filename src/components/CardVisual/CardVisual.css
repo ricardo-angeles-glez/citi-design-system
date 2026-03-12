@@ -1,0 +1,70 @@
+.card-visual {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+.card-visual--sm {
+  width: 56px;
+  height: 36px;
+}
+
+.card-visual--md {
+  width: 80px;
+  height: 50px;
+}
+
+.card-visual__content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4px 6px;
+}
+
+.card-visual__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-visual__chip {
+  width: 12px;
+  height: 8px;
+  background: #D4AF37;
+  border-radius: 2px;
+}
+
+.card-visual__logo {
+  color: white;
+  font-size: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.card-visual__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-visual__number {
+  color: white;
+  font-size: 9px;
+}
+
+.card-visual__type {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 8px;
+  text-transform: uppercase;
+}
+
+.card-visual--debit .card-visual__top {
+  justify-content: flex-end;
+}
+
+.card-visual--debit .card-visual__chip {
+  display: none;
+}
