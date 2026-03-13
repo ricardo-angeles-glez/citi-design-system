@@ -1,4 +1,5 @@
-import { 
+import React, { useMemo } from 'react';
+import {
   LayoutDashboard,
   Palette,
   Type,
@@ -23,12 +24,14 @@ import {
   DollarSign,
   Accessibility,
   Moon,
-  Globe
+  Globe,
+  ChevronDown,
+  CheckSquare,
+  CircleDot,
 } from 'lucide-react';
 import type { DashboardSection } from './DashboardApp';
 import './Sidebar.css';
 import { useTranslation } from 'react-i18next';
-import { useMemo } from 'react';
 
 interface SidebarProps {
   currentSection: DashboardSection;
@@ -71,6 +74,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentSection, onNavigate }) 
       items: [
         { id: 'buttons', label: t('sidebar.buttons'), icon: <Square size={18} /> },
         { id: 'inputs', label: t('sidebar.inputs'), icon: <ToggleLeft size={18} /> },
+        { id: 'select', label: 'Select', icon: <ChevronDown size={18} /> },
+        { id: 'checkbox', label: 'Checkbox', icon: <CheckSquare size={18} /> },
+        { id: 'radio', label: 'Radio Group', icon: <CircleDot size={18} /> },
         { id: 'badges', label: t('sidebar.badges'), icon: <Tag size={18} /> },
         { id: 'avatars', label: t('sidebar.avatars'), icon: <User size={18} /> },
         { id: 'cards', label: t('sidebar.cards'), icon: <CreditCard size={18} /> },
@@ -81,6 +87,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentSection, onNavigate }) 
       items: [
         { id: 'listitems', label: t('sidebar.listitems'), icon: <List size={18} /> },
         { id: 'productcards', label: t('sidebar.productcards'), icon: <CreditCard size={18} /> },
+        { id: 'cardvisual', label: 'Card Visual', icon: <CreditCard size={18} /> },
         { id: 'appheader', label: t('sidebar.appheader'), icon: <Smartphone size={18} /> },
         { id: 'patterns', label: t('sidebar.patterns'), icon: <BarChart2 size={18} /> },
         { id: 'modal', label: t('sidebar.modal'), icon: <MessageSquare size={18} /> },

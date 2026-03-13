@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { AnimatePresence } from 'framer-motion';
 import { ListItem } from '../../components/ListItem';
 import { ProductCard } from '../../components/ProductCard';
+import { CardVisual } from '../../components/CardVisual';
 import { Modal } from '../../components/Modal';
 import { Toast } from '../../components/Toast';
 import { Skeleton, SkeletonListItem } from '../../components/Skeleton';
@@ -18,14 +19,12 @@ import {
 } from 'lucide-react';
 import './ComponentsSection.css';
 
-/* ── Toast state ─────────────────────────── */
 interface ToastItem {
   id: string;
   message: string;
   variant: 'success' | 'error' | 'warning' | 'info';
 }
 
-/* ── Mock product data for ProductCard ───── */
 const demoSavingsProduct = {
   id: 'savings',
   category: 'Ahorro',
@@ -68,16 +67,13 @@ const demoCreditProduct = {
   ],
 };
 
-/* ── Main component ─────────────────────── */
 export const ComponentsSection: React.FC = () => {
   const { t } = useTranslation();
 
-  // Modal state
   const [defaultModalOpen, setDefaultModalOpen] = useState(false);
   const [dangerModalOpen, setDangerModalOpen] = useState(false);
   const [successModalOpen, setSuccessModalOpen] = useState(false);
 
-  // Toast state
   const [toasts, setToasts] = useState<ToastItem[]>([]);
   const addToast = (variant: ToastItem['variant'], message: string) => {
     const id = Date.now().toString();
@@ -87,7 +83,6 @@ export const ComponentsSection: React.FC = () => {
     setToasts((prev) => prev.filter((t) => t.id !== id));
   };
 
-  // Banking state
   const [currencyValue, setCurrencyValue] = useState(0);
   const [otpResult, setOtpResult] = useState('');
   const [pinResult, setPinResult] = useState('');
@@ -187,7 +182,82 @@ export const ComponentsSection: React.FC = () => {
     expandable: true,
     accounts: [...]
   }}
-  onPress={(id) => console.log(id)}
+/>`}</pre>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════
+          CARD VISUAL
+      ═══════════════════════════════════════ */}
+      <section id="cardvisual" className="components-section__group">
+        <div className="components-section__title-row">
+          <h2>Card Visual</h2>
+          <span className="components-section__badge">
+            {t('sections.components.component')}
+          </span>
+        </div>
+        <p className="components-section__description">
+          Representación visual de tarjetas bancarias con gradientes, chip EMV y red de pago. Soporta crédito y débito en tamaños sm y md.
+        </p>
+        <div className="components-section__preview">
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 24, alignItems: 'flex-start' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'center' }}>
+              <p style={{ fontSize: 12, color: 'var(--text-tertiary)', fontWeight: 600, textTransform: 'uppercase' }}>
+                Crédito — Oro
+              </p>
+              <CardVisual
+                cardNumber="•••• •••• •••• 3940"
+                cardBg="#B8860B"
+                cardAccent="#D4AF37"
+                type="credit"
+                size="md"
+              />
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'center' }}>
+              <p style={{ fontSize: 12, color: 'var(--text-tertiary)', fontWeight: 600, textTransform: 'uppercase' }}>
+                Crédito — Platinum
+              </p>
+              <CardVisual
+                cardNumber="•••• •••• •••• 4532"
+                cardBg="#2C3E50"
+                cardAccent="#E74C3C"
+                type="credit"
+                size="md"
+              />
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'center' }}>
+              <p style={{ fontSize: 12, color: 'var(--text-tertiary)', fontWeight: 600, textTransform: 'uppercase' }}>
+                Débito — Priority
+              </p>
+              <CardVisual
+                cardNumber="•••• •••• •••• 9640"
+                cardBg="#1A3A5C"
+                cardAccent="#0073B1"
+                type="debit"
+                size="md"
+              />
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'center' }}>
+              <p style={{ fontSize: 12, color: 'var(--text-tertiary)', fontWeight: 600, textTransform: 'uppercase' }}>
+                Crédito — Rojo (sm)
+              </p>
+              <CardVisual
+                cardNumber="•••• •••• •••• 7890"
+                cardBg="#E3173E"
+                cardAccent="#FF4D6D"
+                type="credit"
+                size="sm"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="components-section__code">
+          <pre>{`<CardVisual
+  cardNumber="•••• •••• •••• 3940"
+  cardBg="#B8860B"
+  cardAccent="#D4AF37"
+  type="credit" | "debit"
+  size="sm" | "md"
 />`}</pre>
         </div>
       </section>
@@ -288,57 +358,26 @@ export const ComponentsSection: React.FC = () => {
         </p>
         <div className="components-section__preview">
           <div className="components-section__row">
-            <Button
-              variant="primary"
-              size="sm"
-              onClick={() =>
-                addToast('success', t('sections.components.toast.successMsg'))
-              }
-            >
+            <Button variant="primary" size="sm"
+              onClick={() => addToast('success', t('sections.components.toast.successMsg'))}>
               Success
             </Button>
-            <Button
-              variant="danger"
-              size="sm"
-              onClick={() =>
-                addToast('error', t('sections.components.toast.errorMsg'))
-              }
-            >
+            <Button variant="danger" size="sm"
+              onClick={() => addToast('error', t('sections.components.toast.errorMsg'))}>
               Error
             </Button>
-            <Button
-              variant="secondary"
-              size="sm"
-              onClick={() =>
-                addToast('warning', t('sections.components.toast.warningMsg'))
-              }
-            >
+            <Button variant="secondary" size="sm"
+              onClick={() => addToast('warning', t('sections.components.toast.warningMsg'))}>
               Warning
             </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() =>
-                addToast('info', t('sections.components.toast.infoMsg'))
-              }
-            >
+            <Button variant="ghost" size="sm"
+              onClick={() => addToast('info', t('sections.components.toast.infoMsg'))}>
               Info
             </Button>
           </div>
         </div>
 
-        {/* Floating toast container */}
-        <div
-          style={{
-            position: 'fixed',
-            top: 80,
-            right: 24,
-            zIndex: 9999,
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 8,
-          }}
-        >
+        <div style={{ position: 'fixed', top: 80, right: 24, zIndex: 9999, display: 'flex', flexDirection: 'column', gap: 8 }}>
           <AnimatePresence>
             {toasts.map((toast) => (
               <Toast
@@ -379,15 +418,11 @@ export const ComponentsSection: React.FC = () => {
         <div className="components-section__preview">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
             <div>
-              <p style={{ fontSize: 12, color: 'var(--text-tertiary)', marginBottom: 8, fontWeight: 600 }}>
-                Text Lines
-              </p>
+              <p style={{ fontSize: 12, color: 'var(--text-tertiary)', marginBottom: 8, fontWeight: 600 }}>Text Lines</p>
               <Skeleton variant="text" lines={3} />
             </div>
             <div>
-              <p style={{ fontSize: 12, color: 'var(--text-tertiary)', marginBottom: 8, fontWeight: 600 }}>
-                Circle + Text
-              </p>
+              <p style={{ fontSize: 12, color: 'var(--text-tertiary)', marginBottom: 8, fontWeight: 600 }}>Circle + Text</p>
               <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
                 <Skeleton variant="circle" width={48} />
                 <div style={{ flex: 1 }}>
@@ -398,15 +433,11 @@ export const ComponentsSection: React.FC = () => {
               </div>
             </div>
             <div>
-              <p style={{ fontSize: 12, color: 'var(--text-tertiary)', marginBottom: 8, fontWeight: 600 }}>
-                Card
-              </p>
+              <p style={{ fontSize: 12, color: 'var(--text-tertiary)', marginBottom: 8, fontWeight: 600 }}>Card</p>
               <Skeleton variant="card" />
             </div>
             <div>
-              <p style={{ fontSize: 12, color: 'var(--text-tertiary)', marginBottom: 8, fontWeight: 600 }}>
-                List Items
-              </p>
+              <p style={{ fontSize: 12, color: 'var(--text-tertiary)', marginBottom: 8, fontWeight: 600 }}>List Items</p>
               <SkeletonListItem />
               <div style={{ height: 8 }} />
               <SkeletonListItem />
@@ -447,10 +478,7 @@ export const ComponentsSection: React.FC = () => {
               title={t('sections.components.emptystate.noResults')}
               description={t('sections.components.emptystate.noResultsDesc')}
               variant="search"
-              action={{
-                label: t('sections.components.emptystate.clearFilters'),
-                onClick: () => { },
-              }}
+              action={{ label: t('sections.components.emptystate.clearFilters'), onClick: () => { } }}
             />
           </div>
         </div>
@@ -485,14 +513,7 @@ export const ComponentsSection: React.FC = () => {
               onComplete={(code) => setOtpResult(code)}
             />
             {otpResult && (
-              <p
-                style={{
-                  textAlign: 'center',
-                  marginTop: 12,
-                  fontSize: 13,
-                  color: 'var(--success-500)',
-                }}
-              >
+              <p style={{ textAlign: 'center', marginTop: 12, fontSize: 13, color: 'var(--success-500)' }}>
                 ✓ Código: {otpResult}
               </p>
             )}
@@ -529,14 +550,7 @@ export const ComponentsSection: React.FC = () => {
               onComplete={(pin) => setPinResult(pin)}
             />
             {pinResult && (
-              <p
-                style={{
-                  textAlign: 'center',
-                  marginTop: 12,
-                  fontSize: 13,
-                  color: 'var(--success-500)',
-                }}
-              >
+              <p style={{ textAlign: 'center', marginTop: 12, fontSize: 13, color: 'var(--success-500)' }}>
                 ✓ PIN ingresado correctamente
               </p>
             )}
@@ -603,31 +617,13 @@ export const ComponentsSection: React.FC = () => {
         <div className="components-section__preview">
           <div style={{ display: 'grid', gap: 32 }}>
             <div>
-              <p
-                style={{
-                  fontSize: 12,
-                  fontWeight: 600,
-                  color: 'var(--text-tertiary)',
-                  marginBottom: 12,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.5px',
-                }}
-              >
+              <p style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-tertiary)', marginBottom: 12, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                 Bar Chart
               </p>
               <SpendingChart data={mockChartData} variant="bar" />
             </div>
             <div>
-              <p
-                style={{
-                  fontSize: 12,
-                  fontWeight: 600,
-                  color: 'var(--text-tertiary)',
-                  marginBottom: 12,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.5px',
-                }}
-              >
+              <p style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-tertiary)', marginBottom: 12, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                 Line Chart
               </p>
               <SpendingChart data={mockChartData} variant="line" />

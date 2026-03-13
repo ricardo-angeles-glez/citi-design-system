@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { 
-  Layers, Palette, Type, LayoutGrid, 
-  MousePointer, FormInput, Tag, User, Square, Bell, 
+import {
+  Layers, Palette, Type, LayoutGrid,
+  MousePointer, FormInput, Tag, User, Square, Bell,
   CreditCard, Loader, KeyRound, Hash, DollarSign, BarChart2,
   Shield, Zap, Globe, ArrowRight
 } from 'lucide-react';
@@ -41,11 +41,11 @@ interface ChangelogItemProps {
 
 const CategoryBadge: React.FC<{ category: string }> = ({ category }) => {
   const styles: Record<string, { bg: string; color: string }> = {
-    Atom:        { bg: '#E3F2FD', color: '#1565C0' },
-    Component:   { bg: '#F3E5F5', color: '#6A1B9A' },
-    Banking:     { bg: '#E8F5E9', color: '#2E7D32' },
-    System:      { bg: '#FFF8E1', color: '#F57F17' },
-    Foundation:  { bg: '#FBE9E7', color: '#BF360C' },
+    Atom: { bg: '#E3F2FD', color: '#1565C0' },
+    Component: { bg: '#F3E5F5', color: '#6A1B9A' },
+    Banking: { bg: '#E8F5E9', color: '#2E7D32' },
+    System: { bg: '#FFF8E1', color: '#F57F17' },
+    Foundation: { bg: '#FBE9E7', color: '#BF360C' },
   };
   const s = styles[category] || styles.Atom;
   return (
@@ -207,90 +207,140 @@ export const OverviewSection: React.FC = () => {
 
   const componentsData: ComponentCardProps[] = [
     // Foundations
-    { category: 'Foundation', titleKey: 'overview.components.colors.title',
+    {
+      category: 'Foundation', titleKey: 'overview.components.colors.title',
       descriptionKey: 'overview.components.colors.description',
-      icon: Palette, previewColor: '#003B5C', sectionId: 'colors', count: 70 },
-    { category: 'Foundation', titleKey: 'overview.components.typography.title',
+      icon: Palette, previewColor: '#003B5C', sectionId: 'colors', count: 70
+    },
+    {
+      category: 'Foundation', titleKey: 'overview.components.typography.title',
       descriptionKey: 'overview.components.typography.description',
-      icon: Type, previewColor: '#1A1A2E', sectionId: 'typography', count: 9 },
-    { category: 'Foundation', titleKey: 'overview.components.spacing.title',
+      icon: Type, previewColor: '#1A1A2E', sectionId: 'typography', count: 9
+    },
+    {
+      category: 'Foundation', titleKey: 'overview.components.spacing.title',
       descriptionKey: 'overview.components.spacing.description',
-      icon: LayoutGrid, previewColor: '#0D3349', sectionId: 'spacing', count: 9 },
+      icon: LayoutGrid, previewColor: '#0D3349', sectionId: 'spacing', count: 9
+    },
     // Atoms
-    { category: 'Atom', titleKey: 'overview.components.buttons.title',
+    {
+      category: 'Atom', titleKey: 'overview.components.buttons.title',
       descriptionKey: 'overview.components.buttons.description',
-      icon: MousePointer, previewColor: '#1565C0', sectionId: 'buttons', count: 4 },
-    { category: 'Atom', titleKey: 'overview.components.inputs.title',
+      icon: MousePointer, previewColor: '#1565C0', sectionId: 'buttons', count: 4
+    },
+    {
+      category: 'Atom', titleKey: 'overview.components.inputs.title',
       descriptionKey: 'overview.components.inputs.description',
-      icon: FormInput, previewColor: '#1976D2', sectionId: 'inputs', count: 3 },
-    { category: 'Atom', titleKey: 'overview.components.badges.title',
+      icon: FormInput, previewColor: '#1976D2', sectionId: 'inputs', count: 3
+    },
+    {
+      category: 'Atom', titleKey: 'overview.components.badges.title',
       descriptionKey: 'overview.components.badges.description',
-      icon: Tag, previewColor: '#1565C0', sectionId: 'badges', count: 6 },
-    { category: 'Atom', titleKey: 'overview.components.avatars.title',
+      icon: Tag, previewColor: '#1565C0', sectionId: 'badges', count: 6
+    },
+    {
+      category: 'Atom', titleKey: 'overview.components.avatars.title',
       descriptionKey: 'overview.components.avatars.description',
-      icon: User, previewColor: '#0D47A1', sectionId: 'avatars', count: 4 },
-    { category: 'Atom', titleKey: 'overview.components.cards.title',
+      icon: User, previewColor: '#0D47A1', sectionId: 'avatars', count: 4
+    },
+    {
+      category: 'Atom', titleKey: 'overview.components.cards.title',
       descriptionKey: 'overview.components.cards.description',
-      icon: Square, previewColor: '#1565C0', sectionId: 'cards', count: 4 },
+      icon: Square, previewColor: '#1565C0', sectionId: 'cards', count: 4
+    },
     // Components
-    { category: 'Component', titleKey: 'overview.components.modal.title',
+    {
+      category: 'Component', titleKey: 'overview.components.modal.title',
       descriptionKey: 'overview.components.modal.description',
-      icon: Layers, previewColor: '#6A1B9A', sectionId: 'modal', isNew: true },
-    { category: 'Component', titleKey: 'overview.components.toast.title',
+      icon: Layers, previewColor: '#6A1B9A', sectionId: 'modal', isNew: true
+    },
+    {
+      category: 'Component', titleKey: 'overview.components.toast.title',
       descriptionKey: 'overview.components.toast.description',
-      icon: Bell, previewColor: '#7B1FA2', sectionId: 'toast', isNew: true },
-    { category: 'Component', titleKey: 'overview.components.productcards.title',
+      icon: Bell, previewColor: '#7B1FA2', sectionId: 'toast', isNew: true
+    },
+    {
+      category: 'Component', titleKey: 'overview.components.productcards.title',
       descriptionKey: 'overview.components.productcards.description',
-      icon: CreditCard, previewColor: '#4A148C', sectionId: 'productcards', count: 2 },
-    { category: 'Component', titleKey: 'overview.components.skeleton.title',
+      icon: CreditCard, previewColor: '#4A148C', sectionId: 'productcards', count: 2
+    },
+    {
+      category: 'Component', titleKey: 'overview.components.skeleton.title',
       descriptionKey: 'overview.components.skeleton.description',
-      icon: Loader, previewColor: '#6A1B9A', sectionId: 'skeleton', isNew: true },
+      icon: Loader, previewColor: '#6A1B9A', sectionId: 'skeleton', isNew: true
+    },
     // Banking
-    { category: 'Banking', titleKey: 'overview.components.otpinput.title',
+    {
+      category: 'Banking', titleKey: 'overview.components.otpinput.title',
       descriptionKey: 'overview.components.otpinput.description',
-      icon: KeyRound, previewColor: '#2E7D32', sectionId: 'otpinput', isNew: true },
-    { category: 'Banking', titleKey: 'overview.components.pinpad.title',
+      icon: KeyRound, previewColor: '#2E7D32', sectionId: 'otpinput', isNew: true
+    },
+    {
+      category: 'Banking', titleKey: 'overview.components.pinpad.title',
       descriptionKey: 'overview.components.pinpad.description',
-      icon: Hash, previewColor: '#388E3C', sectionId: 'pinpad', isNew: true },
-    { category: 'Banking', titleKey: 'overview.components.currencyinput.title',
+      icon: Hash, previewColor: '#388E3C', sectionId: 'pinpad', isNew: true
+    },
+    {
+      category: 'Banking', titleKey: 'overview.components.currencyinput.title',
       descriptionKey: 'overview.components.currencyinput.description',
-      icon: DollarSign, previewColor: '#1B5E20', sectionId: 'currencyinput', isNew: true },
-    { category: 'Banking', titleKey: 'overview.components.chart.title',
+      icon: DollarSign, previewColor: '#1B5E20', sectionId: 'currencyinput', isNew: true
+    },
+    {
+      category: 'Banking', titleKey: 'overview.components.chart.title',
       descriptionKey: 'overview.components.chart.description',
-      icon: BarChart2, previewColor: '#2E7D32', sectionId: 'chart', isNew: true },
+      icon: BarChart2, previewColor: '#2E7D32', sectionId: 'chart', isNew: true
+    },
   ];
 
   const principles: PrincipleProps[] = [
-    { icon: Shield, iconBg: '#E3F2FD', iconColor: '#1565C0',
+    {
+      icon: Shield, iconBg: '#E3F2FD', iconColor: '#1565C0',
       titleKey: 'overview.principles.confidence.title',
-      descriptionKey: 'overview.principles.confidence.description' },
-    { icon: Zap, iconBg: '#FFF8E1', iconColor: '#F57F17',
+      descriptionKey: 'overview.principles.confidence.description'
+    },
+    {
+      icon: Zap, iconBg: '#FFF8E1', iconColor: '#F57F17',
       titleKey: 'overview.principles.clarity.title',
-      descriptionKey: 'overview.principles.clarity.description' },
-    { icon: Layers, iconBg: '#F3E5F5', iconColor: '#6A1B9A',
+      descriptionKey: 'overview.principles.clarity.description'
+    },
+    {
+      icon: Layers, iconBg: '#F3E5F5', iconColor: '#6A1B9A',
       titleKey: 'overview.principles.composition.title',
-      descriptionKey: 'overview.principles.composition.description' },
-    { icon: Globe, iconBg: '#E8F5E9', iconColor: '#2E7D32',
+      descriptionKey: 'overview.principles.composition.description'
+    },
+    {
+      icon: Globe, iconBg: '#E8F5E9', iconColor: '#2E7D32',
       titleKey: 'overview.principles.accessibility.title',
-      descriptionKey: 'overview.principles.accessibility.description' },
+      descriptionKey: 'overview.principles.accessibility.description'
+    },
   ];
 
   const changelog: ChangelogItemProps[] = [
-    { date: 'Mar 2026', type: 'Banking', dotColor: '#2E7D32',
+    {
+      date: 'Mar 2026', type: 'Banking', dotColor: '#2E7D32',
       titleKey: 'overview.changelog.banking.title',
-      descriptionKey: 'overview.changelog.banking.description' },
-    { date: 'Mar 2026', type: 'System', dotColor: '#F57F17',
+      descriptionKey: 'overview.changelog.banking.description'
+    },
+    {
+      date: 'Mar 2026', type: 'System', dotColor: '#F57F17',
       titleKey: 'overview.changelog.system.title',
-      descriptionKey: 'overview.changelog.system.description' },
-    { date: 'Mar 2026', type: 'Component', dotColor: '#6A1B9A',
+      descriptionKey: 'overview.changelog.system.description'
+    },
+    {
+      date: 'Mar 2026', type: 'Component', dotColor: '#6A1B9A',
       titleKey: 'overview.changelog.component1.title',
-      descriptionKey: 'overview.changelog.component1.description' },
-    { date: 'Mar 2026', type: 'Component', dotColor: '#6A1B9A',
+      descriptionKey: 'overview.changelog.component1.description'
+    },
+    {
+      date: 'Mar 2026', type: 'Component', dotColor: '#6A1B9A',
       titleKey: 'overview.changelog.component2.title',
-      descriptionKey: 'overview.changelog.component2.description' },
-    { date: 'Mar 2026', type: 'Atom', dotColor: '#1565C0',
+      descriptionKey: 'overview.changelog.component2.description'
+    },
+    {
+      date: 'Mar 2026', type: 'Atom', dotColor: '#1565C0',
       titleKey: 'overview.changelog.release.title',
-      descriptionKey: 'overview.changelog.release.description' },
+      descriptionKey: 'overview.changelog.release.description'
+    },
   ];
 
   return (
@@ -346,10 +396,10 @@ export const OverviewSection: React.FC = () => {
         gridTemplateColumns: 'repeat(5, 1fr)',
         marginBottom: 40,
       }}>
-        <StatItem value={18}  label={t('overview.stats.components')} />
+        <StatItem value={18} label={t('overview.stats.components')} />
         <StatItem value={100} label={t('overview.stats.cssTokens')} suffix="+" />
-        <StatItem value={5}   label={t('overview.stats.foundations')} />
-        <StatItem value={3}   label={t('overview.stats.languages')} />
+        <StatItem value={5} label={t('overview.stats.foundations')} />
+        <StatItem value={2} label={t('overview.stats.languages')} />
         <StatItem value={100} label={t('overview.stats.typescript')} suffix="%" />
       </section>
 
@@ -396,12 +446,16 @@ export const OverviewSection: React.FC = () => {
                   <Icon size={20} color={p.iconColor} />
                 </div>
                 <div>
-                  <p style={{ fontSize: 15, fontWeight: 600,
-                    color: 'var(--text-primary)', margin: 0 }}>
+                  <p style={{
+                    fontSize: 15, fontWeight: 600,
+                    color: 'var(--text-primary)', margin: 0
+                  }}>
                     {t(p.titleKey)}
                   </p>
-                  <p style={{ fontSize: 13, color: 'var(--text-secondary)',
-                    margin: '4px 0 0', lineHeight: 1.5 }}>
+                  <p style={{
+                    fontSize: 13, color: 'var(--text-secondary)',
+                    margin: '4px 0 0', lineHeight: 1.5
+                  }}>
                     {t(p.descriptionKey)}
                   </p>
                 </div>
@@ -450,12 +504,16 @@ export const OverviewSection: React.FC = () => {
                     {item.type}
                   </span>
                 </div>
-                <p style={{ fontSize: 14, fontWeight: 600,
-                  color: 'var(--text-primary)', margin: '4px 0 0' }}>
+                <p style={{
+                  fontSize: 14, fontWeight: 600,
+                  color: 'var(--text-primary)', margin: '4px 0 0'
+                }}>
                   {t(item.titleKey)}
                 </p>
-                <p style={{ fontSize: 13, color: 'var(--text-secondary)',
-                  margin: '4px 0 0', lineHeight: 1.5 }}>
+                <p style={{
+                  fontSize: 13, color: 'var(--text-secondary)',
+                  margin: '4px 0 0', lineHeight: 1.5
+                }}>
                   {t(item.descriptionKey)}
                 </p>
               </div>

@@ -15,7 +15,7 @@ import { AtomsSection } from './sections/AtomsSection';
 import { SystemSection } from './sections/SystemSection';
 import './DashboardApp.css';
 
-export type DashboardSection = 
+export type DashboardSection =
   | 'overview'
   | 'colors'
   | 'typography'
@@ -25,11 +25,15 @@ export type DashboardSection =
   | 'transitions'
   | 'buttons'
   | 'inputs'
+  | 'select'
+  | 'checkbox'
+  | 'radio'
   | 'badges'
   | 'avatars'
   | 'cards'
   | 'listitems'
   | 'productcards'
+  | 'cardvisual'
   | 'appheader'
   | 'patterns'
   | 'modal'
@@ -55,17 +59,13 @@ export const DashboardApp: React.FC = () => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
-  // Handle navigation from Overview cards
   useEffect(() => {
     const handler = (e: Event) => {
       const customEvent = e as CustomEvent;
       if (customEvent.detail?.sectionId) {
         setCurrentSection(customEvent.detail.sectionId);
-        // Scroll to top of main panel
         const mainPanel = document.querySelector('.dashboard-main');
-        if (mainPanel) {
-          mainPanel.scrollTop = 0;
-        }
+        if (mainPanel) mainPanel.scrollTop = 0;
       }
     };
     window.addEventListener('navigate-to-section', handler);
@@ -84,13 +84,13 @@ export const DashboardApp: React.FC = () => {
   const handleNavigate = (section: DashboardSection) => {
     setCurrentSection(section);
     setSidebarOpen(false);
-    
-    // Scroll to component if it's a component section
+
     const componentSections = [
-      'buttons', 'inputs', 'badges', 'avatars', 'cards', 
-      'listitems', 'productcards', 'appheader', 'patterns',
-      'modal', 'toast', 'skeleton', 'emptystate', 
-      'otpinput', 'pinpad', 'currencyinput', 'chart'
+      'buttons', 'inputs', 'select', 'checkbox', 'radio',
+      'badges', 'avatars', 'cards',
+      'listitems', 'productcards', 'cardvisual', 'appheader', 'patterns',
+      'modal', 'toast', 'skeleton', 'emptystate',
+      'otpinput', 'pinpad', 'currencyinput', 'chart',
     ];
     if (componentSections.includes(section)) {
       scrollToComponent(section);
@@ -115,12 +115,16 @@ export const DashboardApp: React.FC = () => {
         return <TransitionsSection />;
       case 'buttons':
       case 'inputs':
+      case 'select':
+      case 'checkbox':
+      case 'radio':
       case 'badges':
       case 'avatars':
       case 'cards':
         return <AtomsSection />;
       case 'listitems':
       case 'productcards':
+      case 'cardvisual':
       case 'appheader':
       case 'patterns':
       case 'modal':
@@ -150,9 +154,8 @@ export const DashboardApp: React.FC = () => {
 
   return (
     <div className="dashboard">
-      {/* Topbar */}
       <header className="dashboard-topbar">
-        <button 
+        <button
           className="dashboard-topbar__menu"
           onClick={() => setSidebarOpen(!sidebarOpen)}
         >
@@ -164,7 +167,7 @@ export const DashboardApp: React.FC = () => {
         </div>
         <span className="dashboard-topbar__title">Design System</span>
         <span className="dashboard-topbar__version">v1.0.0</span>
-        <button 
+        <button
           className="dashboard-topbar__demo"
           onClick={() => setShowDemo(true)}
         >
@@ -172,14 +175,14 @@ export const DashboardApp: React.FC = () => {
           Ver Demo
         </button>
         <div className="dashboard-topbar__actions">
-          <button 
+          <button
             className="dashboard-topbar__icon-btn"
             onClick={() => setTheme(t => t === 'light' ? 'dark' : 'light')}
             aria-label={theme === 'light' ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'}
           >
             {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
           </button>
-          <button 
+          <button
             className="dashboard-topbar__icon-btn"
             onClick={() => i18n.changeLanguage(i18n.language === 'es' ? 'en' : 'es')}
             aria-label="Cambiar idioma"
@@ -191,21 +194,17 @@ export const DashboardApp: React.FC = () => {
       </header>
 
       <div className="dashboard__container">
-        {/* Sidebar */}
         <aside className={`dashboard-sidebar ${sidebarOpen ? 'dashboard-sidebar--open' : ''}`}>
-          <Sidebar 
-            currentSection={currentSection} 
+          <Sidebar
+            currentSection={currentSection}
             onNavigate={handleNavigate}
           />
         </aside>
-
-        {/* Main Panel */}
         <main className="dashboard-main">
           {renderSection()}
         </main>
       </div>
 
-      {/* Demo Viewer Overlay */}
       {showDemo && <DemoViewer isOpen={showDemo} onClose={() => setShowDemo(false)} />}
     </div>
   );
