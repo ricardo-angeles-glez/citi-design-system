@@ -1,0 +1,35 @@
+stages:
+  - test
+  - build
+
+variables:
+  NODE_VERSION: "20"
+
+cache:
+  paths:
+    - node_modules/
+
+test:
+  stage: test
+  image: node:20
+  script:
+    - npm ci
+    - npx tsc --noEmit
+    - npm test
+  coverage: '/Tests\s+(\d+\.\d+)/'
+
+build:
+  stage: build
+  image: node:20
+  needs: [test]
+  script:
+    - npm ci
+    - npm run build
+    - npm run build-storybook
+  artifacts:
+    paths:
+      - dist/
+      - storybook-static/
+    expire_in: 7 days
+  only:
+    - main
