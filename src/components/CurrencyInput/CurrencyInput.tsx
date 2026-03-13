@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import './CurrencyInput.css';
 
@@ -19,17 +19,14 @@ export const CurrencyInput: React.FC<CurrencyInputProps> = ({
   maxValue,
   error
 }) => {
-  const [displayValue, setDisplayValue] = useState('0.00');
   const [activeCurrency, setActiveCurrency] = useState(currency);
 
-  useEffect(() => {
-    // Format value for display
-    const formatted = new Intl.NumberFormat('es-MX', {
+  const displayValue = React.useMemo(() => {
+    return new Intl.NumberFormat('es-MX', {
       style: 'currency',
       currency: activeCurrency,
       minimumFractionDigits: 2
     }).format(value || 0);
-    setDisplayValue(formatted);
   }, [value, activeCurrency]);
 
   const handleKeyPress = (num: string) => {

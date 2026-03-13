@@ -169,8 +169,8 @@ export const ComponentsSection: React.FC = () => {
         </p>
         <div className="components-section__preview">
           <div style={{ maxWidth: 520, display: 'flex', flexDirection: 'column', gap: 16 }}>
-            <ProductCard product={demoSavingsProduct as any} />
-            <ProductCard product={demoCreditProduct as any} />
+            <ProductCard product={demoSavingsProduct as React.ComponentProps<typeof ProductCard>['product']} />
+            <ProductCard product={demoCreditProduct as React.ComponentProps<typeof ProductCard>['product']} />
           </div>
         </div>
         <div className="components-section__code">

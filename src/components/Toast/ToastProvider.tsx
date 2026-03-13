@@ -13,6 +13,7 @@ interface ToastContextType {
   showToast: (toast: Omit<ToastData, 'id'>) => void;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const ToastContext = createContext<ToastContextType | null>(null);
 
 export const ToastProvider: React.FC<{ children: ReactNode }> = ({ children }) => {

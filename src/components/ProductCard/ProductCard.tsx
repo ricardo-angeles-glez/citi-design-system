@@ -41,8 +41,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     product.expandable ? 'citi-product-card--expandable' : ''
   ].join(' ');
 
-  const Icon = getProductIcon(product.id);
-
   return (
     <div className={cardClasses}>
       {/* Header - Always visible */}
@@ -74,7 +72,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <div className="citi-product-card__simple-content" style={{ backgroundColor: product.bgColor }}>
           <div className="citi-product-card__simple-row">
             <div className="citi-product-card__icon-wrapper" style={{ color: product.textColor }}>
-              <Icon size={20} strokeWidth={1.5} />
+              {React.createElement(getProductIcon(product.id), { size: 20, strokeWidth: 1.5 })}
             </div>
             <span className="citi-product-card__name" style={{ color: product.textColor }}>
               {product.category}

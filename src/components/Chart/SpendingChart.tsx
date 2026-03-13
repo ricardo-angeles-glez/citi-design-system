@@ -81,7 +81,7 @@ const CustomTooltip: React.FC<TooltipProps<number, string>> = ({
 };
 
 /* ── Custom Legend ────────────────────────── */
-const CustomLegend: React.FC<{ payload?: any[] }> = ({ payload }) => {
+const CustomLegend: React.FC<{ payload?: { color?: string; dataKey?: string }[] }> = ({ payload }) => {
   const { t } = useTranslation();
 
   if (!payload) return null;
@@ -342,6 +342,7 @@ export const SpendingChart: React.FC<SpendingChartProps> = ({
 };
 
 /* ── Mock Data ───────────────────────────── */
+// eslint-disable-next-line react-refresh/only-export-components
 export const mockChartData: ChartDataPoint[] = [
   { month: 'Oct', income: 32000, expense: 18420 },
   { month: 'Nov', income: 32000, expense: 22150 },

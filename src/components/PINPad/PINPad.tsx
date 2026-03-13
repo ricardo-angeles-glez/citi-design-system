@@ -64,7 +64,11 @@ export const PINPad: React.FC<PINPadProps> = ({
               whileTap={!isPlaceholder ? { scale: 0.92 } : {}}
               onClick={() => {
                 if (!isPlaceholder) {
-                  isDelete ? handleDelete() : handleNumber(num);
+                  if (isDelete) {
+                    handleDelete();
+                  } else {
+                    handleNumber(num);
+                  }
                 }
               }}
               disabled={isPlaceholder}

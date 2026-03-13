@@ -27,7 +27,7 @@ export const Savings: Story = {
             expandable: false,
             bgColor: '#FFF3EC',
             textColor: '#CC5500',
-        } as any,
+        } as React.ComponentProps<typeof ProductCard>['product'],
     },
 };
 
@@ -67,7 +67,7 @@ export const CreditExpandable: Story = {
                     cardImage: 'descubre',
                 },
             ],
-        } as any,
+        } as React.ComponentProps<typeof ProductCard>['product'],
     },
 };
 
@@ -94,6 +94,6 @@ export const DebitExpandable: Story = {
                     cardImage: 'priority',
                 },
             ],
-        } as any,
+        } as React.ComponentProps<typeof ProductCard>['product'],
     },
 };
