@@ -1,8 +1,7 @@
 import { useState, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Home, 
-  ArrowRightCircle, 
+import {
+  Home,
+  ArrowRightCircle,
   FileText,
   CreditCard,
   Wallet,
@@ -12,80 +11,52 @@ import {
   PiggyBank,
   CheckCircle,
   Shield,
-  Bell,
-  User
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Badge } from '../components/Badge';
 import { ProductCard } from '../components/ProductCard';
 import { Button } from '../components/Button';
 import { Input } from '../components/Input';
+import { CurrencyInput } from '../components/CurrencyInput';
+import { ListItem } from '../components/ListItem';
+import { Avatar } from '../components/Avatar';
+import { Modal } from '../components/Modal';
 import { IconWrapper } from '../components/IconWrapper';
 import { user, products, transactions, offers, credits, formatCurrency } from '../data/mockData';
-import '../components/Badge/Badge.css';
-import '../components/ProductCard/ProductCard.css';
-import '../components/Button/Button.css';
-import '../components/Input/Input.css';
-import '../styles/responsive.css';
 import './CitibanamexDemo.css';
 
 type Screen = 'home' | 'transfer' | 'payments';
-
-const screenVariants = {
-  initial: { opacity: 0, x: 30 },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -30 }
-};
-
-const transition = { duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] };
-
-const listContainerVariants = {
-  animate: { transition: { staggerChildren: 0.06 } }
-};
-
-const listItemVariants = {
-  initial: { opacity: 0, y: 12 },
-  animate: { opacity: 1, y: 0 }
-};
 
 export const CitibanamexDemo: React.FC = () => {
   const { t } = useTranslation();
   const [activeScreen, setActiveScreen] = useState<Screen>('home');
   const [transferStep, setTransferStep] = useState(1);
-  
+  const [successModalOpen, setSuccessModalOpen] = useState(false);
+
   const [transferData, setTransferData] = useState({
     fromAccount: '',
     toAccount: '',
-    amount: '',
+    amount: 0,
     concept: '',
-    date: new Date().toISOString().split('T')[0]
   });
 
   const handleTransferNext = useCallback(() => {
-    if (transferStep < 3) {
-      setTransferStep(prev => prev + 1);
-    }
+    if (transferStep < 3) setTransferStep((prev) => prev + 1);
   }, [transferStep]);
 
   const handleTransferBack = useCallback(() => {
-    if (transferStep > 1) {
-      setTransferStep(prev => prev - 1);
-    }
+    if (transferStep > 1) setTransferStep((prev) => prev - 1);
   }, [transferStep]);
 
   const handleTransferSubmit = useCallback(() => {
-    setTransferStep(4);
-    setTimeout(() => {
-      setTransferStep(1);
-      setActiveScreen('home');
-      setTransferData({
-        fromAccount: '',
-        toAccount: '',
-        amount: '',
-        concept: '',
-        date: new Date().toISOString().split('T')[0]
-      });
-    }, 2000);
+    setSuccessModalOpen(true);
+  }, []);
+
+  const handleSuccessClose = useCallback(() => {
+    setSuccessModalOpen(false);
+    setTransferStep(1);
+    setActiveScreen('home');
+    setTransferData({ fromAccount: '', toAccount: '', amount: 0, concept: '' });
   }, []);
 
   const handleNavClick = useCallback((screen: Screen) => {
@@ -93,438 +64,351 @@ export const CitibanamexDemo: React.FC = () => {
     if (screen === 'transfer') setTransferStep(1);
   }, []);
 
+  /* ─── Home Screen ─────────────────────────────────────── */
   const renderHomeScreen = () => (
-    <motion.div
-      variants={listContainerVariants}
-      animate="animate"
-      initial="initial"
-      style={{ flex: 1 }}
-    >
-      {/* Productos Section */}
+    <div className="demo-screen">
+
+      {/* Productos */}
       <section className="demo-section">
         <div className="demo-section__header">
-          <h2 className="demo-section__title">{t('navigation.home')}</h2>
+          <h2 className="demo-section__title">Mis productos</h2>
+          <a href="#" className="demo-section__link">{t('actions.viewAll')}</a>
         </div>
-        
-        <motion.div className="demo-products" variants={listContainerVariants} animate="animate">
+        <div className="demo-products">
           {products.map((product) => (
-            <motion.div
+            <ProductCard
               key={product.id}
-              variants={listItemVariants}
-              initial="initial"
-              whileHover={{ scale: 1.01 }}
-              whileTap={{ scale: 0.96 }}
-            >
-              <ProductCard
-                product={product}
-                onPress={(id) => console.log('Pressed product:', id)}
-              />
-            </motion.div>
+              product={product}
+              onPress={(id) => console.log('product:', id)}
+            />
           ))}
-        </motion.div>
+        </div>
       </section>
 
-      {/* Ofertas Section */}
+      {/* Quick Actions */}
+      <section className="demo-section">
+        <div className="demo-section__header">
+          <h2 className="demo-section__title">Acciones rápidas</h2>
+        </div>
+        <div className="demo-actions">
+          <Button variant="primary" size="sm" onClick={() => handleNavClick('transfer')}>
+            <ArrowUpRight size={16} strokeWidth={1.5} />
+            {t('actions.transfer')}
+          </Button>
+          <Button variant="secondary" size="sm" onClick={() => handleNavClick('payments')}>
+            <FileText size={16} strokeWidth={1.5} />
+            {t('actions.pay')}
+          </Button>
+          <Button variant="ghost" size="sm">
+            <Landmark size={16} strokeWidth={1.5} />
+            Depósitos
+          </Button>
+          <Button variant="danger" size="sm">
+            <Wallet size={16} strokeWidth={1.5} />
+            Retiros
+          </Button>
+        </div>
+      </section>
+
+      {/* Movimientos recientes */}
+      <section className="demo-section">
+        <div className="demo-section__header">
+          <h2 className="demo-section__title">Movimientos recientes</h2>
+          <a href="#" className="demo-section__link">{t('actions.viewAll')}</a>
+        </div>
+        <div className="demo-transactions">
+          {transactions.slice(0, 4).map((tx, index) => (
+            <ListItem
+              key={tx.id}
+              icon={<IconWrapper iconName={tx.icon} category={tx.category} size={20} />}
+              title={tx.description}
+              subtitle={tx.date}
+              amount={formatCurrency(tx.amount)}
+              amountNegative={tx.amount < 0}
+              showDivider={index < 3}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* Ofertas */}
       <section className="demo-section">
         <div className="demo-section__header">
           <h2 className="demo-section__title">Ofertas</h2>
           <a href="#" className="demo-section__link">{t('actions.viewAll')}</a>
         </div>
-        
-        <motion.div className="demo-offers" variants={listContainerVariants} animate="animate">
+        <div className="demo-offers">
           {offers.map((offer) => (
-            <motion.div
-              key={offer.id}
-              className="demo-offer-card"
-              variants={listItemVariants}
-              initial="initial"
-              whileHover={{ scale: 1.01 }}
-              whileTap={{ scale: 0.96 }}
-            >
-              <div className="demo-offer-card__image" style={{ backgroundImage: `url(${offer.image})` }}></div>
+            <div key={offer.id} className="demo-offer-card">
+              <div
+                className="demo-offer-card__image"
+                style={{ backgroundImage: `url(${offer.image})` }}
+              />
               <div className="demo-offer-card__content">
                 <Badge label={offer.badge} variant="beneficios" size="sm" />
                 <p className="demo-offer-card__text">{offer.title}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </section>
 
-      {/* Créditos Section */}
+      {/* Créditos */}
       <section className="demo-section">
         <div className="demo-section__header">
           <h2 className="demo-section__title">Créditos</h2>
         </div>
-        
-        <motion.div className="demo-credits" variants={listContainerVariants} animate="animate">
+        <div className="demo-credits">
           {credits.map((credit) => (
-            <motion.div
-              key={credit.id}
-              className="demo-offer-card"
-              variants={listItemVariants}
-              initial="initial"
-              whileHover={{ scale: 1.01 }}
-              whileTap={{ scale: 0.96 }}
-            >
-              <div className="demo-offer-card__image" style={{ backgroundImage: `url(${credit.image})` }}></div>
+            <div key={credit.id} className="demo-offer-card">
+              <div
+                className="demo-offer-card__image"
+                style={{ backgroundImage: `url(${credit.image})` }}
+              />
               <div className="demo-offer-card__content">
                 <Badge label={credit.badge} variant="beneficios" size="sm" />
                 <p className="demo-offer-card__title">{credit.title}</p>
                 <p className="demo-offer-card__subtitle">{credit.subtitle}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
-      </section>
-
-      {/* Quick Actions */}
-      <section className="demo-section">
-        <div className="demo-actions">
-          <motion.div whileTap={{ scale: 0.96 }}>
-            <Button variant="primary" size="sm" onClick={() => handleNavClick('transfer')}>
-              <ArrowUpRight size={16} strokeWidth={1.5} />
-              {t('actions.transfer')}
-            </Button>
-          </motion.div>
-          <motion.div whileTap={{ scale: 0.96 }}>
-            <Button variant="secondary" size="sm" onClick={() => handleNavClick('payments')}>
-              <FileText size={16} strokeWidth={1.5} />
-              {t('actions.pay')}
-            </Button>
-          </motion.div>
-          <motion.div whileTap={{ scale: 0.96 }}>
-            <Button variant="ghost" size="sm">
-              <Landmark size={16} strokeWidth={1.5} />
-              Depósitos
-            </Button>
-          </motion.div>
-          <motion.div whileTap={{ scale: 0.96 }}>
-            <Button variant="danger" size="sm">
-              <Wallet size={16} strokeWidth={1.5} />
-              Retiros
-            </Button>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Search Alert */}
-      <section className="demo-section">
-        <Input 
-          placeholder="Buscar transacciones..." 
-          label="Buscar"
-        />
-        <div className="demo-alert">
-          <Input 
-            value="" 
-            error="Tu sesión expira en 5 minutos"
-            placeholder="Ingresa código de seguridad"
-          />
         </div>
       </section>
 
       {/* Disclaimer */}
       <section className="demo-section">
-        <div className="disclaimer">
-          <Shield size={16} />
-          <p>Este es un entorno de demostración. No se realizan transacciones reales.</p>
+        <div className="demo-disclaimer">
+          <Shield size={14} />
+          <p>Entorno de demostración. No se realizan transacciones reales.</p>
         </div>
       </section>
-    </motion.div>
+    </div>
   );
 
+  /* ─── Transfer Screen ─────────────────────────────────── */
   const renderTransferScreen = () => (
-    <section className="demo-screen">
+    <div className="demo-screen">
       <div className="screen-header">
         <h2 className="screen-title">Transferir</h2>
         <div className="screen-steps">
-          <div className={`screen-step ${transferStep >= 1 ? 'screen-step--active' : ''}`}>
-            <span className="screen-step__number">1</span>
-            <span className="screen-step__label">Origen</span>
-          </div>
-          <div className={`screen-step ${transferStep >= 2 ? 'screen-step--active' : ''}`}>
-            <span className="screen-step__number">2</span>
-            <span className="screen-step__label">Destino</span>
-          </div>
-          <div className={`screen-step ${transferStep >= 3 ? 'screen-step--active' : ''}`}>
-            <span className="screen-step__number">3</span>
-            <span className="screen-step__label">Confirmar</span>
-          </div>
+          {['Origen', 'Destino', 'Confirmar'].map((label, i) => (
+            <div
+              key={label}
+              className={`screen-step ${transferStep >= i + 1 ? 'screen-step--active' : ''}`}
+            >
+              <span className="screen-step__number">{i + 1}</span>
+              <span className="screen-step__label">{label}</span>
+            </div>
+          ))}
         </div>
       </div>
 
+      {/* Step 1 — Origen */}
       {transferStep === 1 && (
-        <motion.div 
-          className="transfer-step"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.2 }}
-        >
+        <div className="transfer-step">
           <h3 className="transfer-step__title">Selecciona cuenta de origen</h3>
-          <motion.div className="accounts-list" variants={listContainerVariants} animate="animate">
+          <div className="accounts-list">
             {products.map((product) => (
-              <motion.div
+              <div
                 key={product.id}
                 className={`account-item ${transferData.fromAccount === product.category ? 'account-item--selected' : ''}`}
-                onClick={() => setTransferData({...transferData, fromAccount: product.category})}
-                variants={listItemVariants}
-                initial="initial"
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.96 }}
+                onClick={() => setTransferData({ ...transferData, fromAccount: product.category })}
               >
                 <IconWrapper iconName={product.id} category={product.category} size={24} />
                 <div className="account-item__info">
                   <span className="account-item__name">{product.category}</span>
-                  <span className="account-item__balance">{formatCurrency(product.balance || 0)}</span>
+                  <span className="account-item__balance">
+                    {formatCurrency(product.balance || 0)}
+                  </span>
                 </div>
-                {transferData.fromAccount === product.category && <CheckCircle size={20} className="account-item__check" />}
-              </motion.div>
+                {transferData.fromAccount === product.category && (
+                  <CheckCircle size={20} className="account-item__check" />
+                )}
+              </div>
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       )}
 
+      {/* Step 2 — Destino */}
       {transferStep === 2 && (
-        <motion.div 
-          className="transfer-step"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.2 }}
-        >
+        <div className="transfer-step">
           <h3 className="transfer-step__title">Datos del destino</h3>
-          <Input 
-            label="Número de cuenta o CLABE"
-            placeholder="000000000000000000"
-            value={transferData.toAccount}
-            onChange={(e) => setTransferData({...transferData, toAccount: e.target.value})}
-          />
-          <Input 
-            label="Monto"
-            placeholder="$0.00"
-            value={transferData.amount}
-            onChange={(e) => setTransferData({...transferData, amount: e.target.value})}
-          />
-          <Input 
-            label="Concepto"
-            placeholder="Descripción del pago"
-            value={transferData.concept}
-            onChange={(e) => setTransferData({...transferData, concept: e.target.value})}
-          />
-        </motion.div>
+          <div className="transfer-fields">
+            <Input
+              label="Número de cuenta o CLABE"
+              placeholder="000000000000000000"
+              value={transferData.toAccount}
+              onChange={(e) => setTransferData({ ...transferData, toAccount: e.target.value })}
+            />
+            <CurrencyInput
+              label="Monto a transferir"
+              value={transferData.amount}
+              onChange={(val) => setTransferData({ ...transferData, amount: val })}
+              currency="MXN"
+              maxValue={500000}
+            />
+            <Input
+              label="Concepto"
+              placeholder="Descripción del pago"
+              value={transferData.concept}
+              onChange={(e) => setTransferData({ ...transferData, concept: e.target.value })}
+            />
+          </div>
+        </div>
       )}
 
+      {/* Step 3 — Confirmar */}
       {transferStep === 3 && (
-        <motion.div 
-          className="transfer-step"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.2 }}
-        >
+        <div className="transfer-step">
           <h3 className="transfer-step__title">Confirmar transferencia</h3>
           <div className="confirmation-details">
             <div className="confirmation-row">
               <span>De</span>
-              <strong>{transferData.fromAccount}</strong>
+              <strong>{transferData.fromAccount || '—'}</strong>
             </div>
             <div className="confirmation-row">
               <span>Para</span>
-              <strong>{transferData.toAccount}</strong>
+              <strong>{transferData.toAccount || '—'}</strong>
             </div>
             <div className="confirmation-row">
               <span>Monto</span>
-              <strong className="confirmation-amount">${transferData.amount}</strong>
+              <strong className="confirmation-amount">
+                {formatCurrency(transferData.amount)}
+              </strong>
             </div>
             <div className="confirmation-row">
               <span>Concepto</span>
-              <strong>{transferData.concept}</strong>
+              <strong>{transferData.concept || '—'}</strong>
             </div>
           </div>
-        </motion.div>
+        </div>
       )}
 
-      {transferStep === 4 && (
-        <motion.div 
-          className="transfer-step transfer-step--success"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3 }}
-        >
-          <div className="success-animation">
-            <CheckCircle size={64} className="success-icon" />
-            <h3>Transferencia Exitosa</h3>
-            <p>Tu transferencia ha sido procesada correctamente</p>
-          </div>
-        </motion.div>
-      )}
-
+      {/* Actions */}
       <div className="transfer-actions">
-        {transferStep > 1 && transferStep < 4 && (
-          <motion.div whileTap={{ scale: 0.96 }}>
-            <Button variant="secondary" onClick={handleTransferBack}>
-              Regresar
-            </Button>
-          </motion.div>
+        {transferStep > 1 && (
+          <Button variant="secondary" onClick={handleTransferBack}>
+            Regresar
+          </Button>
         )}
         {transferStep < 3 && (
-          <motion.div whileTap={{ scale: 0.96 }}>
-            <Button variant="primary" onClick={handleTransferNext}>
-              Continuar
-            </Button>
-          </motion.div>
+          <Button variant="primary" onClick={handleTransferNext}>
+            Continuar
+          </Button>
         )}
         {transferStep === 3 && (
-          <motion.div whileTap={{ scale: 0.96 }}>
-            <Button variant="primary" onClick={handleTransferSubmit}>
-              Confirmar
-            </Button>
-          </motion.div>
+          <Button variant="primary" onClick={handleTransferSubmit}>
+            Confirmar
+          </Button>
         )}
       </div>
-    </section>
+
+      {/* Success Modal del DS */}
+      <Modal
+        isOpen={successModalOpen}
+        onClose={handleSuccessClose}
+        title="¡Transferencia exitosa!"
+        description={`Tu transferencia de ${formatCurrency(transferData.amount)} ha sido procesada correctamente.`}
+        variant="success"
+        primaryAction={{
+          label: 'Ir al inicio',
+          onClick: handleSuccessClose,
+        }}
+      />
+    </div>
   );
 
+  /* ─── Payments Screen ─────────────────────────────────── */
   const renderPaymentsScreen = () => (
-    <section className="demo-screen">
+    <div className="demo-screen">
       <div className="screen-header">
         <h2 className="screen-title">Pagos</h2>
       </div>
-      
-      <motion.div className="payments-grid" variants={listContainerVariants} animate="animate">
-        <motion.div className="payment-card" variants={listItemVariants} initial="initial" whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.96 }}>
-          <div className="payment-card__icon">
-            <Home size={32} strokeWidth={1.5} />
+
+      <div className="payments-grid">
+        {[
+          { icon: <Home size={28} strokeWidth={1.5} />, label: 'Servicios' },
+          { icon: <CreditCard size={28} strokeWidth={1.5} />, label: 'Tarjetas' },
+          { icon: <Landmark size={28} strokeWidth={1.5} />, label: 'Créditos' },
+          { icon: <PiggyBank size={28} strokeWidth={1.5} />, label: 'Ahorro' },
+          { icon: <Wallet size={28} strokeWidth={1.5} />, label: 'Seguros' },
+          { icon: <TrendingUp size={28} strokeWidth={1.5} />, label: 'Inversiones' },
+        ].map(({ icon, label }) => (
+          <div key={label} className="payment-card">
+            <div className="payment-card__icon">{icon}</div>
+            <span>{label}</span>
           </div>
-          <span>Servicios</span>
-        </motion.div>
-        <motion.div className="payment-card" variants={listItemVariants} initial="initial" whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.96 }}>
-          <div className="payment-card__icon">
-            <CreditCard size={32} strokeWidth={1.5} />
-          </div>
-          <span>Tarjetas</span>
-        </motion.div>
-        <motion.div className="payment-card" variants={listItemVariants} initial="initial" whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.96 }}>
-          <div className="payment-card__icon">
-            <Landmark size={32} strokeWidth={1.5} />
-          </div>
-          <span>Créditos</span>
-        </motion.div>
-        <motion.div className="payment-card" variants={listItemVariants} initial="initial" whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.96 }}>
-          <div className="payment-card__icon">
-            <PiggyBank size={32} strokeWidth={1.5} />
-          </div>
-          <span>Ahorro</span>
-        </motion.div>
-        <motion.div className="payment-card" variants={listItemVariants} initial="initial" whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.96 }}>
-          <div className="payment-card__icon">
-            <Wallet size={32} strokeWidth={1.5} />
-          </div>
-          <span>Seguros</span>
-        </motion.div>
-        <motion.div className="payment-card" variants={listItemVariants} initial="initial" whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.96 }}>
-          <div className="payment-card__icon">
-            <TrendingUp size={32} strokeWidth={1.5} />
-          </div>
-          <span>Inversiones</span>
-        </motion.div>
-      </motion.div>
+        ))}
+      </div>
 
       <div className="quick-payments">
-        <h3>Pagos rápidos</h3>
-        <motion.div className="quick-payments-list" variants={listContainerVariants} animate="animate">
-          {transactions.slice(0, 3).map((tx) => (
-            <motion.div
+        <h3 className="demo-section__title">Pagos rápidos</h3>
+        <div className="demo-transactions">
+          {transactions.slice(0, 3).map((tx, index) => (
+            <ListItem
               key={tx.id}
-              className="quick-payment-item"
-              variants={listItemVariants}
-              initial="initial"
-              whileHover={{ scale: 1.01 }}
-              whileTap={{ scale: 0.96 }}
-            >
-              <IconWrapper iconName={tx.icon} category={tx.category} size={24} />
-              <div className="quick-payment-info">
-                <span>{tx.description}</span>
-                <small>{tx.date}</small>
-              </div>
-              <Button variant="secondary" size="sm">Pagar</Button>
-            </motion.div>
+              icon={<IconWrapper iconName={tx.icon} category={tx.category} size={20} />}
+              title={tx.description}
+              subtitle={tx.date}
+              amount={formatCurrency(Math.abs(tx.amount))}
+              showDivider={index < 2}
+            />
           ))}
-        </motion.div>
+        </div>
       </div>
-    </section>
+    </div>
   );
 
-  const renderScreen = () => {
-    switch (activeScreen) {
-      case 'transfer': return renderTransferScreen();
-      case 'payments': return renderPaymentsScreen();
-      case 'home':
-      default: return renderHomeScreen();
-    }
-  };
-
+  /* ─── Render ──────────────────────────────────────────── */
   return (
     <div className="citibanamex-demo">
-      <div className="demo-panel-left">
-        {/* Header without hamburger/menu */}
+      <div className="demo-panel">
+
+        {/* Header usando Avatar del DS */}
         <header className="demo-header">
           <div className="demo-header__left">
-            <div className="demo-header__avatar">
-              <User size={32} />
-            </div>
+            <Avatar initials="JA" variant="teal" size="md" />
             <div className="demo-header__user">
               <span className="demo-header__name">{user.name}</span>
               <span className="demo-header__tier">{user.tier}</span>
             </div>
           </div>
           <div className="demo-header__right">
-            <button className="demo-header__icon">
-              <Bell size={20} strokeWidth={1.5} />
-            </button>
+            <Badge label="Priority" variant="nuevo" size="sm" />
           </div>
         </header>
 
+        {/* Main content — sin AnimatePresence */}
         <main className="demo-main">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeScreen}
-              variants={screenVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={transition}
-              style={{ flex: 1, overflow: 'hidden auto' }}
-            >
-              {renderScreen()}
-            </motion.div>
-          </AnimatePresence>
+          {activeScreen === 'home' && renderHomeScreen()}
+          {activeScreen === 'transfer' && renderTransferScreen()}
+          {activeScreen === 'payments' && renderPaymentsScreen()}
         </main>
 
-        {/* Bottom Navigation - 3 tabs only */}
+        {/* Bottom Navigation */}
         <nav className="demo-nav">
-          <motion.button 
+          <button
             className={`demo-nav__item ${activeScreen === 'home' ? 'demo-nav__item--active' : ''}`}
             onClick={() => handleNavClick('home')}
-            whileTap={{ scale: 0.96 }}
           >
-            <Home size={24} strokeWidth={1.5} />
+            <Home size={22} strokeWidth={1.5} />
             <span>Inicio</span>
-          </motion.button>
-          <motion.button 
+          </button>
+          <button
             className={`demo-nav__item ${activeScreen === 'transfer' ? 'demo-nav__item--active' : ''}`}
             onClick={() => handleNavClick('transfer')}
-            whileTap={{ scale: 0.96 }}
           >
-            <ArrowRightCircle size={24} strokeWidth={1.5} />
+            <ArrowRightCircle size={22} strokeWidth={1.5} />
             <span>Transferir</span>
-          </motion.button>
-          <motion.button 
+          </button>
+          <button
             className={`demo-nav__item ${activeScreen === 'payments' ? 'demo-nav__item--active' : ''}`}
             onClick={() => handleNavClick('payments')}
-            whileTap={{ scale: 0.96 }}
           >
-            <FileText size={24} strokeWidth={1.5} />
+            <FileText size={22} strokeWidth={1.5} />
             <span>Pagos</span>
-          </motion.button>
+          </button>
         </nav>
       </div>
     </div>
