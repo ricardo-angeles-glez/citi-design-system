@@ -100,7 +100,7 @@
   "foundations": {
     "colors": {
       "title": "Colores",
-      "description": "Paleta de colores del Design System Citibanamex"
+      "description": "Paleta de colores del Design System Citi"
     },
     "borders": {
       "title": "Bordes y Radio",
@@ -155,8 +155,8 @@
   "overview": {
     "hero": {
       "badge": "DISEÑO DE SISTEMA · v1.0.0",
-      "title": "Citibanamex Design System",
-      "subtitle": "Librería de componentes React + TypeScript que garantiza consistencia visual en todos los productos digitales de Citibanamex México.",
+      "title": "Citi Design System",
+      "subtitle": "Librería de componentes React + TypeScript que garantiza consistencia visual en todos los productos digitales de Citi México.",
       "tags": {
         "react": "React 18",
         "typescript": "TypeScript 5",
@@ -291,7 +291,7 @@
       },
       "release": {
         "title": "v1.0.0 — Release inicial",
-        "description": "Button, Input, Badge, Avatar, Card. 100+ tokens CSS. Dashboard con Foundations completas. Demo App Citibanamex."
+        "description": "Button, Input, Badge, Avatar, Card. 100+ tokens CSS. Dashboard con Foundations completas. Demo App Citi."
       }
     }
   }

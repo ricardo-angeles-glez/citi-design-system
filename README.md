@@ -10,7 +10,7 @@ Markdown
 
 # ┌ citi Design System
 
-**React + TypeScript component library for Citibanamex Mexico digital products**
+**React + TypeScript component library for Citi Mexico digital products**
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)](https://typescriptlang.org)
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev)
@@ -37,7 +37,7 @@ The Citi Design System is a centralized component library that provides document
 - **WCAG AA** — Accessible components with focus management, ARIA labels, keyboard navigation
 - **62 Unit Tests** — Vitest + React Testing Library
 - **Interactive Dashboard** — Live documentation with code examples
-- **Demo App** — Citibanamex mobile app replica built with the design system
+- **Demo App** — Citi mobile app replica built with the design system
 
 ---
 
@@ -135,7 +135,7 @@ Atoms	Button, Input, Badge, Avatar, Card — with live demos
 Components	ListItem, ProductCard, Modal, Toast, Skeleton, EmptyState
 Banking	OTP Input, PIN Pad, Currency Input, Spending Chart
 System	Accessibility (WCAG AA), Dark Mode, Internationalization
-Demo App	Full Citibanamex mobile app replica
+Demo App	Full Citi mobile app replica
 Dark Mode
 Toggle between light and dark themes. All components adapt automatically via semantic CSS custom properties.
 
@@ -236,7 +236,7 @@ This system was built using an AI-assisted development methodology where the dev
 Private — Ricardo Angeles for CitiMexico
 
 <div align="center">
-Built with ❤️ for Citibanamex Mexico
+Built with ❤️ for Citi Mexico
 
 React 19 · TypeScript 5.9 · Vite 7 · 62 Tests · 18 Components · 100+ Tokens
 

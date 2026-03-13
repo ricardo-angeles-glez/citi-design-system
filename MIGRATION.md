@@ -3,7 +3,7 @@
 ## v1.0.0 → v1.1.0
 
 This guide covers breaking changes and recommended updates when upgrading
-the Citibanamex Design System from v1.0.0 to v1.1.0.
+the Citi Design System from v1.0.0 to v1.1.0.
 
 ---
 

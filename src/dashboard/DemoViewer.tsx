@@ -1,6 +1,6 @@
 import { X, Wifi, Battery, Signal, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CitibanamexDemo } from '../pages/CitibanamexDemo';
+import { CitiDemo } from '../pages/CitiDemo';
 import './DemoViewer.css';
 
 interface DemoViewerProps {
@@ -72,7 +72,7 @@ export const DemoViewer: React.FC<DemoViewerProps> = ({ isOpen, onClose }) => {
             </div>
 
             <div className="app-content">
-              <CitibanamexDemo />
+              <CitiDemo />
             </div>
 
             <div className="home-indicator">
@@ -82,7 +82,7 @@ export const DemoViewer: React.FC<DemoViewerProps> = ({ isOpen, onClose }) => {
         </motion.div>
 
         <div className="demo-viewer__info">
-          <h3>Demo Citibanamex</h3>
+          <h3>Demo Citi</h3>
           <p>
             Navega entre las diferentes pantallas de la app bancaria.
             Usa el menú inferior para cambiar de sección.
@@ -119,7 +119,7 @@ export const DemoViewer: React.FC<DemoViewerProps> = ({ isOpen, onClose }) => {
         </div>
 
         <div className="demo-viewer__mobile-content">
-          <CitibanamexDemo />
+          <CitiDemo />
         </div>
       </motion.div>
     </AnimatePresence>

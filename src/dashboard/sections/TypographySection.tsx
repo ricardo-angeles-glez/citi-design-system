@@ -89,7 +89,7 @@ export const TypographySection: React.FC = () => {
                 className="foundations__weight-preview"
                 style={{ fontWeight: parseInt(w.value) }}
               >
-                Citibanamex
+                Citi
               </span>
               <span className="foundations__weight-label">
                 {w.name} {w.value}

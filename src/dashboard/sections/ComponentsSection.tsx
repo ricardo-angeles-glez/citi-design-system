@@ -44,7 +44,7 @@ const demoCreditProduct = {
   accounts: [
     {
       id: 'platinum',
-      name: 'Citibanamex Platinum',
+      name: 'Citi Platinum',
       number: '•••• 4532',
       balanceMXN: -15420,
       creditAvailable: 84580,
@@ -55,7 +55,7 @@ const demoCreditProduct = {
     },
     {
       id: 'costco',
-      name: 'Costco Citibanamex',
+      name: 'Costco Citi',
       number: '•••• 8901',
       balanceMXN: -8350,
       creditAvailable: 41650,

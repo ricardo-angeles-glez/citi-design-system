@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 // Helper — contenedor del demo en desktop (dentro del iPhone frame)
 const DEMO = '.app-content';
 
-test.describe('Citibanamex Design System', () => {
+test.describe('Citi Design System', () => {
 
     test.beforeEach(async ({ page }) => {
         await page.goto('http://localhost:5173');
@@ -48,7 +48,7 @@ test.describe('Citibanamex Design System', () => {
     test('opens demo app', async ({ page }) => {
         await page.locator('.dashboard-topbar__demo').click();
         await expect(page.locator('.demo-viewer--desktop')).toBeVisible();
-        await expect(page.locator(`${DEMO} .citibanamex-demo`)).toBeVisible();
+        await expect(page.locator(`${DEMO} .citi-demo`)).toBeVisible();
     });
 
     test('demo app — navigates to transfer screen', async ({ page }) => {

@@ -135,8 +135,8 @@ es.json/
 es.json.bak/
 index.ts/
 pages/
-CitibanamexDemo.css/
-CitibanamexDemo.tsx/
+CitiDemo.css/
+CitiDemo.tsx/
 CitiDemo.css/
 CitiDemo.tsx/
 stories/
@@ -192,7 +192,7 @@ App.css/
 App.tsx/
 index.css/
 main.tsx/
-Citibanamex-Design-System-PRD.docx/
+Citi-Design-System-PRD.docx/
 eslint.config.js/
 index.html/
 LICENSE/

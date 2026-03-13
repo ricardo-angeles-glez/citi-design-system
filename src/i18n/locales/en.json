@@ -68,7 +68,7 @@
   "foundations": {
     "colors": {
       "title": "Colors",
-      "description": "Citibanamex Design System color palette"
+      "description": "Citi Design System color palette"
     },
     "borders": {
       "title": "Borders & Radius",
@@ -114,7 +114,7 @@
       "scale": "Typography scale",
       "weights": "Typography weights",
       "preview": {
-        "display": "Citibanamex Design System",
+        "display": "Citi Design System",
         "h1": "Priority Account",
         "h2": "Available products",
         "h3": "Savings accounts",
@@ -285,8 +285,8 @@
   "overview": {
     "hero": {
       "badge": "DESIGN SYSTEM · v1.0.0",
-      "title": "Citibanamex Design System",
-      "subtitle": "Library of React + TypeScript components that guarantees visual consistency across all Citibanamex Mexico digital products.",
+      "title": "Citi Design System",
+      "subtitle": "Library of React + TypeScript components that guarantees visual consistency across all Citi Mexico digital products.",
       "tags": {
         "react": "React 18",
         "typescript": "TypeScript 5",
@@ -421,7 +421,7 @@
       },
       "release": {
         "title": "v1.0.0 — Initial Release",
-        "description": "Button, Input, Badge, Avatar, Card. 100+ CSS tokens. Dashboard with complete Foundations. Citibanamex Demo App."
+        "description": "Button, Input, Badge, Avatar, Card. 100+ CSS tokens. Dashboard with complete Foundations. Citi Demo App."
       }
     }
   },

@@ -59,7 +59,7 @@ export interface CardProps {
 
 /**
  * Flexible container component for grouping related content.
- * Used throughout the Citibanamex Design System for product summaries,
+ * Used throughout the Citi Design System for product summaries,
  * form sections, and content panels.
  *
  * @example

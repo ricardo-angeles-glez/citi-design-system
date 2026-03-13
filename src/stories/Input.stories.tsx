@@ -34,7 +34,7 @@ export const Default: Story = {
 };
 
 export const WithLabel: Story = {
-  args: { label: 'Email', placeholder: 'user@citibanamex.com' },
+  args: { label: 'Email', placeholder: 'user@citi.com' },
 };
 
 export const WithError: Story = {

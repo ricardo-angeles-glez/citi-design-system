@@ -52,7 +52,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 /**
- * Primary interactive element of the Citibanamex Design System.
+ * Primary interactive element of the Citi Design System.
  *
  * @example
  * // Primary action

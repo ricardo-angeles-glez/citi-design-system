@@ -273,7 +273,7 @@ export const OverviewSection: React.FC = () => {
             {t('overview.hero.badge')}
           </div>
           <h1 className="overview-hero__title">
-            Citibanamex
+            Citi
             <span style={{ color: '#E3173E' }}> Design System</span>
           </h1>
           <p className="overview-hero__subtitle">

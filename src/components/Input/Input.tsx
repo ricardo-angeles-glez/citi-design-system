@@ -26,7 +26,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 }
 
 /**
- * Accessible text input component for the Citibanamex Design System.
+ * Accessible text input component for the Citi Design System.
  *
  * Automatically generates a unique `id` if not provided, ensuring
  * the label is always associated with the input for screen readers.
