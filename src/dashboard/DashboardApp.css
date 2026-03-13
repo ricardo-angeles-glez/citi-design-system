@@ -1,3 +1,7 @@
+/* ═══════════════════════════════════════════
+   Dashboard Layout
+═══════════════════════════════════════════ */
+
 .dashboard {
   height: 100vh;
   width: 100vw;
@@ -8,14 +12,14 @@
   color: var(--text-primary);
 }
 
-/* Topbar */
+/* ── Topbar ────────────────────────────── */
 .dashboard-topbar {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 20px;
+  padding: 0 20px;
   background: var(--dashboard-topbar-bg);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -30,11 +34,13 @@
   color: var(--color-white);
   cursor: pointer;
   padding: 4px;
+  flex-shrink: 0;
 }
 
 .dashboard-topbar__logo {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .dashboard-topbar__arc {
@@ -56,15 +62,18 @@
   font-size: 14px;
   font-weight: 300;
   margin-left: 8px;
+  white-space: nowrap;
 }
 
 .dashboard-topbar__version {
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 11px;
   padding: 2px 8px;
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 4px;
   margin-left: 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .dashboard-topbar__demo {
@@ -77,8 +86,15 @@
   border-radius: 8px;
   padding: 8px 14px;
   font-size: 13px;
+  font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.dashboard-topbar__demo:hover {
+  background-color: var(--color-accent-600);
 }
 
 .dashboard-topbar__actions {
@@ -86,6 +102,7 @@
   align-items: center;
   gap: 8px;
   margin-left: auto;
+  flex-shrink: 0;
 }
 
 .dashboard-topbar__icon-btn {
@@ -100,6 +117,7 @@
   color: var(--color-white);
   cursor: pointer;
   transition: background 0.2s;
+  flex-shrink: 0;
 }
 
 .dashboard-topbar__icon-btn:hover {
@@ -111,18 +129,15 @@
   font-weight: 600;
 }
 
-.dashboard-topbar__demo:hover {
-  background-color: var(--color-accent-600);
-}
-
-/* Container */
+/* ── Container ─────────────────────────── */
 .dashboard__container {
   display: flex;
   flex: 1;
   overflow: hidden;
+  position: relative;
 }
 
-/* Sidebar */
+/* ── Sidebar ───────────────────────────── */
 .dashboard-sidebar {
   width: 260px;
   background: var(--dashboard-sidebar-bg);
@@ -132,13 +147,30 @@
   flex-shrink: 0;
 }
 
-/* Main Panel */
+/* ── Sidebar Overlay (mobile) ──────────── */
+.dashboard-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  top: 56px;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 49;
+  cursor: pointer;
+}
+
+.dashboard-overlay--visible {
+  display: block;
+}
+
+/* ── Main Panel ────────────────────────── */
 .dashboard-main {
   flex: 1;
   padding: 24px 32px;
   background: var(--dashboard-bg);
   height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
+  min-width: 0;
 }
 
 .section-placeholder {
@@ -146,12 +178,21 @@
   align-items: center;
   justify-content: center;
   height: 400px;
-  color: var(--color-text-tertiary);
+  color: var(--text-tertiary);
   font-size: 18px;
 }
 
-/* Mobile */
-@media (max-width: 1024px) {
+/* ═══════════════════════════════════════════
+   Responsive — Mobile (< 768px)
+═══════════════════════════════════════════ */
+@media (max-width: 767px) {
+
+  /* Topbar: compact */
+  .dashboard-topbar {
+    padding: 0 12px;
+    gap: 8px;
+  }
+
   .dashboard-topbar__menu {
     display: block;
   }
@@ -160,28 +201,101 @@
     display: none;
   }
 
+  .dashboard-topbar__version {
+    display: none;
+  }
+
+  .dashboard-topbar__demo {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .dashboard-topbar__demo span {
+    display: none;
+  }
+
+  .dashboard-topbar__icon-btn {
+    padding: 6px;
+  }
+
+  .lang-label {
+    display: none;
+  }
+
+  /* Sidebar: slide-in overlay */
   .dashboard-sidebar {
     position: fixed;
     left: 0;
     top: 56px;
     height: calc(100vh - 56px);
+    width: 280px;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
     z-index: 50;
+    box-shadow: none;
   }
 
   .dashboard-sidebar--open {
     transform: translateX(0);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
   }
 
+  /* Main: less padding */
   .dashboard-main {
-    padding: 16px;
+    padding: 16px 12px;
   }
 }
 
-/* Desktop */
+/* ═══════════════════════════════════════════
+   Responsive — Tablet (768px - 1024px)
+═══════════════════════════════════════════ */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .dashboard-topbar__menu {
+    display: block;
+  }
+
+  .dashboard-topbar__title {
+    display: none;
+  }
+
+  /* Sidebar: slide-in overlay */
+  .dashboard-sidebar {
+    position: fixed;
+    left: 0;
+    top: 56px;
+    height: calc(100vh - 56px);
+    width: 280px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    box-shadow: none;
+  }
+
+  .dashboard-sidebar--open {
+    transform: translateX(0);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .dashboard-main {
+    padding: 24px 20px;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   Responsive — Desktop (> 1024px)
+═══════════════════════════════════════════ */
 @media (min-width: 1025px) {
   .dashboard-topbar__menu {
     display: none;
+  }
+
+  .dashboard-sidebar {
+    position: relative;
+    transform: none;
+    width: 260px;
+  }
+
+  .dashboard-overlay {
+    display: none !important;
   }
 }

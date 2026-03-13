@@ -1,3 +1,7 @@
+/* ═══════════════════════════════════════════
+   Colors Section
+═══════════════════════════════════════════ */
+
 .colors-section {
   max-width: 900px;
 }
@@ -24,6 +28,7 @@
   padding: 24px;
   margin-bottom: 24px;
   box-shadow: var(--shadow-sm);
+  overflow: hidden;
 }
 
 .colors-section__palette-name {
@@ -37,6 +42,7 @@
   display: flex;
   gap: 8px;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   padding-bottom: 8px;
 }
 
@@ -68,4 +74,27 @@
   font-size: 10px;
   color: var(--text-primary);
   font-family: monospace;
+}
+
+/* ═══════════════════════════════════════════
+   Responsive
+═══════════════════════════════════════════ */
+
+@media (max-width: 767px) {
+  .colors-section__header h1 {
+    font-size: 22px;
+  }
+
+  .colors-section__palette {
+    padding: 16px;
+  }
+
+  .colors-section__color {
+    width: 48px;
+    height: 40px;
+  }
+
+  .colors-section__shade-hex {
+    font-size: 9px;
+  }
 }

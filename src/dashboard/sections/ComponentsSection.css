@@ -1,3 +1,7 @@
+/* ═══════════════════════════════════════════
+   Components & Atoms Sections
+═══════════════════════════════════════════ */
+
 .components-section {
   max-width: 900px;
 }
@@ -17,6 +21,7 @@
   font-size: 14px;
 }
 
+/* ── Group Card ────────────────────────── */
 .components-section__group {
   background: var(--surface-elevated);
   border: 1px solid var(--border-subtle);
@@ -24,6 +29,7 @@
   padding: 24px;
   margin-bottom: 24px;
   box-shadow: var(--shadow-sm);
+  overflow: hidden;
 }
 
 .components-section__title-row {
@@ -31,6 +37,7 @@
   align-items: center;
   gap: 12px;
   margin-bottom: 8px;
+  flex-wrap: wrap;
 }
 
 .components-section__title-row h2 {
@@ -38,6 +45,7 @@
   color: var(--text-primary);
 }
 
+/* ── Badges ────────────────────────────── */
 .components-section__badge {
   font-size: 11px;
   padding: 2px 8px;
@@ -45,6 +53,8 @@
   color: var(--interactive-primary);
   border-radius: 4px;
   font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 [data-theme="dark"] .components-section__badge {
@@ -72,18 +82,21 @@
   color: #3FB950;
 }
 
+/* ── Description ───────────────────────── */
 .components-section__description {
   color: var(--text-secondary);
   font-size: 14px;
   margin-bottom: 20px;
 }
 
+/* ── Preview Area ──────────────────────── */
 .components-section__preview {
   padding: 20px;
   background-color: var(--surface-bg-secondary);
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
   margin-bottom: 16px;
+  overflow-x: auto;
 }
 
 .components-section__row {
@@ -102,6 +115,7 @@
   flex-direction: column;
   gap: 12px;
   max-width: 300px;
+  width: 100%;
 }
 
 .components-section__badges {
@@ -114,6 +128,7 @@
   display: flex;
   gap: 12px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .components-section__cards {
@@ -122,9 +137,9 @@
   flex-wrap: wrap;
 }
 
-.components-section__cards > * {
+.components-section__cards>* {
   flex: 1;
-  min-width: 180px;
+  min-width: 140px;
   max-width: 250px;
 }
 
@@ -149,11 +164,13 @@
   overflow: hidden;
 }
 
+/* ── Relationship Diagram ──────────────── */
 .components-section__relationship-diagram {
   margin-top: 16px;
   background-color: var(--surface-bg-secondary);
   border-radius: 8px;
   padding: 16px;
+  overflow-x: auto;
 }
 
 .components-section__relationship-diagram p {
@@ -167,10 +184,14 @@
   font-size: 12px;
   color: var(--text-secondary);
   margin: 0;
+  white-space: pre;
+  overflow-x: auto;
 }
 
+/* ── Mobile Container ──────────────────── */
 .components-section__mobile-container {
-  width: 390px;
+  width: 100%;
+  max-width: 390px;
   border: 2px solid var(--border-default);
   border-radius: 24px;
   overflow: hidden;
@@ -201,6 +222,7 @@
   letter-spacing: 0.5px;
 }
 
+/* ── Patterns Grid ─────────────────────── */
 .components-section__patterns-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -227,7 +249,7 @@
   padding: 12px;
 }
 
-/* Pattern-specific styles */
+/* ── Pattern Specific ──────────────────── */
 .pattern-account-summary {
   text-align: center;
 }
@@ -250,6 +272,7 @@
   gap: 8px;
   font-size: 11px;
   color: var(--text-tertiary);
+  flex-wrap: wrap;
 }
 
 .pattern-quick-actions {
@@ -294,11 +317,13 @@
   color: var(--text-secondary);
 }
 
+/* ── Code Block ────────────────────────── */
 .components-section__code {
   background-color: var(--code-bg);
   border-radius: 8px;
   padding: 16px;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .components-section__code pre {
@@ -307,6 +332,8 @@
   font-size: 13px;
   line-height: 1.6;
   color: var(--code-text);
+  white-space: pre;
+  overflow-x: auto;
 }
 
 .components-section__code pre .keyword {
@@ -325,7 +352,7 @@
   color: #9CDCFE;
 }
 
-/* Card Visual Grid */
+/* ── Card Visual Grid ──────────────────── */
 .components-section__cardvisual-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -354,4 +381,47 @@
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 2px;
+}
+
+/* ═══════════════════════════════════════════
+   Responsive
+═══════════════════════════════════════════ */
+
+@media (max-width: 767px) {
+  .components-section__group {
+    padding: 16px;
+  }
+
+  .components-section__preview {
+    padding: 12px;
+  }
+
+  .components-section__header h1 {
+    font-size: 22px;
+  }
+
+  .components-section__title-row h2 {
+    font-size: 17px;
+  }
+
+  .components-section__cards>* {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .components-section__patterns-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .components-section__cardvisual-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .components-section__code {
+    padding: 12px;
+  }
+
+  .components-section__code pre {
+    font-size: 11px;
+  }
 }

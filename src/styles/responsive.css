@@ -1,6 +1,10 @@
-/* Responsive Styles for Citibanamex Demo */
+/* ═══════════════════════════════════════════
+   Responsive — Demo App Specific
+   Only handles CitibanamexDemo layout.
+   Dashboard responsive is in DashboardApp.css
+═══════════════════════════════════════════ */
 
-/* Mobile (< 768px) - Default app view */
+/* ── Mobile (default) ──────────────────── */
 .citibanamex-demo {
   max-width: 100%;
 }
@@ -9,52 +13,89 @@
   display: flex;
 }
 
-/* Tablet (768px - 1024px) */
+/* ── Extra small (< 380px) ─────────────── */
+@media (max-width: 380px) {
+  .demo-header__name {
+    font-size: 13px;
+  }
+
+  .demo-header__tier {
+    font-size: 11px;
+  }
+
+  .demo-products {
+    gap: var(--spacing-xs);
+  }
+
+  .demo-offer-card__image {
+    height: 80px;
+  }
+
+  .demo-actions .citi-button {
+    min-width: 60px;
+    font-size: 11px;
+  }
+
+  .payments-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+  }
+
+  .payment-card {
+    padding: var(--spacing-md);
+  }
+
+  .payment-card__icon {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* ── Tablet (768px - 1024px) ───────────── */
 @media (min-width: 768px) and (max-width: 1024px) {
   .citibanamex-demo {
     max-width: 768px;
     margin: 0 auto;
   }
-  
+
   .demo-panel-left {
     max-width: 768px;
   }
-  
+
   .demo-products {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
   }
-  
+
   .demo-offers,
   .demo-credits {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
   }
-  
-  .demo-nav {
-    display: flex;
-  }
-  
+
   .demo-main {
     padding: 0 var(--spacing-2xl);
   }
+
+  .payments-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-/* Desktop (> 1024px) - Two column layout */
+/* ── Desktop (> 1024px) ────────────────── */
 @media (min-width: 1024px) {
   .citibanamex-demo {
     max-width: 100%;
     display: flex;
     height: 100%;
   }
-  
-  /* Left Panel - Mobile app replica */
+
   .demo-panel-left {
     width: 390px;
     min-width: 390px;
-    background-color: var(--color-white);
+    background-color: var(--surface-bg);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
     height: 100%;
     overflow-y: auto;
@@ -63,272 +104,34 @@
     display: flex;
     flex-direction: column;
   }
-  
+
   .demo-panel-left .demo-main {
     flex: 1;
     overflow-y: auto;
     padding-bottom: 80px;
   }
-  
-  /* Hide mobile nav on desktop */
+
   .demo-nav {
     display: none;
   }
-  
-  /* Right Panel - Transactions */
+
   .demo-panel-right {
     flex: 1;
-    background-color: #F5F5F5;
+    background-color: var(--surface-bg-secondary);
     padding: var(--spacing-2xl);
     overflow-y: auto;
     height: 100%;
     display: block;
   }
-  
+
   .demo-panel-right .demo-section {
     max-width: 900px;
     margin: 0 auto;
   }
-  
-  .demo-products {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-  }
-  
-  /* Transactions table */
-  .transactions-panel {
-    background-color: var(--color-white);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    overflow: hidden;
-  }
-  
-  .transactions-panel__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-lg);
-    border-bottom: 1px solid var(--color-secondary-200);
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
-  }
-  
-  .transactions-panel__title {
-    font-family: var(--font-display);
-    font-size: var(--font-size-xl);
-    color: var(--color-secondary-800);
-  }
-  
-  .transactions-panel__filters {
-    display: flex;
-    gap: var(--spacing-sm);
-    flex-wrap: wrap;
-  }
-  
-  .transactions-panel__filter {
-    padding: var(--spacing-xs) var(--spacing-md);
-    border: 1px solid var(--color-secondary-300);
-    border-radius: var(--radius-full);
-    background: var(--color-white);
-    font-family: var(--font-sans);
-    font-size: var(--font-size-sm);
-    color: var(--color-secondary-600);
-    cursor: pointer;
-    transition: all var(--transition-fast);
-  }
-  
-  .transactions-panel__filter--active {
-    background-color: var(--color-primary-500);
-    color: var(--color-white);
-    border-color: var(--color-primary-500);
-  }
-  
-  .transactions-panel__filter:hover:not(.transactions-panel__filter--active) {
-    border-color: var(--color-primary-500);
-    color: var(--color-primary-500);
-  }
-  
-  .transactions-panel__table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .transactions-panel__table th,
-  .transactions-panel__table td {
-    padding: var(--spacing-md) var(--spacing-lg);
-    text-align: left;
-  }
-  
-  .transactions-panel__table th {
-    background-color: var(--color-secondary-50);
-    font-family: var(--font-sans);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-secondary-600);
-  }
-  
-  .transactions-panel__table td {
-    font-family: var(--font-sans);
-    font-size: var(--font-size-md);
-    border-bottom: 1px solid var(--color-secondary-100);
-  }
-  
-  .transactions-panel__table tr:last-child td {
-    border-bottom: none;
-  }
-  
-  .transactions-panel__date {
-    color: var(--color-secondary-500);
-    font-size: var(--font-size-sm);
-  }
-  
-  .transactions-panel__desc {
-    color: var(--color-secondary-800);
-    font-weight: var(--font-weight-medium);
-  }
-  
-  .transactions-panel__desc span {
-    margin-right: 4px;
-  }
-  
-  .transactions-panel__category {
-    color: var(--color-secondary-500);
-    font-size: var(--font-size-sm);
-  }
-  
-  .transactions-panel__amount {
-    font-family: var(--font-mono);
-    font-weight: var(--font-weight-medium);
-  }
-  
-  .transactions-panel__amount--positive {
-    color: var(--color-success-500);
-  }
-  
-  .transactions-panel__amount--negative {
-    color: var(--color-secondary-800);
-  }
-  
-  /* Status badges */
-  .transactions-panel__status {
-    display: inline-flex;
-    padding: 2px 8px;
-    border-radius: var(--radius-full);
-    font-family: var(--font-sans);
-    font-size: 11px;
-    font-weight: var(--font-weight-semibold);
-  }
-  
-  .transactions-panel__status--completed {
-    background-color: var(--color-success-50);
-    color: var(--color-success-500);
-  }
-  
-  .transactions-panel__status--pending {
-    background-color: var(--color-warning-50);
-    color: var(--color-warning-500);
-  }
-  
-  .transactions-panel__status--failed {
-    background-color: var(--color-error-50);
-    color: var(--color-error-500);
-  }
-  
-  /* Summary */
-  .transactions-summary {
-    display: flex;
-    gap: var(--spacing-xl);
-    padding: var(--spacing-lg);
-    background-color: var(--color-secondary-50);
-    border-radius: var(--radius-lg);
-    margin-top: var(--spacing-lg);
-  }
-  
-  .transactions-summary__item {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .transactions-summary__label {
-    font-family: var(--font-sans);
-    font-size: var(--font-size-sm);
-    color: var(--color-secondary-500);
-  }
-  
-  .transactions-summary__value {
-    font-family: var(--font-mono);
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-semibold);
-  }
-  
-  .transactions-summary__value--income {
-    color: var(--color-success-500);
-  }
-  
-  .transactions-summary__value--expense {
-    color: var(--color-accent-500);
-  }
-  
-  /* Desktop nav for right side */
-  .demo-desktop-nav {
-    display: flex;
-    gap: var(--spacing-xl);
-    padding: var(--spacing-md) var(--spacing-lg);
-    background-color: var(--color-white);
-    border-bottom: 1px solid var(--color-secondary-200);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    max-width: 900px;
-    margin: 0 auto var(--spacing-2xl);
-    border-radius: var(--radius-lg);
-  }
-  
-  .demo-desktop-nav__item {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-sm) var(--spacing-md);
-    color: var(--color-secondary-600);
-    text-decoration: none;
-    font-family: var(--font-sans);
-    font-size: var(--font-size-md);
-    font-weight: var(--font-weight-medium);
-    border-radius: var(--radius-md);
-    transition: all var(--transition-fast);
-  }
-  
-  .demo-desktop-nav__item:hover {
-    background-color: var(--color-secondary-50);
-  }
-  
-  .demo-desktop-nav__item--active {
-    color: var(--color-primary-500);
-    background-color: var(--color-primary-50);
-  }
-  
-  .demo-desktop-nav__item svg {
-    width: 20px;
-    height: 20px;
-  }
-}
 
-/* Extra small mobile */
-@media (max-width: 380px) {
-  .demo-header__name {
-    font-size: 14px;
-  }
-  
-  .demo-header__tier {
-    font-size: 12px;
-  }
-  
   .demo-products {
-    gap: var(--spacing-xs);
-  }
-  
-  .demo-offer-card__image {
-    height: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
   }
 }

@@ -1,4 +1,4 @@
-import { X, Wifi, Battery, Signal } from 'lucide-react';
+import { X, Wifi, Battery, Signal, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CitibanamexDemo } from '../pages/CitibanamexDemo';
 import './DemoViewer.css';
@@ -21,23 +21,35 @@ export const DemoViewer: React.FC<DemoViewerProps> = ({ isOpen, onClose }) => {
     exit: { opacity: 0, scale: 0.85, y: 40 },
   };
 
+  const mobileVariants = {
+    initial: { opacity: 0, y: '100%' },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: '100%' },
+  };
+
   const transition = {
     duration: 0.4,
     ease: [0.34, 1.56, 0.64, 1],
+  };
+
+  const mobileTransition = {
+    duration: 0.3,
+    ease: [0.25, 0.46, 0.45, 0.94],
   };
 
   if (!isOpen) return null;
 
   return (
     <AnimatePresence>
+      {/* ── Desktop: Phone mockup ──────────── */}
       <motion.div
-        className="demo-viewer"
+        className="demo-viewer demo-viewer--desktop"
         variants={overlayVariants}
         initial="initial"
         animate="animate"
         exit="exit"
       >
-        <button className="close-button" onClick={onClose}>
+        <button className="demo-viewer__close" onClick={onClose} aria-label="Cerrar demo">
           <X size={24} />
         </button>
 
@@ -50,7 +62,6 @@ export const DemoViewer: React.FC<DemoViewerProps> = ({ isOpen, onClose }) => {
           transition={transition}
         >
           <div className="iphone-screen">
-            {/* Status Bar */}
             <div className="status-bar">
               <span className="status-time">9:41</span>
               <div className="status-icons">
@@ -60,24 +71,55 @@ export const DemoViewer: React.FC<DemoViewerProps> = ({ isOpen, onClose }) => {
               </div>
             </div>
 
-            {/* App Content */}
             <div className="app-content">
               <CitibanamexDemo />
             </div>
 
-            {/* Home Indicator */}
             <div className="home-indicator">
               <div className="home-indicator-bar" />
             </div>
           </div>
         </motion.div>
 
-        <div className="info-card">
-          <h3 style={{ color: 'white', marginBottom: '16px' }}>Demo Citibanamex</h3>
-          <p style={{ color: '#aaa', fontSize: '14px' }}>
+        <div className="demo-viewer__info">
+          <h3>Demo Citibanamex</h3>
+          <p>
             Navega entre las diferentes pantallas de la app bancaria.
             Usa el menú inferior para cambiar de sección.
           </p>
+        </div>
+      </motion.div>
+
+      {/* ── Mobile: Fullscreen app ─────────── */}
+      <motion.div
+        className="demo-viewer demo-viewer--mobile"
+        variants={mobileVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={mobileTransition}
+      >
+        <div className="demo-viewer__mobile-header">
+          <button
+            className="demo-viewer__back"
+            onClick={onClose}
+            aria-label="Volver al Design System"
+          >
+            <ArrowLeft size={20} />
+            <span>Design System</span>
+          </button>
+          <span className="demo-viewer__mobile-title">Demo App</span>
+          <button
+            className="demo-viewer__mobile-close"
+            onClick={onClose}
+            aria-label="Cerrar"
+          >
+            <X size={20} />
+          </button>
+        </div>
+
+        <div className="demo-viewer__mobile-content">
+          <CitibanamexDemo />
         </div>
       </motion.div>
     </AnimatePresence>

@@ -1,11 +1,12 @@
-.overview {
+/* ═══════════════════════════════════════════
+   Overview Section
+═══════════════════════════════════════════ */
+
+.overview-section {
   max-width: 1100px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
 }
 
-/* Hero Section */
+/* ── Hero ──────────────────────────────── */
 .overview-hero {
   background: linear-gradient(135deg, #003B5C 0%, #005A8E 60%, #001F3F 100%);
   border-radius: 16px;
@@ -55,6 +56,7 @@
   color: white;
   margin: 0;
   line-height: 1.1;
+  word-break: break-word;
 }
 
 .overview-hero__subtitle {
@@ -85,6 +87,7 @@
   display: flex;
   gap: 12px;
   margin-top: 28px;
+  flex-wrap: wrap;
 }
 
 .overview-hero__btn {
@@ -94,6 +97,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
+  white-space: nowrap;
 }
 
 .overview-hero__btn--primary {
@@ -116,7 +120,7 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Stats Bar */
+/* ── Stats Bar ─────────────────────────── */
 .overview-stats {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -151,27 +155,7 @@
   letter-spacing: 0.5px;
 }
 
-/* Component Gallery */
-.overview-section {
-  background: var(--surface-elevated);
-  border: 1px solid var(--border-subtle);
-  border-radius: 12px;
-  padding: 24px;
-}
-
-.overview-section__header {
-  margin-bottom: 20px;
-}
-
-.overview-section__title {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--text-primary);
-  border-left: 3px solid #E3173E;
-  padding-left: 12px;
-  margin: 0;
-}
-
+/* ── Component Gallery ─────────────────── */
 .component-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -193,6 +177,106 @@
   border-color: var(--border-strong);
 }
 
+/* ── Principles ────────────────────────── */
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* ═══════════════════════════════════════════
+   Responsive
+═══════════════════════════════════════════ */
+
+/* ── Tablet ────────────────────────────── */
+@media (max-width: 1024px) {
+  .component-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── Mobile ────────────────────────────── */
+@media (max-width: 767px) {
+  .overview-hero {
+    padding: 24px 16px;
+  }
+
+  .overview-hero__title {
+    font-size: 26px;
+  }
+
+  .overview-hero__subtitle {
+    font-size: 13px;
+  }
+
+  .overview-hero__btn {
+    padding: 10px 16px;
+    font-size: 13px;
+    flex: 1;
+    text-align: center;
+  }
+
+  /* Stats: 2 columns on small screens */
+  .overview-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .component-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .principles-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Extra small ───────────────────────── */
+@media (max-width: 380px) {
+  .overview-hero {
+    padding: 20px 12px;
+  }
+
+  .overview-hero__title {
+    font-size: 22px;
+  }
+
+  .overview-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ── Additional classes used by TSX ────── */
+.overview-gallery {
+  margin-bottom: 40px;
+}
+
+.overview-principles {
+  margin-bottom: 40px;
+}
+
+.overview-changelog {
+  margin-bottom: 40px;
+}
+
+.overview-section__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  border-left: 3px solid #E3173E;
+  padding-left: 12px;
+  margin: 0 0 20px;
+}
+
+.overview-category-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
 .component-card__preview {
   height: 100px;
   display: flex;
@@ -203,30 +287,19 @@
 }
 
 .component-card__icon {
-  color: white;
-  opacity: 0.9;
-}
-
-.component-card__category-badge {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  padding: 2px 8px;
-  border-radius: 10px;
-  font-size: 10px;
-  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .component-card__new-badge {
   position: absolute;
   top: 8px;
   left: 8px;
-  padding: 2px 6px;
+  padding: 2px 8px;
   background: #E3173E;
   color: white;
   font-size: 10px;
-  font-weight: 600;
-  border-radius: 4px;
+  font-weight: 700;
+  border-radius: 10px;
 }
 
 .component-card__info {
@@ -248,6 +321,7 @@
 .component-card__arrow {
   color: var(--interactive-primary);
   transition: transform 200ms;
+  flex-shrink: 0;
 }
 
 .component-card:hover .component-card__arrow {
@@ -257,8 +331,7 @@
 .component-card__description {
   font-size: 12px;
   color: var(--text-tertiary);
-  margin-top: 4px;
-  margin-bottom: 0;
+  margin: 4px 0 0;
 }
 
 .component-card__count {
@@ -271,13 +344,6 @@
   color: var(--text-secondary);
 }
 
-/* Design Principles */
-.principles-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-
 .principle-card {
   display: flex;
   gap: 16px;
@@ -285,6 +351,7 @@
   background: var(--surface-elevated);
   border: 1px solid var(--border-subtle);
   border-radius: 12px;
+  align-items: flex-start;
 }
 
 .principle-card__icon {
@@ -311,18 +378,17 @@
   line-height: 1.5;
 }
 
-/* Changelog */
 .changelog-timeline {
   position: relative;
-  padding-left: 20px;
+  padding-left: 24px;
 }
 
 .changelog-timeline::before {
   content: '';
   position: absolute;
   left: 4px;
-  top: 0;
-  bottom: 0;
+  top: 8px;
+  bottom: 8px;
   width: 2px;
   background: var(--border-default);
 }
@@ -330,22 +396,25 @@
 .changelog-item {
   display: flex;
   gap: 16px;
-  padding-bottom: 20px;
+  padding-bottom: 24px;
   position: relative;
 }
 
 .changelog-dot {
   width: 10px;
   height: 10px;
-  border-radius: 50%;
   flex-shrink: 0;
-  margin-top: 4px;
+  border-radius: 50%;
   border: 2px solid var(--surface-bg);
+  margin-top: 4px;
+  position: absolute;
+  left: -20px;
   z-index: 1;
 }
 
 .changelog-content {
   flex: 1;
+  min-width: 0;
 }
 
 .changelog-header {
@@ -353,6 +422,7 @@
   align-items: center;
   gap: 8px;
   margin-bottom: 4px;
+  flex-wrap: wrap;
 }
 
 .changelog-date {
@@ -379,39 +449,4 @@
   color: var(--text-secondary);
   margin: 0;
   line-height: 1.5;
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .component-gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .overview-stats {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .component-gallery {
-    grid-template-columns: 1fr;
-  }
-
-  .principles-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .overview-hero {
-    padding: 32px 24px;
-  }
-
-  .overview-hero__title {
-    font-size: 32px;
-  }
-}
-
-@media (max-width: 480px) {
-  .overview-stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }

@@ -1,3 +1,8 @@
+/* ═══════════════════════════════════════════
+   Foundations Sections
+   (Typography, Spacing, Borders, Shadows, Transitions)
+═══════════════════════════════════════════ */
+
 .foundations {
   max-width: 1000px;
 }
@@ -17,7 +22,7 @@
   font-size: 14px;
 }
 
-/* ── Section Card ────────────────────── */
+/* ── Section Card ────────────────────────── */
 .foundations__section {
   background: var(--surface-elevated);
   border: 1px solid var(--border-subtle);
@@ -25,6 +30,7 @@
   padding: 24px;
   margin-bottom: 24px;
   box-shadow: var(--shadow-sm);
+  overflow: hidden;
 }
 
 .foundations__section h2 {
@@ -34,15 +40,19 @@
   margin-bottom: 20px;
 }
 
-/* ── Table ────────────────────────────── */
+/* ── Table ────────────────────────────────── */
 .foundations__table-wrapper {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 -24px;
+  padding: 0 24px;
 }
 
 .foundations__table {
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
+  min-width: 500px;
 }
 
 .foundations__table th {
@@ -51,6 +61,7 @@
   color: var(--text-secondary);
   font-weight: 500;
   border-bottom: 2px solid var(--border-default);
+  white-space: nowrap;
 }
 
 .foundations__table td {
@@ -70,6 +81,7 @@
 .foundations__name {
   font-weight: 600;
   color: var(--text-primary);
+  white-space: nowrap;
 }
 
 .foundations__token code {
@@ -79,6 +91,7 @@
   font-size: 11px;
   color: var(--interactive-primary);
   font-family: var(--font-mono, monospace);
+  white-space: nowrap;
 }
 
 .foundations__preview {
@@ -96,6 +109,7 @@
   justify-content: center;
   border-radius: 4px;
   transition: all var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .foundations__copy:hover {
@@ -103,7 +117,7 @@
   background: var(--surface-bg-tertiary);
 }
 
-/* ── Typography Weights ───────────────── */
+/* ── Typography Weights ───────────────────── */
 .foundations__weights {
   display: flex;
   gap: 24px;
@@ -120,6 +134,7 @@
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
   position: relative;
+  min-width: 80px;
 }
 
 .foundations__weight-preview {
@@ -138,7 +153,7 @@
   right: 8px;
 }
 
-/* ── Spacing Bars ─────────────────────── */
+/* ── Spacing Bars ─────────────────────────── */
 .foundations__spacing {
   display: flex;
   flex-direction: column;
@@ -149,6 +164,7 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  min-width: 0;
 }
 
 .foundations__spacing-label {
@@ -156,6 +172,7 @@
   font-size: 13px;
   color: var(--text-secondary);
   font-weight: 500;
+  flex-shrink: 0;
 }
 
 .foundations__spacing-bar {
@@ -163,6 +180,7 @@
   background: var(--interactive-primary);
   border-radius: 4px;
   opacity: 0.85;
+  flex-shrink: 0;
 }
 
 .foundations__spacing-value {
@@ -170,13 +188,15 @@
   font-size: 13px;
   color: var(--text-primary);
   font-family: var(--font-mono, monospace);
+  flex-shrink: 0;
 }
 
 .foundations__spacing .foundations__copy {
   margin-left: auto;
+  flex-shrink: 0;
 }
 
-/* ── Border Radius ────────────────────── */
+/* ── Border Radius ────────────────────────── */
 .foundations__radius-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -193,6 +213,7 @@
 .foundations__radius-box {
   width: 80px;
   height: 80px;
+  max-width: 100%;
   background: rgba(56, 139, 253, 0.1);
   border: 2px solid var(--interactive-primary);
 }
@@ -204,9 +225,10 @@
 .foundations__radius-label {
   font-size: 12px;
   color: var(--text-secondary);
+  text-align: center;
 }
 
-/* ── Borders ──────────────────────────── */
+/* ── Borders ──────────────────────────────── */
 .foundations__borders {
   display: flex;
   gap: 24px;
@@ -226,7 +248,7 @@
   border-radius: 2px;
 }
 
-/* ── Shadows ──────────────────────────── */
+/* ── Shadows ──────────────────────────────── */
 .foundations__shadows-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -251,6 +273,7 @@
   font-size: 12px;
   color: var(--text-secondary);
   font-family: var(--font-mono, monospace);
+  word-break: break-all;
 }
 
 .foundations__shadow-card .foundations__copy {
@@ -259,7 +282,7 @@
   right: 12px;
 }
 
-/* ── Transitions Demos ────────────────── */
+/* ── Transitions Demos ────────────────────── */
 .foundations__demo-group {
   margin-bottom: 24px;
 }
@@ -280,10 +303,12 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  overflow: hidden;
 }
 
 .foundations__motion-box {
   width: 200px;
+  max-width: 100%;
   height: 100px;
   background: linear-gradient(135deg, var(--interactive-primary) 0%, var(--interactive-primary-hover) 100%);
   color: var(--text-on-primary);
@@ -298,6 +323,7 @@
 
 .foundations__slide-panel {
   width: 200px;
+  max-width: 100%;
   height: 100px;
   background: var(--surface-bg-tertiary);
   border: 2px solid var(--interactive-primary);
@@ -313,6 +339,7 @@
 
 .foundations__bounce-box {
   width: 120px;
+  max-width: 100%;
   height: 120px;
   background: var(--surface-elevated);
   border: 2px solid var(--interactive-primary);
@@ -368,7 +395,7 @@
   font-weight: 500;
 }
 
-/* ── Transition Cards ─────────────────── */
+/* ── Transition Cards ─────────────────────── */
 .foundations__transitions-cards {
   display: flex;
   gap: 24px;
@@ -385,6 +412,7 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  min-width: 0;
 }
 
 .foundations__transition-card .foundations__transition-example {
@@ -402,6 +430,7 @@
   cursor: pointer;
   font-weight: 500;
   transition: all 150ms ease-in-out;
+  white-space: nowrap;
 }
 
 .foundations__transition-btn:hover {
@@ -423,12 +452,14 @@
 .foundations__transition-label {
   font-size: 13px;
   color: var(--text-secondary);
+  text-align: center;
 }
 
-/* ── Transitions Table ────────────────── */
+/* ── Transitions Table ────────────────────── */
 .foundations__transitions-table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 400px;
 }
 
 .foundations__transitions-table th,
@@ -444,6 +475,7 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   border-bottom: 2px solid var(--border-default);
+  white-space: nowrap;
 }
 
 .foundations__transitions-table td {
@@ -467,16 +499,56 @@
   font-size: 12px;
   color: var(--interactive-primary);
   font-family: var(--font-mono, monospace);
+  white-space: nowrap;
 }
 
-/* ── Responsive ───────────────────────── */
-@media (max-width: 768px) {
-  .foundations__radius-grid,
+/* ═══════════════════════════════════════════
+   Responsive
+═══════════════════════════════════════════ */
+
+@media (max-width: 767px) {
+  .foundations__section {
+    padding: 16px;
+  }
+
+  .foundations__table-wrapper {
+    margin: 0 -16px;
+    padding: 0 16px;
+  }
+
+  .foundations__radius-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .foundations__shadows-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .foundations__transitions-cards {
     flex-direction: column;
+  }
+
+  .foundations__header h1 {
+    font-size: 22px;
+  }
+
+  .foundations__weights {
+    gap: 12px;
+  }
+
+  .foundations__weight {
+    min-width: 70px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .foundations__radius-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .foundations__radius-box {
+    width: 60px;
+    height: 60px;
   }
 }

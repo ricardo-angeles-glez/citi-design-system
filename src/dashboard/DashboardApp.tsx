@@ -72,6 +72,33 @@ export const DashboardApp: React.FC = () => {
     return () => window.removeEventListener('navigate-to-section', handler);
   }, []);
 
+  // Close sidebar on Escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        if (showDemo) {
+          setShowDemo(false);
+        } else if (sidebarOpen) {
+          setSidebarOpen(false);
+        }
+      }
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [showDemo, sidebarOpen]);
+
+  // Prevent body scroll when sidebar is open on mobile
+  useEffect(() => {
+    if (sidebarOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [sidebarOpen]);
+
   const scrollToComponent = (id: string) => {
     setTimeout(() => {
       const element = document.getElementById(id);
@@ -95,6 +122,10 @@ export const DashboardApp: React.FC = () => {
     if (componentSections.includes(section)) {
       scrollToComponent(section);
     }
+
+    // Scroll main panel to top
+    const mainPanel = document.querySelector('.dashboard-main');
+    if (mainPanel) mainPanel.scrollTop = 0;
   };
 
   const renderSection = () => {
@@ -154,26 +185,33 @@ export const DashboardApp: React.FC = () => {
 
   return (
     <div className="dashboard">
+      {/* ── Topbar ────────────────────────── */}
       <header className="dashboard-topbar">
         <button
           className="dashboard-topbar__menu"
           onClick={() => setSidebarOpen(!sidebarOpen)}
+          aria-label={sidebarOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={sidebarOpen}
         >
           {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
+
         <div className="dashboard-topbar__logo">
           <span className="dashboard-topbar__arc">┌</span>
           <span className="dashboard-topbar__text">citi</span>
         </div>
         <span className="dashboard-topbar__title">Design System</span>
         <span className="dashboard-topbar__version">v1.0.0</span>
+
         <button
           className="dashboard-topbar__demo"
           onClick={() => setShowDemo(true)}
+          aria-label="Ver demo de la app"
         >
           <Smartphone size={16} />
-          Ver Demo
+          <span>Ver Demo</span>
         </button>
+
         <div className="dashboard-topbar__actions">
           <button
             className="dashboard-topbar__icon-btn"
@@ -193,19 +231,31 @@ export const DashboardApp: React.FC = () => {
         </div>
       </header>
 
+      {/* ── Body ─────────────────────────── */}
       <div className="dashboard__container">
+        {/* Overlay for mobile sidebar */}
+        <div
+          className={`dashboard-overlay ${sidebarOpen ? 'dashboard-overlay--visible' : ''}`}
+          onClick={() => setSidebarOpen(false)}
+          aria-hidden="true"
+        />
+
         <aside className={`dashboard-sidebar ${sidebarOpen ? 'dashboard-sidebar--open' : ''}`}>
           <Sidebar
             currentSection={currentSection}
             onNavigate={handleNavigate}
           />
         </aside>
+
         <main className="dashboard-main">
           {renderSection()}
         </main>
       </div>
 
-      {showDemo && <DemoViewer isOpen={showDemo} onClose={() => setShowDemo(false)} />}
+      {/* ── Demo Viewer ──────────────────── */}
+      {showDemo && (
+        <DemoViewer isOpen={showDemo} onClose={() => setShowDemo(false)} />
+      )}
     </div>
   );
 };
