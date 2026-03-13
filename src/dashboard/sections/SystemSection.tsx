@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
-  Sun, Moon, Globe, CheckCircle, AlertTriangle,
-  Eye, Keyboard, Monitor, Code2, Shield,
+  Sun, Moon, CheckCircle, AlertTriangle,
+  Eye, Keyboard, Monitor, Code2,
   ArrowRight, Contrast, MousePointer, Volume2
 } from 'lucide-react';
 import { Button } from '../../components/Button';
@@ -11,17 +11,14 @@ import { Input } from '../../components/Input';
 import { Badge } from '../../components/Badge';
 import { Card } from '../../components/Card';
 import { Avatar } from '../../components/Avatar';
-import { ListItem } from '../../components/ListItem';
 import './ComponentsSection.css';
 
 /* ═══════════════════════════════════════════
    ACCESSIBILITY PANEL
 ═══════════════════════════════════════════ */
 const AccessibilityPanel: React.FC = () => {
-  const { t } = useTranslation();
-  const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
-  const [keyboardNav, setKeyboardNav] = useState(false);
 
+  const { t } = useTranslation();
   const contrastItems = [
     {
       label: t('system.accessibility.wcag.textOnWhite'),
@@ -373,11 +370,6 @@ const DarkModePanel: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  const toggleTheme = useCallback(() => {
-    const next = currentTheme === 'light' ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', next);
-    setCurrentTheme(next);
-  }, [currentTheme]);
 
   const tokenMap = [
     { token: '--surface-bg', light: '#FFFFFF', dark: '#0D1117', category: 'Surface' },
